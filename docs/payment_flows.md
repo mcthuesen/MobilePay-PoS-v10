@@ -14,6 +14,6 @@ Option 2 is intended for cases where you do not want to specify the amount on th
 
 The API supports cancelling a payment but a payment can only be cancelled when it has not been captured yet either by us (instant payment) or by the merchant (reservation payment).
 
-## <a name="order_of_events"></a>Order of events
+### <a name="order_of_events"></a>Order of events
 
 The system supports check-in both before and after the payment has been initiated. This is also the case in Option 2 but the intended flow is to prepare the payment, let the user check in and then mark the payment as ready by calling our ready endpoint (as shown in the sequence diagram).
