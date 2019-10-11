@@ -1,5 +1,5 @@
 
-## <a name="overview"></a> Overview 
+## <a name="overview"></a> Introduction 
 
 Our MobilePay PoS REST API is intended for software developers implementing MobilePay payments in a PoS system.
 For information about the PoS product and details on Getting Started, Test and Certification please visit our <a href="https://developer.mobilepay.dk/subscriptions-main">Developer Portal</a>. On the portal you will also find FAQ and support resources.
