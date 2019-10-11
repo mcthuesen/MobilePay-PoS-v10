@@ -1,0 +1,55 @@
+overview_title: Overview
+overview_url: "index"
+
+general_notes_title: General Notes
+general_notes_url: "general_notes"
+
+subscription_providers_title: Subscription providers
+subscription_providers_url: "subscription_providers"
+agreement_title: Agreement
+agreement_url: "agreement"
+agreement:
+- title: Create & Update
+  url: "agreement#requests"
+- title: Callbacks
+  url: "agreement#callbacks"
+
+payments_title: Subscription payments
+payments_url: "payments"
+payments:
+- title: Create & Update
+  url: "payments#requests"
+- title: Callbacks
+  url: "payments#callbacks"
+
+oneoffs_title: One-off payments
+oneoffs_url: "oneoffs"
+oneoffs:
+- title: Create & Update
+  url: "oneoffs#requests"
+- title: Callbacks
+  url: "oneoffs#callbacks"
+- title: Capture
+  url: "oneoffs#capture"
+
+refund_title: Refund
+refund_url: "refund"
+refund:
+- title: Create
+  url: "refund#requests"
+- title: Callbacks
+  url: "refund#callbacks"
+
+invoice_title: Invoice
+invoice_url: "invoice"
+invoice:
+- title: "Requests"
+  url: "invoice#requests"
+- title: "PDF invoice examples"
+  url: "invoice#pdf_examples"
+
+release_notes_title: Release notes
+release_notes_url: "release_notes"
+
+mutual_ssl_title: Mutual SSL Flow (DEPRECATED)
+mutual_ssl_url: mutual_ssl_flow
