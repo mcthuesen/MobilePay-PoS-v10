@@ -17,3 +17,6 @@ The API supports cancelling a payment but a payment can only be cancelled when i
 ### <a name="order_of_events"></a>Order of events
 
 The system supports check-in both before and after the payment has been initiated. This is also the case in Option 2 but the intended flow is to prepare the payment, let the user check in and then mark the payment as ready by calling our ready endpoint (as shown in the sequence diagram).
+
+
+[![](assets/images/InstantFlow.png)](assets/images/InstantFlow.png)
