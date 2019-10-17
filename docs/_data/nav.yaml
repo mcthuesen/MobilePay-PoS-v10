@@ -3,7 +3,7 @@ introduction_url: "index"
 
 payment_flows_title: Payment Flows
 payment_flows_url: "payment_flows"
-payment_flow:
+payment_flows:
 - title: Order of events
   url: "payment_flows#order_of_events"
 
