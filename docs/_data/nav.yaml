@@ -5,7 +5,7 @@ payment_flows_title: Payment Flows
 payment_flows_url: "payment_flows"
 payment_flow:
 - title: Order of events
-  url: "payment_flow#order_of_events"
+  url: "payment_flows#order_of_events"
 
 pos_management_title: PoS Management
 pos_management_url: "pos_management"
