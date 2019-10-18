@@ -19,5 +19,8 @@ pos_management_url: "pos_management"
 security_title: Security Model
 security_url: "security"
 
+best_practices_title: Best Practices
+best_practices_url: "best_practices"
+
 release_notes_title: Release notes
 release_notes_url: "release_notes"
