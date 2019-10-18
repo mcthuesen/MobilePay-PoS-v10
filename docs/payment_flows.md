@@ -3,10 +3,10 @@
 The MobilePay PoS system supports two different types of payments: **instant payments** and **reservation payments**. The two payment types differ in whether merchant approval is required to complete a payment after a user has approved the payment and the payment amount has been reserved. Instant payments are automatically captured without merchant interaction once the payment amount has been reserved, while reservation payments have to be explicitly captured by the merchant after the payment amount has been reserved. Reservation payments support both full and partial captures. 
 
 Both payment types can be started in two different ways, depending on whether the payment is immediately ready for user approval or whether further details about the payment are required from the merchant, before it is ready for user approval. In the later case, the payment is initially *prepared* and subsequently marked as *ready* when it is ready for user approval. This yields a total of four possible payments flows:
-1. [Instant Payment Flow](payments_flows#instant)
-2. [Instant Payment Flow Using Prepare-Ready](payments_flows#instant_prepare)
-3. [Reservation Payment Flow](payments_flows#reservation)
-4. [Reservation Payment Flow Using Prepare-Ready](payments_flows#reservation_prepare)
+1. [Instant Payment Flow](payment_flows#instant)
+2. [Instant Payment Flow Using Prepare-Ready](payment_flows#instant_prepare)
+3. [Reservation Payment Flow](payment_flows#reservation)
+4. [Reservation Payment Flow Using Prepare-Ready](payment_flows#reservation_prepare)
 
 The *prepare-ready* variants can for instance be used to start a payment before the payment amount is known. This could for instance be because goods are still being scanned at a cash register or to support [loyalty flows](loyalty).
 
