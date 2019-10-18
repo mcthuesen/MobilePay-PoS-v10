@@ -6,9 +6,9 @@ Note that a PoS is not editable. If you need to change something on the PoS (e.g
 
 When creating a new PoS you have to specify supported beacon types. This list is used to keep track of which beacon types are used by your PoS, but it is also used by MobilePay to better detect errors and for better customer support.
 
-The Point of Sales section also includes endpoints for getting the active payment and getting a payment by order id. The payment id received by these calls can be used to look up the payment by calling the endpoint (/api/v10/payments/{paymentId}) in the Payments section. The payment id (GUID) should be known at all times. In the rare case that this id is lost, it can be retrieved by using the order id set on creation of the payment.
+The Point of Sales section also includes endpoints for getting the active payment and getting a payment by order id. The payment id received by these calls can be used to look up the payment by calling the endpoint (/v10/payments/{paymentId}) in the Payments section. The payment id (GUID) should be known at all times. In the rare case that this id is lost, it can be retrieved by using the order id set on creation of the payment.
 
-The checkout endpoint is used to remove the checked in user, but can only be used when there is no active payment yet. If a payment is present use /api/v10/pointofsales/{posId}/payment/cancel. This will cancel the active payment and checkout the user. The rules for when a payment can be cancelled are the same as for cancelling a payment by paymentId as described in the Payment Flows section.
+The checkout endpoint is used to remove the checked in user, but can only be used when there is no active payment yet. If a payment is present use /v10/pointofsales/{posId}/payment/cancel. This will cancel the active payment and checkout the user. The rules for when a payment can be cancelled are the same as for cancelling a payment by paymentId as described in the Payment Flows section.
 
 The check-in endpoint will tell you whether a user is checked-in and the potential loyalty ids of the user. If your system expects a check-in before starting a payment, this endpoint can be used to poll for that check-in information.
 
