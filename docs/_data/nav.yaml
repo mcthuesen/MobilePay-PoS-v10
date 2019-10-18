@@ -13,6 +13,9 @@ payment_flows:
 - title: Reservation Payment Flow Using Prepare-Ready
   url: "payment_flows#reservation_prepare"
 
+loyalty_title: Loyalty Payments
+loyalty_url: "loyalty"
+
 pos_management_title: PoS Management
 pos_management_url: "pos_management"
 
