@@ -1,43 +1,42 @@
 ## <a name="payment_flows"></a>Payment Flows
 
-Our system supports two different types of payments: Instant and reservations. An instant payment does not require approval from the merchant to complete the payment, after the user has approved the payment. When the user has approved, the payment is done and no further action is needed. A reservation needs approval from the merchant in the sense that they will have to call the capture endpoint in order to finish the payment. The API supports both full and partial captures.
+The MobilePay PoS system supports two different types of payments: **instant payments** and **reservation payments**. The two payment types differ in whether merchant approval is required to complete a payment after a user has approved the payment and the payment amount has been reserved. Instant payments are automatically captured without merchant interaction once the payment amount has been reserved, while reservation payments have to be explicitly captured by the merchant after the payment amount has been reserved. Reservation payments support both full and partial captures. 
 
-The sequence diagrams below show the two different flows. Reaching the state where a payment is initiated can be done in two different ways:
-1.	Directly using either /v10/payments/instant or /v10/payments/reservation
-2.	In two steps using either /v10/payments/instant/prepare /v10/payments/reservation/prepare followed by the ready endpoint /v10/payments/{paymentId}/ready
+Both payment types can be started in two different ways, depending on whether the payment is immediately ready for user approval or whether further details about the payment are required from the merchant, before it is ready for user approval. In the later case, the payment is initially *prepared* and subsequently marked as *ready* when it is ready for user approval. This yields a total of four possible payments flows:
+1. [Instant Payment Flow](payments_flows#instant)
+2. [Instant Payment Flow Using Prepare-Ready](payments_flows#instant_prepare)
+3. [Reservation Payment Flow](payments_flows#reservation)
+4. [Reservation Payment Flow Using Prepare-Ready](payments_flows#reservation_prepare)
 
-For regular payments, best practice is to use option 1.
-Option 2 is intended for cases where you do not want to specify the amount on the payment before the user is checked in and locked on the payment. This could be in the case of loyalty payments where the merchant might want to reduce the amount to be paid after knowing what type of loyalty card the user has. 
-
-The API supports cancelling of payments. A payment can only be cancelled before it has been captured. Either by Mobilepay (Instant payments) or by the merchant (Reservation payments).
-
-The system supports checking in either before or after the payment has been initiated. 
-
+The *prepare-ready* variants can for instance be used to start a payment before the payment amount is known. This could for instance be because goods are still being scanned at a cash register or to support [loyalty flows](loyalty).
 
 ### <a name="instant"></a>Instant Payment Flow
 
-The sequence diagram below shows the sunshine flow for Instant payments where the user is checked-in before the payment has been initiated. When that state of the payment reaches Captured the payment is done and the PoS is ready for the next user to check in or the next payment to be initiated.
+The sequence diagram below shows a sunshine scenario for an instant payment flow. First, a user checks in on a PoS without an active payment in-progress. Then the merchant *initiates* a new instant payment on that PoS that is immediately ready for user approval and a payment request is immediately sent to the users app for approval. At this point the state of the payment is *IssuedToUser*. Once the user accepts the payment request and the payment amount has been reserved, MobilePay automatically initiate capture and the payment state changes to *Captured* and a receipt is shown in the users app. 
 
 [![](assets/images/InstantFlow.png)](assets/images/InstantFlow.png)
 
-The sequence diagram below shows the sunshine flow for Instant payments where the payment is initiated and the user checks in afterwards.
+In the sequence diagram above, the user checked in on the PoS before the payment was created. The sequence diagram below shows an example where the payment is started before the user checks in on the PoS. Until the user is checked in, the state of payment is *Initiated*. After the user is checked in the state changes to *IssuedToUser* and the flow continues as before. 
+
+An instant payment is cancellable by the merchant until the payment state changes to *Captured*. After a payment has been captured, it can be [refunded](refunds), but can no longer be cancelled. 
 
 [![](assets/images/InstantFlow_CheckInAfterPaymentInitiated.png)](assets/images/InstantFlow_CheckInAfterPaymentInitiated.png)
 
 ### <a name="instant_prepare"></a>Instant Payment Flow Using Prepare-Ready
 
-The sequence diagram below shows the sunshine flow for Instant payments using the prepared-ready functionality. The intended use of this functionality is to let the user check-in after the payment has been prepared but before calling the ready endpoint. This will lock the user to the payment and allow the merchant to set the amount after knowing the user.
+The sequence diagram below shows a sunshine scenario for an instant payment flow using the prepared-ready functionality. The intended use of this functionality is to let the user check-in after the payment has been prepared but before calling the ready endpoint. This will lock the user to the payment and allow the merchant to set the amount after knowing the user.
 
 [![](assets/images/InstantPrepareFlow.png)](assets/images/InstantPrepareFlow.png)
 
 ### <a name="reservation"></a>Reservation Payment Flow
 
-The sequence diagram below shows the sunshine flow for a Reservation payment. As for Instant payments a user can check in after the Reservation payment has been initiated but this is not shown here.
+The sequence diagram below shows a sunshine scenario for a reservation payment flow. As for instant payments a user can check in after the reservation payment has been initiated but this is not shown here.
 
 [![](assets/images/ReservationFlow.png)](assets/images/ReservationFlow.png)
 
 ### <a name="reservation_prepare"></a>Reservation Payment Flow Using Prepare-Ready
 
-The sequence diagram below shows the sunshine flow for Instant payments using the prepared-ready functionality. As for Instant payments this allows the merchant to set the amount after knowing the user.
+The sequence diagram below shows a sunshine scenario for a reservation payment flow using the prepared-ready functionality. As for instant payments this allows the merchant to set the amount after knowing the user.
 
 [![](assets/images/ReservationPrepareFlow.png)](assets/images/ReservationPrepareFlow.png)
+
