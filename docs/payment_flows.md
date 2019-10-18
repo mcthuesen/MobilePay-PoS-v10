@@ -11,25 +11,33 @@ Option 2 is intended for cases where you do not want to specify the amount on th
 
 The API supports cancelling of payments. A payment can only be cancelled before it has been captured. Either by Mobilepay (Instant payments) or by the merchant (Reservation payments).
 
-The system supports checking in either before or after the payment has been initiated. This is also the case in Option 2 but the intended flow is to prepare the payment, let the user check in and then mark the payment as ready by calling our ready endpoint (as shown in the sequence diagram).
-
+The system supports checking in either before or after the payment has been initiated. 
 
 
 ### <a name="instant"></a>Instant Payment Flow
 
+The sequence diagram below shows the sunshine flow for Instant payments where the user is checked-in before the payment has been initiated.
+
 [![](assets/images/InstantFlow.png)](assets/images/InstantFlow.png)
 
+The sequence diagram below shows the sunshine flow for Instant payments where the payment is initiated and the user checks in afterwards.
 
 [![](assets/images/InstantFlow_CheckInAfterPaymentInitiated.png)](assets/images/InstantFlow_CheckInAfterPaymentInitiated.png)
 
-### <a name="instant"></a>Instant Payment Flow Using Prepare-Ready
+### <a name="instant_prepare"></a>Instant Payment Flow Using Prepare-Ready
+
+The sequence diagram below shows the sunshine flow for Instant payments using the prepared-ready functionality. The intended use of this functionality is to let the user check-in after the payment has been prepared but before calling the ready endpoint. This will lock the user to the payment and allow the merchant to set the amount after knowing the user.
 
 [![](assets/images/InstantPrepareFlow.png)](assets/images/InstantPrepareFlow.png)
 
-### <a name="instant"></a>Reservation Payment Flow
+### <a name="reservation"></a>Reservation Payment Flow
+
+The sequence diagram below shows the sunshine flow for a Reservation payment. As for Instant payments a user can check in after the Reservation payment has been initiated but this is not shown here.
 
 [![](assets/images/ReservationFlow.png)](assets/images/ReservationFlow.png)
 
-### <a name="instant"></a>Reservation Payment Flow Using Prepare-Ready
+### <a name="reservation_prepare"></a>Reservation Payment Flow Using Prepare-Ready
+
+The sequence diagram below shows the sunshine flow for Instant payments using the prepared-ready functionality. As for Instant payments this allows the merchant to set the amount after knowing the user.
 
 [![](assets/images/ReservationPrepareFlow.png)](assets/images/ReservationPrepareFlow.png)
