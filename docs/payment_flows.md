@@ -18,7 +18,7 @@ The sequence diagram below shows a sunshine scenario for an instant payment flow
 
 In the sequence diagram above, the user checked in on the PoS before the payment was created. The sequence diagram below shows an example where the payment is started before the user checks in on the PoS. Until the user is checked in, the state of payment is *Initiated*. After the user is checked in the state changes to *IssuedToUser* and the flow continues as before. 
 
-An instant payment is cancellable by the merchant until the payment state changes to *Captured*. After a payment has been captured, it can be [refunded](refunds), but can no longer be cancelled. 
+An instant payment is cancellable by the merchant until the payment state changes to *Captured*. After a payment has been captured, it can be [refunded](refund), but can no longer be cancelled. 
 
 [![](assets/images/InstantFlow_CheckInAfterPaymentInitiated.png)](assets/images/InstantFlow_CheckInAfterPaymentInitiated.png)
 
