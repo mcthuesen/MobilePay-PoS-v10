@@ -16,6 +16,9 @@ payment_flows:
 loyalty_title: Loyalty Payments
 loyalty_url: "loyalty"
 
+refund_title: Refunds
+refund_url: "refund"
+
 pos_management_title: PoS Management
 pos_management_url: "pos_management"
 
