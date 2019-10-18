@@ -16,7 +16,7 @@ The system supports checking in either before or after the payment has been init
 
 ### <a name="instant"></a>Instant Payment Flow
 
-The sequence diagram below shows the sunshine flow for Instant payments where the user is checked-in before the payment has been initiated.
+The sequence diagram below shows the sunshine flow for Instant payments where the user is checked-in before the payment has been initiated. When that state of the payment reaches Captured the payment is done and the PoS is ready for the next user to check in or the next payment to be initiated.
 
 [![](assets/images/InstantFlow.png)](assets/images/InstantFlow.png)
 
