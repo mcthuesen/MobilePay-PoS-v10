@@ -1,4 +1,4 @@
-introduction_title: Introduction
+sintroduction_title: Introduction
 introduction_url: "index"
 
 payment_flows_title: Payment Flows
@@ -25,8 +25,8 @@ validation_url: "validation"
 idempotency_title: Idempotency
 idempotency_url: "idempotency"
 
-http_status_title: HTTP Status Codes
-http_status_url: "http_status_codes"
+api_responses_title: API Responses
+api_responses_url: "api_responses"
 
 pos_management_title: PoS Management
 pos_management_url: "pos_management"
