@@ -18,3 +18,18 @@ The system supports checking in either before or after the payment has been init
 ### <a name="instant"></a>Instant Payment Flow
 
 [![](assets/images/InstantFlow.png)](assets/images/InstantFlow.png)
+
+
+[![](assets/images/InstantFlow_CheckInAfterPaymentInitiated.png)](assets/images/InstantFlow_CheckInAfterPaymentInitiated.png)
+
+### <a name="instant"></a>Instant Payment Flow Using Prepare-Ready
+
+[![](assets/images/InstantPrepareFlow.png)](assets/images/InstantPrepareFlow.png)
+
+### <a name="instant"></a>Reservation Payment Flow
+
+[![](assets/images/ReservationFlow.png)](assets/images/ReservationFlow.png)
+
+### <a name="instant"></a>Reservation Payment Flow Using Prepare-Ready
+
+[![](assets/images/ReservationPrepareFlow.png)](assets/images/ReservationPrepareFlow.png)
