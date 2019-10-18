@@ -19,6 +19,9 @@ loyalty_url: "loyalty"
 refund_title: Refunds
 refund_url: "refund"
 
+validation_title: Validation Rules
+validation_url: "validation"
+
 idempotency_title: Idempotency
 idempotency_url: "idempotency"
 
