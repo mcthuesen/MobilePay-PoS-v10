@@ -19,6 +19,12 @@ loyalty_url: "loyalty"
 refund_title: Refunds
 refund_url: "refund"
 
+idempotency_title: Idempotency
+idempotency_url: "idempotency"
+
+http_status_title: HTTP Status Codes
+http_status_url: "http_status_codes"
+
 pos_management_title: PoS Management
 pos_management_url: "pos_management"
 
