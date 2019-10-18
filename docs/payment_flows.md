@@ -1,4 +1,4 @@
-## <a name="payment-flows"></a>Payment Flows
+## <a name="payment_flows"></a>Payment Flows
 
 Our system supports two different types of payments: Instant and reservations. An instant payment does not require approval from the merchant to complete the payment, after the user has approved the payment. When the user has approved, the payment is done and no further action is needed. A reservation needs approval from the merchant in the sense that they will have to call the capture endpoint in order to finish the payment. The API supports both full and partial captures.
 
