@@ -1,14 +1,14 @@
 ## <a name="validation"></a>Validation Rules
 
-|Entity              | Type       | Validation rules     |
-|--------------------|------------|----------------------|
-|PoS ID              ||                      |
-|Beacon ID           | |                     |
-|Order ID            |  |                    |
-|Refund order ID     |   |                   |
-|Currency code       |    |                  |                      
-|Payment amount      |     |                 |
-|Reservation length  |      |                |
-|User minimum age    |       |               |
-|Call back URL       |        |              |
-|PoS name            |         |             |
+|Entity              | Type    | Validation rules     |
+|--------------------|---------|----------------------|
+|PoS ID              | string  |                      |
+|Beacon ID           | string  |                     |
+|Order ID            | string  |                    |
+|Refund order ID     | string  |                   |
+|Currency code       | string  |                  |                      
+|Payment amount      | decimal |                 |
+|Reservation length  | integer |                |
+|User minimum age    | integer |               |
+|Call back URL       | string  |              |
+|PoS name            | string  |             |
