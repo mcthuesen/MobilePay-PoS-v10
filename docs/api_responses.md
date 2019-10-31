@@ -1,6 +1,6 @@
 ## <a name="api_responses"></a>API responses
 
-Calls to the MobilePay PoS Titanium API return HTTP status codes. For successful requests, 
+Calls to the MobilePay PoS V10 API return HTTP status codes. For successful requests, 
 V10 APIs return HTTP 2XX status codes. For failed requests, V10 APIs return HTTP 
 4XX or 5XX status codes.
 
