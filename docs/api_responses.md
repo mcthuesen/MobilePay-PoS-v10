@@ -1,7 +1,7 @@
 ## <a name="api_responses"></a>API responses
 
 Calls to the MobilePay PoS Titanium API return HTTP status codes. For successful requests, 
-Titanium APIs return HTTP 2XX status codes. For failed requests, Titanium APIs return HTTP 
+V10 APIs return HTTP 2XX status codes. For failed requests, V10 APIs return HTTP 
 4XX or 5XX status codes.
 
 Titanium APIs return these HTTP status codes:
@@ -17,13 +17,13 @@ Titanium APIs return these HTTP status codes:
 | 409 Conflict              | The request was rejected due to the state of the underlying resource                      |
 | 500 Internal Server Error | An unrecoverable internal server error occured                                            |
 
-For most errors, Titanium APIs returns an error response body that includes an error code and a error
+For most errors, V10 APIs returns an error response body that includes an error code and a error
 description. The error responses has the following structure:
 
 ```javascript
 {
   "code": "19999",
-  "message": "Tiny elves have invaded Titanium; we surrender",
+  "message": "Tiny elves have invaded V10; we surrender",
   "CorrelationId": "197b2e31-787d-423f-ba00-0bd1f19291df",
 }
 ```
