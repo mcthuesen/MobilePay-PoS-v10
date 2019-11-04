@@ -113,7 +113,7 @@ Changes in Build version does not requires a new Certification
 
 Example with a Curl request:
 
---header 'X-MP-Client-Version: 2.1.1'
+> --header 'X-MP-Client-Version: 2.1.1'
 
 
 # Automatic self Certification
@@ -127,13 +127,10 @@ It exposes live documentation that can be used for development and error correct
 
 The MobilePay Developer Portal is available at the following addresses:
 
-Sandbox/Test
-
-https://sandbox-developer.mobilepay.dk/
-
-Production
-
-https://developer.mobilepay.dk
+----------------------------------------------------------
+| Sandbox/Test | https://sandbox-developer.mobilepay.dk/ |
+| Production   | https://developer.mobilepay.dk |
+--------------------------------------------------
 
 
 # Glossary of Terms
