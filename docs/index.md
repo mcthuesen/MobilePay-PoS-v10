@@ -17,7 +17,6 @@ This document does not include detailed specification of the endpoints, response
 MobilePay PoS is an API for setting up Merchant's transaction requests on customer's MobilePay apps Instore. The customer is in PoS not required to manually enter any information in the MobilePay app pertaining to the transaction. A transaction request can typically be obtained by the customer by holding the phone near to a Merchant device(Terminal, BLE beacon, etc.) OR scanning a QR code.
 
 There are two types of transactions in MobilePay PoS:
-
 * a payment which is a near instantaneous transfer of funds following the approved payment request 
 * a reservation where the transfer of funds happens sometime after the approval of the reservation request. 
 Currently MobilePay PoS uses BLE one-way and two-way beacons and QR-codes to set up the transaction requests - the technology choices are not important for the API - however the concept of a beacon ID is central to allow matching of the Customer willing to pay and the Merchant's transaction request.
@@ -95,7 +94,7 @@ Creating an app in MobilePay Developer portal will create a client Id that shoul
 
 Example with a Curl request:
 
---header 'X-IBM-Client-Id: 80e0075c-d0b5-4b74-a466-ecaca65234b0'
+> --header 'X-IBM-Client-Id: 80e0075c-d0b5-4b74-a466-ecaca65234b0'
 
 # Vendor, Merchant and version Identification
 The Client Id is used by the MobilePay PoS backend to identify the client on the application level - the backend expects that different clients use different ClientId thereby requiring following the steps in the developer portal for each client.
@@ -127,23 +126,18 @@ It exposes live documentation that can be used for development and error correct
 
 The MobilePay Developer Portal is available at the following addresses:
 
-----------------------------------------------------------
 | Sandbox/Test | https://sandbox-developer.mobilepay.dk/ |
 | Production   | https://developer.mobilepay.dk |
---------------------------------------------------
 
 
 # Glossary of Terms
 
-Integrator	The organisation that develops the client and calls the MobilePay PoS API on behalf of the merchant. Sometimes the Merchant acts as integrator.
-
-PoS Vendor
-Merchant	The Merchant is the business that wants to receive payments for goods and services from customers
-Customer	The customer is the person wanting to pay for goods and services from Merchants.
-Client	Client and Terminal are used interchangeably for the application that calls the MobilePay PoS API. Client is often used when only discussing the software, Terminal refers to the situation where the application is running on a dedicated payment terminal.
-Terminal
-PoS	
-In common language a point-of-sale might mean an Electronic Cash Register. In MobilePay PoS a point-of-sale is an abstraction that describes a place where a payment can occur and therefore NOT a synonym for ECR. The distinction is subtle but important.
-
-ECR	The Electronic Cash register is an application running on hardware in a shop. The ECR is an application that calls the MobilePay PoS Client.
-VAT-number	In Denmark it is the CVR-number.
+| Integrator	| The organisation that develops the client and calls the MobilePay PoS API on behalf of the merchant. Sometimes the Merchant acts as integrator. |
+| PoS Vendor |
+| Merchant	 | The Merchant is the business that wants to receive payments for goods and services from customers
+| Customer	| The customer is the person wanting to pay for goods and services from Merchants. |
+| Client |	Client and Terminal are used interchangeably for the application that calls the MobilePay PoS API. Client is often used when only discussing the software, Terminal refers to the situation where the application is running on a dedicated payment terminal. |
+| Terminal | |
+| PoS	| In common language a point-of-sale might mean an Electronic Cash Register. In MobilePay PoS a point-of-sale is an abstraction that describes a place where a payment can occur and therefore NOT a synonym for ECR. The distinction is subtle but important. |
+| ECR |	The Electronic Cash register is an application running on hardware in a shop. The ECR is an application that calls the MobilePay PoS Client. |
+| VAT-number |	In Denmark it is the CVR-number. |
