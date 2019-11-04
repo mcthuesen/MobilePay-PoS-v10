@@ -90,7 +90,7 @@ MobilePay PoS version 10 uses TLS for communication security and data integrity 
 The MobilePay API Gateway is ensuring the authentication of all PoS API request. 
 In order to be granted access to the MobilePay PoS API each integrator/vendor will have to enroll their clients as a client (called App) in our API Gateway Developer Portal (see section below for more information about it).
 
-Creating an app in MobilePay Developer portal will create a pair client Id that should be used in all calls the the MobilePay PoS API in the following way:
+Creating an app in MobilePay Developer portal will create a client Id that should be used in all calls the the MobilePay PoS API in the following way:
 
 
 Example with a Curl request:
