@@ -13,7 +13,6 @@ This document does not include detailed specification of the endpoints, response
 
 [![](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)
 
-
 # General description
 MobilePay PoS is an API for setting up Merchant's transaction requests on customer's MobilePay apps Instore. The customer is in PoS not required to manually enter any information in the MobilePay app pertaining to the transaction. A transaction request can typically be obtained by the customer by holding the phone near to a Merchant device(Terminal, BLE beacon, etc.) OR scanning a QR code.
 
@@ -80,7 +79,8 @@ The API is defined using the RESTful principles.
 
 The following diagram shows the ID-Hierarchy of the Master data in MobilePay Pointofsale.
 
-INSERT DIAGRAM
+[![](assets/images/PoS API V10 Id hierarchy.png)](assets/images/PoS API V10 Id hierarchy.png)
+
 
 # Security solution
 **Communication security**
