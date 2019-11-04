@@ -126,6 +126,8 @@ It exposes live documentation that can be used for development and error correct
 
 The MobilePay Developer Portal is available at the following addresses:
 
+| Environment  | Endpoint |
+|--------------|-------------|
 | Sandbox/Test | https://sandbox-developer.mobilepay.dk/ |
 | Production   | https://developer.mobilepay.dk |
 
