@@ -134,6 +134,8 @@ The MobilePay Developer Portal is available at the following addresses:
 
 # Glossary of Terms
 
+| Term | Description |
+|------|-------------|
 | Integrator	| The organisation that develops the client and calls the MobilePay PoS API on behalf of the merchant. Sometimes the Merchant acts as integrator. |
 | PoS Vendor |
 | Merchant	 | The Merchant is the business that wants to receive payments for goods and services from customers
