@@ -9,7 +9,7 @@ Titanium APIs return these HTTP status codes:
 | Status code               | Description                                                                               |
 |---------------------------|-------------------------------------------------------------------------------------------|
 | 200 OK                    | The request succeeded                                                                     |
-| 204 No Content            | The request succeeded but no response was returned.                                       |
+| 204 No Content            | The request succeeded but no response was returned                                        |
 | 400 Bad Request           | The request is syntactically ill-formed or violates [validation rules](validation_rules)  |
 | 401 Unauthorized          | [Authentication](security) of the caller failed                                           |
 | 403 Forbidden             | The call was rejected due to insufficient permissions of the caller                       |
