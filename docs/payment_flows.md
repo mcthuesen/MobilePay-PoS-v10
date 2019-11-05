@@ -20,7 +20,7 @@ In the sequence diagram above, the user checked in on the PoS before the payment
 
 [![](assets/images/InstantFlow_CheckInAfterPaymentInitiated.png)](assets/images/InstantFlow_CheckInAfterPaymentInitiated.png)
 
-#### Payment States for the Instant Payment Flow
+##### Payment States for the Instant Payment Flow
 
 The diagram below shows all the possible states and transitions for an instant payment without prepare-ready. 
 An instant payment is cancellable by the client until the payment state changes to *Captured*. 
@@ -41,6 +41,8 @@ initiates capture and the payment state changes to *Captured* and a receipt is s
 
 [![](assets/images/InstantPrepareFlow.png)](assets/images/InstantPrepareFlow.png)
 
+##### Payment States for the Instant Payment Flow Using Prepare-Ready
+
 The diagram below shows all the possible states and transitions for an instant payment flow using prepare-ready. 
 As before, the payment is cancellable by the client and by MobilePay until it has been captured and is cancellable
 by the user from the *Paired* and *IssuedToUser* states. 
@@ -57,6 +59,8 @@ The sequence diagram below shows a sunshine scenario for a reservation payment f
 
 [![](assets/images/ReservationFlow.png)](assets/images/ReservationFlow.png)
 
+##### Payment States for the Reservation Payment Flow
+
 [![](assets/images/reservation-payment-states.png)](assets/images/reservation-payment-states.png)
 
 ### <a name="reservation_prepare"></a>Reservation Payment Flow Using Prepare-Ready
@@ -64,5 +68,7 @@ The sequence diagram below shows a sunshine scenario for a reservation payment f
 The sequence diagram below shows a sunshine scenario for a reservation payment flow using the prepared-ready functionality. As for instant payments this allows the merchant to set the amount after knowing the user.
 
 [![](assets/images/ReservationPrepareFlow.png)](assets/images/ReservationPrepareFlow.png)
+
+##### Payment States for the Reservation Payment Flow Using Prepare-Ready
 
 [![](assets/images/reservation-payment-prepare-ready-states.png)](assets/images/reservation-payment-prepare-ready-states.png)
