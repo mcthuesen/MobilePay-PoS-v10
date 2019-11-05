@@ -21,7 +21,7 @@ There are two types of transactions in MobilePay PoS:
 * a reservation where the transfer of funds happens sometime after the approval of the reservation request. 
 Currently MobilePay PoS uses BLE one-way and two-way beacons and QR-codes to set up the transaction requests - the technology choices are not important for the API - however the concept of a beacon ID is central to allow matching of the Customer willing to pay and the Merchant's transaction request.
 
-# Overview of Version 10 changes from Version 8.6 of the MobilePay PoS API
+## Overview of Version 10 changes from Version 8.6 of the MobilePay PoS API
 Version 10 of the MobilePay PoS API introduces breaking changes from version 8.6 of the API. The following tables describe the changes in overview:
 
 Notable changes from Version 8.6 to Version 10 of the MobilePay PoS API
@@ -33,11 +33,11 @@ Notable changes from Version 8.6 to Version 10 of the MobilePay PoS API
 * The Error messages are more informative
 * There are changes to the payment flow
 * There is a new ID-structure
-* Documentation is live through a developer website (using OpenAPI standards)
+* Documentation is live through a developer website (using OpenAPI standards) and GitHub
 * Certification will be done automatically
 
 
-# Payment option detection
+## Payment option detection
 
 There are three ways in MobilePay PoS for a terminal/client to become aware that MobilePay has be chosen as the payment option:
 
@@ -59,7 +59,7 @@ Some interfaces do not naturally include a possibility for user activation - for
 
 It is possible to get information about check ins via Bluetooth Low Energy - To use this approach the Integrator will need to participate in a co-development with MobilePay.
 
-# Architectual principles
+## Architectual principles
 This is a preliminary list of architectual principles.
 
 **Backend has the truth**
@@ -74,14 +74,14 @@ The API does not describe the abstractions of the underlying backend OR client i
 
 The API is defined using the RESTful principles.
 
-# ID-hierarchy
+## ID-hierarchy
 
 The following diagram shows the ID-Hierarchy of the Master data in MobilePay Pointofsale.
 
 [![](assets/images/Pos-v10-id.hierarchy.png)](assets/images/Pos-v10-id.hierarchy.png)
 
 
-# Security solution
+## Security solution
 
 **Communication security**
 
@@ -99,7 +99,7 @@ Example with a Curl request:
 
 > --header 'X-IBM-Client-Id: 80e0075c-d0b5-4b74-a466-ecaca65234b0'
 
-# Vendor, Merchant and version Identification
+## Vendor, Merchant and version Identification
 The Client Id is used by the MobilePay PoS backend to identify the client on the application level - the backend expects that different clients use different ClientId thereby requiring following the steps in the developer portal for each client.
 
  A Header containing the Client version is also required, the Client version is a 3 dimensional number Major.Minor.Build.
@@ -118,12 +118,12 @@ Example with a Curl request:
 > --header 'X-MP-Client-Version: 2.1.1'
 
 
-# Automatic self Certification
+## Automatic self Certification
 The certification process changes with API v10 - for the new API all minor versions of clients must be certified, MobilePay will provide an automatic certification process - where it will be possible for most integrators to create a fully automated self-certification. The certification will be concluded with an automated report on how the certification went.
 
 Further details on self certification will follow in December 2019.
 
-# The MobilePay Developer Portal
+## The MobilePay Developer Portal
 The MobilePay Developer Portal is a site where you will be able to find information about the products and available APIs and their documentations.
 It exposes live documentation that can be used for development and error correction. Access to the portal can be requested by writing to the following email address developer@mobilepay.dk .
 
