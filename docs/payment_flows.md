@@ -26,7 +26,14 @@ The diagram below shows all the possible states and transitions for an instant p
 
 ### <a name="instant_prepare"></a>Instant Payment Flow Using Prepare-Ready
 
-The sequence diagram below shows a sunshine scenario for an instant payment flow using the prepared-ready functionality. The intended use of this functionality is to let the user check-in after the payment has been prepared but before calling the ready endpoint. This will lock the user to the payment and allow the merchant to set the amount after knowing the user.
+The sequence diagram below shows a sunshine scenario for an instant payment flow using the prepared-ready functionality. 
+A prepared payment starts out in status *Prepared* and remains in the *Prepared* state until the payment is paired with 
+a user through a check-in. Once a user is checked in, the status changes to *Paired* and the user is locked to the payment.
+At that point, querying the payment will also returns the users loyalty tokens, if any. 
+Once the payment is ready for user approval, the client marks the payment as ready and provides the payment amount. 
+Then the payment is issued to the user and the payment state changes to *IssuedToUser*. 
+Once the user accepts the payment request and the payment amount has been reserved, MobilePay automatically 
+initiates capture and the payment state changes to *Captured* and a receipt is shown in the user's app. 
 
 [![](assets/images/InstantPrepareFlow.png)](assets/images/InstantPrepareFlow.png)
 
