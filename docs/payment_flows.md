@@ -1,6 +1,6 @@
 ## <a name="payment_flows"></a>Payment Flows
 
-The MobilePay PoS system supports two different types of payments: **instant payments** and **reservation payments**. The two payment types differ in whether merchant approval is required to complete a payment after a user has approved the payment and the payment amount has been reserved. Instant payments are automatically captured without merchant interaction once the payment amount has been reserved, while reservation payments have to be explicitly captured by the merchant after the payment amount has been reserved. Reservation payments support both full and partial captures. 
+The MobilePay PoS system supports two different types of payments: **instant payments** and **reservation payments**. The two payment types differ in whether client approval is required to complete a payment after a user has approved the payment and the payment amount has been reserved. Instant payments are automatically captured without client interaction once the payment amount has been reserved, while reservation payments have to be explicitly captured by the client after the payment amount has been reserved. Reservation payments support both full and partial captures. 
 
 Both payment types can be started in two different ways, depending on whether the payment is immediately ready for user approval or whether further details about the payment are required from the merchant, before it is ready for user approval. In the later case, the payment is initially *prepared* and subsequently marked as *ready* when it is ready for user approval. This yields a total of four possible payments flows:
 1. [Instant Payment Flow](payment_flows#instant)
@@ -12,7 +12,7 @@ The *prepare-ready* variants can for instance be used to start a payment before 
 
 ### <a name="instant"></a>Instant Payment Flow
 
-The sequence diagram below shows a sunshine scenario for an instant payment flow. First, a user checks in on a PoS without an active payment in-progress. Then the merchant *initiates* a new instant payment on that PoS that is immediately ready for user approval and a payment request is immediately sent to the users app for approval. At this point the state of the payment is *IssuedToUser*. Once the user accepts the payment request and the payment amount has been reserved, MobilePay automatically initiates capture and the payment state changes to *Captured* and a receipt is shown in the user's app. 
+The sequence diagram below shows a sunshine scenario for an instant payment flow. First, a user checks in on a PoS without an active payment in-progress. Then the client *initiates* a new instant payment on that PoS that is immediately ready for user approval and a payment request is immediately sent to the users app for approval. At this point the state of the payment is *IssuedToUser*. Once the user accepts the payment request and the payment amount has been reserved, MobilePay automatically initiates capture and the payment state changes to *Captured* and a receipt is shown in the user's app. 
 
 [![](assets/images/InstantFlow.png)](assets/images/InstantFlow.png)
 
@@ -20,7 +20,7 @@ In the sequence diagram above, the user checked in on the PoS before the payment
 
 [![](assets/images/InstantFlow_CheckInAfterPaymentInitiated.png)](assets/images/InstantFlow_CheckInAfterPaymentInitiated.png)
 
-The diagram below shows all the possible states and transitions for an instant payment without prepare-ready. An instant payment is cancellable by the PoS until the payment state changes to *Captured*. After a payment has been captured, it can be [refunded](refund), but can no longer be cancelled. A user can cancel an issued payment until they accept the payment.
+The diagram below shows all the possible states and transitions for an instant payment without prepare-ready. An instant payment is cancellable by the client until the payment state changes to *Captured*. After a payment has been captured, it can be [refunded](refund), but can no longer be cancelled. A user can cancel an issued payment until they accept the payment.
 
 [![](assets/images/instant-payment-states.png)](assets/images/instant-payment-states.png)
 
