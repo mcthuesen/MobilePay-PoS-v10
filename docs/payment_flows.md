@@ -22,7 +22,7 @@ In the sequence diagram above, the user checked in on the PoS before the payment
 
 The diagram below shows all the possible states and transitions for an instant payment without prepare-ready. An instant payment is cancellable by the PoS until the payment state changes to *Captured*. After a payment has been captured, it can be [refunded](refund), but can no longer be cancelled. A user can cancel an issued payment until they accept the payment.
 
-[![](assets/images/instant-payment-states.png)](assets/images/instant-payment-states.png | width = 450)
+[![](assets/images/instant-payment-states.png)](assets/images/instant-payment-states.png)
 
 ### <a name="instant_prepare"></a>Instant Payment Flow Using Prepare-Ready
 
