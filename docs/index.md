@@ -1,5 +1,5 @@
 
-## <a name="index"></a> Introduction 
+# <a name="index"></a> Introduction 
 
 Our MobilePay Point of Sale (PoS) REST API is intended for integrators implementing MobilePay payments in a PoS system.
 
@@ -78,14 +78,17 @@ The API is defined using the RESTful principles.
 
 The following diagram shows the ID-Hierarchy of the Master data in MobilePay Pointofsale.
 
-[![](assets/images/PoS API V10 Id hierarchy.png)](assets/images/PoS API V10 Id hierarchy.png)
+[![](assets/images/Pos-v10-id.hierarchy.png)](assets/images/Pos-v10-id.hierarchy.png)
 
 
 # Security solution
+
 **Communication security**
+
 MobilePay PoS version 10 uses TLS for communication security and data integrity (secure channel between the client and the API 10 servers). The current TLS version used with the MobilePay PoS solution is 1.2 -  Version 1.3 is finalized and will be implemented within 1-2 years - therefore clients should be able to handle the switch to 1.3 on the fly or with minimal changes.
 
 **Integrator Authorization**
+
 The MobilePay API Gateway is ensuring the authentication of all PoS API request. 
 In order to be granted access to the MobilePay PoS API each integrator/vendor will have to enroll their clients as a client (called App) in our API Gateway Developer Portal (see section below for more information about it).
 
