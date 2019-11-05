@@ -24,7 +24,7 @@ description. The error responses has the following structure:
 {
   "code": "19999",
   "message": "Tiny elves have invaded V10; we surrender",
-  "CorrelationId": "197b2e31-787d-423f-ba00-0bd1f19291df",
+  "CorrelationId": "197b2e31-787d-423f-ba00-0bd1f19291df"
 }
 ```
 
