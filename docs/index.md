@@ -76,9 +76,9 @@ The API is defined using the RESTful principles.
 
 ## ID-hierarchy
 
-The following diagram shows the ID-Hierarchy of the Master data in MobilePay Pointofsale.
+The following diagram shows the ID-Hierarchy of the Master data in MobilePay PoS.
 
-[![](assets/images/Pos-v10-id.hierarchy.png)](assets/images/Pos-v10-id.hierarchy.png)
+[![](assets/images/Pos-v10-id-hierarchy.png)](assets/images/Pos-v10-id-hierarchy.png)
 
 
 ## Security solution
