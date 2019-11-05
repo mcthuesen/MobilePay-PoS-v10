@@ -36,6 +36,8 @@ initiates capture and the payment state changes to *Captured* and a receipt is s
 
 [![](assets/images/InstantPrepareFlow.png)](assets/images/InstantPrepareFlow.png)
 
+[![](assets/images/instant-payment-prepare-ready-states.png)](assets/images/instant-payment-prepare-ready-states.png)
+
 ### <a name="reservation"></a>Reservation Payment Flow
 
 The sequence diagram below shows a sunshine scenario for a reservation payment flow. As for instant payments a user can check in after the reservation payment has been initiated but this is not shown here.
