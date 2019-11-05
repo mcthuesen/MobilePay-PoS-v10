@@ -63,3 +63,4 @@ The sequence diagram below shows a sunshine scenario for a reservation payment f
 
 [![](assets/images/ReservationPrepareFlow.png)](assets/images/ReservationPrepareFlow.png)
 
+[![](assets/images/reservation-payment-prepare-ready-states.png)](assets/images/reservation-payment-prepare-ready-states.png)
