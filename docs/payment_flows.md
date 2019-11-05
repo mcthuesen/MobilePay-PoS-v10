@@ -55,6 +55,8 @@ The sequence diagram below shows a sunshine scenario for a reservation payment f
 
 [![](assets/images/ReservationFlow.png)](assets/images/ReservationFlow.png)
 
+[![](assets/images/reservation-payment-states.png)](assets/images/reservation-payment-states.png)
+
 ### <a name="reservation_prepare"></a>Reservation Payment Flow Using Prepare-Ready
 
 The sequence diagram below shows a sunshine scenario for a reservation payment flow using the prepared-ready functionality. As for instant payments this allows the merchant to set the amount after knowing the user.
