@@ -20,7 +20,10 @@ In the sequence diagram above, the user checked in on the PoS before the payment
 
 [![](assets/images/InstantFlow_CheckInAfterPaymentInitiated.png)](assets/images/InstantFlow_CheckInAfterPaymentInitiated.png)
 
-The diagram below shows all the possible states and transitions for an instant payment without prepare-ready. An instant payment is cancellable by the client until the payment state changes to *Captured*. After a payment has been captured, it can be [refunded](refund), but can no longer be cancelled. A user can cancel an issued payment until they accept the payment.
+The diagram below shows all the possible states and transitions for an instant payment without prepare-ready. 
+An instant payment is cancellable by the client until the payment state changes to *Captured*. 
+After a payment has been captured, it can be [refunded](refund), but can no longer be cancelled. 
+A user can cancel an issued payment until they accept the payment.
 
 [![](assets/images/instant-payment-states.png)](assets/images/instant-payment-states.png)
 
@@ -36,7 +39,15 @@ initiates capture and the payment state changes to *Captured* and a receipt is s
 
 [![](assets/images/InstantPrepareFlow.png)](assets/images/InstantPrepareFlow.png)
 
+The diagram below shows all the possible states and transitions for an instant payment flow using prepare-ready. 
+As before, the payment is cancellable by the client and by MobilePay until it has been captured and is cancellable
+by the user from the *Paired* and *IssuedToUser* states. 
+
 [![](assets/images/instant-payment-prepare-ready-states.png)](assets/images/instant-payment-prepare-ready-states.png)
+
+A prepared payment can be marked as ready for user approval without waiting for a user to be paired with the payment.
+In that case the state transitions from *Prepared* to *Initiated* and from there the rest of the flow corresponds to
+an instant payment without prepare-ready. 
 
 ### <a name="reservation"></a>Reservation Payment Flow
 
