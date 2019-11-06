@@ -96,6 +96,6 @@ the state of a given resource (e.g., trying to capture a reservation that is not
 a payment on a PoS that already has an active payment). If possible, the client should try to query the given
 resource to fix any inconsistencies between the client and the PoS backend.
 
-### Error handling examples
+### Examples
 
 TODO
