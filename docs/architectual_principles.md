@@ -72,7 +72,8 @@ handled by fixing the client request.
 #### Network and server errors
 
 Network errors typically present themselves as timeouts or connections that are closed prematurely. 
-Network errors and server errors (HTTP 5XX responses) should be handled by retrying requests. All endpoints in the
+Network errors and server errors (HTTP 5XX responses) should be handled by retrying requests. All POST, PUT and
+DELETE endpoints in the
 V10 API are *idempotent* (in the sense that performing the same call multiple times will not cause additional state
 changes beyond those caused by the first call) and are therefore safe to retry. 
 
@@ -83,9 +84,9 @@ payment. This is achieved using the *OrderId* choosen by the client when initiat
 *OrderId* is used as an *idempotency key*, to determine when two or more consecutive initiate payment requests are
 intended to refer to the same payment. 
 
-We recommend retrying failed calls due to network and server errors using one of these strategies:
-* Retrying calls up to a fixed number of times with a constant delay between each call. 
-* Retrying calls until a proper response is received, using an exponential backoff with jitter strategy.
+We recommend retrying failed requests due to network and server errors using one of these strategies:
+* Retrying requests up to a fixed number of times with a constant delay between each call. 
+* Retrying requests until a proper response is received, using an exponential backoff with jitter strategy.
     
 #### Client errors
 
