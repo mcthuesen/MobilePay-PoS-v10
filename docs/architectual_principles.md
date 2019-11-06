@@ -66,7 +66,8 @@ description. The error responses has the following structure:
 
 Clients integrating against the MobilePay PoS V10 API should expect intermittent errors and **must** implement suitable
 error handling. Errors can generally be classified into three categories: *network errors*, *server errors* and
-*client errors*.
+*client errors*. Network and server errors should be handled by retrying requests, while client errors should be
+handled by fixing the client request. 
 
 #### Network and server errors
 
@@ -88,4 +89,6 @@ server errors.
 #### Client errors
 
 Client errors (HTTP 4XX) indicate a problem with the client request and can typically not be resolved by retrying
-the request. 
+the request. HTTP 409 errors typically indicate that the client and the PoS backend is out-of-sync about
+the state of a given resource (e.g., payment, refund, ...). If possible, the client should try to query the given
+resource to fix any inconsistencies between the client and the PoS backend.
