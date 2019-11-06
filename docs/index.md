@@ -83,8 +83,9 @@ Changes in Build version does not requires a new Certification
 
 Example with a Curl request:
 
-> --header 'X-MP-Client-Version: 2.1.1'
-
+````
+--header 'X-MP-Client-Version: 2.1.1'
+````
 
 ## Automatic self Certification
 The certification process changes with API v10 - for the new API all minor versions of clients must be certified, MobilePay will provide an automatic certification process - where it will be possible for most integrators to create a fully automated self-certification. The certification will be concluded with an automated report on how the certification went.
