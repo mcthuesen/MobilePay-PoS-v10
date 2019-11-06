@@ -83,9 +83,10 @@ payment. This is achieved using the *OrderId* choosen by the client when initiat
 *OrderId* is used as an *idempotency key*, to determine when two or more consecutive initiate payment requests are
 intended to refer to the same payment. 
 
-We recommend using an exponential backoff with jitter strategy for retrying failed calls due to network and
-server errors. 
-
+We recommend retrying failed calls due to network and server errors using one of these strategies:
+* Retrying calls up to a fixed number of times with a constant delay between each call. 
+* Retrying calls until a proper response is received, using an exponential backoff with jitter strategy.
+    
 #### Client errors
 
 Client errors (HTTP 4XX) indicate a problem with the client request and can typically not be resolved by retrying
