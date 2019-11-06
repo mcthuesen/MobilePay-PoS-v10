@@ -87,5 +87,5 @@ server errors.
 
 #### Client errors
 
-Client errors (HTTP 4XX) indicate a problem with the client request and retrying a request that failed with a client
-error will typically not resolve the error. 
+Client errors (HTTP 4XX) indicate a problem with the client request and can typically not be resolved by retrying
+the request. 
