@@ -12,12 +12,11 @@ payment_flows:
   url: "payment_flows#reservation"
 - title: Reservation Payment Flow Using Prepare-Ready
   url: "payment_flows#reservation_prepare"
+- title: Refunds
+  url: "payment_flows#refunds"
 
 loyalty_title: Loyalty Payments
 loyalty_url: "loyalty"
-
-refund_title: Refunds
-refund_url: "refund"
 
 validation_title: Validation Rules
 validation_url: "validation"
