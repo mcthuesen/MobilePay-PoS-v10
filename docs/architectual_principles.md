@@ -35,11 +35,10 @@ Example with a Curl request:
 
 ## <a name="api_responses"></a> API Responses
 
-Calls to the MobilePay PoS V10 API return HTTP status codes. For successful requests, 
-V10 APIs return HTTP 2XX status codes. For failed requests, V10 APIs return HTTP 
-4XX or 5XX status codes.
-
-V10 APIs return these HTTP status codes:
+The MobilePay PoS V10 API uses HTTP 2XX status codes for successful requests, HTTP 4XX
+status codes for failed requests that failed due to a client error and HTTP 5XX status 
+codes for failed requests that failed due to a server error. An overview of error codes
+used in the V10 API is given below.
 
 | Status code               | Description                                                                               |
 |---------------------------|-------------------------------------------------------------------------------------------|
@@ -65,4 +64,26 @@ description. The error responses has the following structure:
 
 ## <a name="error_handling"></a> Error Handling
 
+Clients integrating against the MobilePay PoS V10 API should expect intermittent errors and **must** implement suitable
+error handling. Errors can generally be classified into three categories: *network errors*, *server errors* and
+*client errors*
 
+#### Network and server errors
+
+Network errors typically present themselves as timeouts or connections that are closed prematurely. 
+Network errors and server errors (HTTP 5XX responses) should be handled by retrying requests. All endpoints in the
+V10 API are *idempotent* (in the sense that performing the same call multiple times will not cause additional state
+changes beyond those caused by the first call) and therefore safe to retry. 
+
+For instance, if a client calls to initiate a payment and the initiate call is successful but the client never
+receives the response due to an intermittent network issue, then it is safe to retry the initiate payment call.
+In particular, it will not initiate a new payment, but rather return the *PaymentId* of the already initiated
+payment. 
+
+We recommend using an exponential backoff with jitter strategy for retrying failed calls due to network and
+server errors. 
+
+#### Client errors
+
+Client errors (HTTP 4XX) indicate a problem with the client request and retrying a request that failed with a client
+error will typically not resolve the error. 
