@@ -55,11 +55,27 @@ an instant payment without prepare-ready.
 
 ### <a name="reservation"></a>Reservation Payment Flow
 
-The sequence diagram below shows a sunshine scenario for a reservation payment flow. As for instant payments a user can check in after the reservation payment has been initiated but this is not shown here.
+The sequence diagram below shows a sunshine scenario for a reservation payment flow. The scenario below starts with
+a user checking in on the PoS and receiving information about the store. Then the client initiates a reservation
+payment on the PoS that is immediately ready for user approval and immediately issed to the user. At that point the
+state of the payment is *IssuedToUser* and remains in that state until the user accepts the payment and the payment
+amount has been reserved. At that point the state of the payment transitions to *Reserved* and it is up to the client
+to *cancel* or *capture* the reservation. Upon calling *capture*, the reservation is captured and the state of the 
+payment transitions to *Captured*. 
 
 [![](assets/images/ReservationFlow.png)](assets/images/ReservationFlow.png)
 
+It is also possible to initiate a reservation payment on a PoS without an active checkin on the PoS, as shown in
+the sequence diagram below. In that case
+the payment state starts out as *Initiated* and remains in that state until a user is paired with the payment through
+a checkin. At that point the payment request is immediately issued to the user and the state of the payment transitions
+to *IssuedToUser*. The rest of the flow proceeds in the same way as the scenario above. 
+
+[![](assets/images/reservationflow-checkin-after-initiate.png)](assets/images/reservationflow-checkin-after-initiate.png)
+
 ##### Payment States for the Reservation Payment Flow
+
+The diagram below shows all the possible states and transitions for a reservation payment flow without prepare-ready.
 
 [![](assets/images/reservation-payment-states.png)](assets/images/reservation-payment-states.png)
 
