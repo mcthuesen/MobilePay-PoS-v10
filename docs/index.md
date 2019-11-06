@@ -6,7 +6,7 @@ Our MobilePay Point of Sale (PoS) REST API is intended for integrators implement
 For information about the PoS product and details on Getting Started, Test and Certification please visit our
 <a href="https://developer.mobilepay.dk/subscriptions-main">Developer Portal</a>. On the portal you will also find FAQ and support resources.
 
-This document will explain in more detail how to implement the different payment flows, how to manage the PoS and how the Security model is build and what is needed from your side.
+This document will explain in more detail how to implement the different payment flows, how to manage the PoS, how the Security model is built and what is needed from the integrator.
 
 This document does not include detailed specification of the endpoints, responses and response codes. This information can be found in the <a href="https://developer.mobilepay.dk/product"> API section</a> of the portal.
 
@@ -14,11 +14,12 @@ This document does not include detailed specification of the endpoints, response
 [![](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)
 
 # General description
-MobilePay PoS is an API for setting up Merchant's transaction requests on customer's MobilePay apps Instore. The customer is in PoS not required to manually enter any information in the MobilePay app pertaining to the transaction. A transaction request can typically be obtained by the customer by holding the phone near to a Merchant device(Terminal, BLE beacon, etc.) OR scanning a QR code.
+MobilePay PoS is an API for setting up Merchant's transaction requests on customers' MobilePay apps in a store. MobilePay PoS does not require the customer to manually enter any information in the MobilePay app pertaining to the transaction. A transaction request can typically be obtained by the customer by holding the phone near to a Merchant device(Terminal, BLE beacon, etc.) OR scanning a QR code.
 
 There are two types of transactions in MobilePay PoS:
 * a payment which is a near instantaneous transfer of funds following the approved payment request 
 * a reservation where the transfer of funds happens sometime after the approval of the reservation request. 
+
 Currently MobilePay PoS uses BLE one-way and two-way beacons and QR-codes to set up the transaction requests - the technology choices are not important for the API - however the concept of a beacon ID is central to allow matching of the Customer willing to pay and the Merchant's transaction request.
 
 ## Overview of Version 10 changes from Version 8.6 of the MobilePay PoS API
