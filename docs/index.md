@@ -59,21 +59,6 @@ Some interfaces do not naturally include a possibility for user activation - for
 
 It is possible to get information about check ins via Bluetooth Low Energy - To use this approach the Integrator will need to participate in a co-development with MobilePay.
 
-## Architectual principles
-This is a preliminary list of architectual principles.
-
-**Backend has the truth**
-
-An architectual principle in MobilePay PoS is that the Backend has the truth - that means in a situation where certainty is required, for instance is the payment approved, the app and clients will have to wait for confirmation from the backend.
-
-**API versus Implementation**
-
-The API does not describe the abstractions of the underlying backend OR client implementations - instead the API serves as the joint Interface for Backend and Frontend. The rammification for this is that BOTH frontend and backend can move independently from the API however they must always support the API specification and not only support perceived details of current implementations. ANY valid HTTP request must be handled appropiately by the backend and produce a useful informative HTTP response. Any valid HTTP response received in the client must be handled appropriately by the client.
-
-**RESTful API**
-
-The API is defined using the RESTful principles.
-
 ## ID-hierarchy
 
 The following diagram shows the ID-Hierarchy of the Master data in MobilePay PoS.
