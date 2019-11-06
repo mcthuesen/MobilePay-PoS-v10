@@ -27,6 +27,11 @@ idempotency_url: "idempotency"
 
 architectual_principles_title: Architectual Principles
 architectual_principles_url: "architectual_principles"
+architectual_principles:
+- title: API Responses
+  url: "architectual_principles#api_responses"
+- title: Error Handling
+  url: "architectual_principles#error_handling"
 
 pos_management_title: PoS Management
 pos_management_url: "pos_management"
