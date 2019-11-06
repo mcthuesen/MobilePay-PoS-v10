@@ -66,19 +66,21 @@ description. The error responses has the following structure:
 
 Clients integrating against the MobilePay PoS V10 API should expect intermittent errors and **must** implement suitable
 error handling. Errors can generally be classified into three categories: *network errors*, *server errors* and
-*client errors*
+*client errors*.
 
 #### Network and server errors
 
 Network errors typically present themselves as timeouts or connections that are closed prematurely. 
 Network errors and server errors (HTTP 5XX responses) should be handled by retrying requests. All endpoints in the
 V10 API are *idempotent* (in the sense that performing the same call multiple times will not cause additional state
-changes beyond those caused by the first call) and therefore safe to retry. 
+changes beyond those caused by the first call) and are therefore safe to retry. 
 
 For instance, if a client calls to initiate a payment and the initiate call is successful but the client never
 receives the response due to an intermittent network issue, then it is safe to retry the initiate payment call.
-In particular, it will not initiate a new payment, but rather return the *PaymentId* of the already initiated
-payment. 
+The second call will not initiate a new payment, but rather return the *PaymentId* of the already initiated
+payment. This is achieved using the *OrderId* choosen by the client when initiating a new payment. We use the
+*OrderId* as an idempotency key, to determine whether two or more consecutive initiate payment requests are
+intended to refer to the same payment. 
 
 We recommend using an exponential backoff with jitter strategy for retrying failed calls due to network and
 server errors. 
