@@ -66,24 +66,6 @@ The following diagram shows the ID-Hierarchy of the Master data in MobilePay PoS
 [![](assets/images/Pos-v10-id-hierarchy.png)](assets/images/Pos-v10-id-hierarchy.png)
 
 
-## Security solution
-
-**Communication security**
-
-MobilePay PoS version 10 uses TLS for communication security and data integrity (secure channel between the client and the API 10 servers). The current TLS version used with the MobilePay PoS solution is 1.2 -  Version 1.3 is finalized and will be implemented within 1-2 years - therefore clients should be able to handle the switch to 1.3 on the fly or with minimal changes.
-
-**Integrator Authorization**
-
-The MobilePay API Gateway is ensuring the authentication of all PoS API request. 
-In order to be granted access to the MobilePay PoS API each integrator/vendor will have to enroll their clients as a client (called App) in our API Gateway Developer Portal (see section below for more information about it).
-
-Creating an app in MobilePay Developer portal will create a client Id that should be used in all calls the the MobilePay PoS API in the following way:
-
-
-Example with a Curl request:
-
-> --header 'X-IBM-Client-Id: 80e0075c-d0b5-4b74-a466-ecaca65234b0'
-
 ## Vendor, Merchant and version Identification
 The Client Id is used by the MobilePay PoS backend to identify the client on the application level - the backend expects that different clients use different ClientId thereby requiring following the steps in the developer portal for each client.
 
