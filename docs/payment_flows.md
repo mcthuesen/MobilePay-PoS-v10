@@ -93,3 +93,5 @@ The sequence diagram below shows a sunshine scenario for a reservation payment f
 ##### Payment States for the Reservation Payment Flow Using Prepare-Ready
 
 [![](assets/images/reservation-payment-prepare-ready-states.png)](assets/images/reservation-payment-prepare-ready-states.png)
+
+### <a name="refunds"></a> Refunds
