@@ -25,8 +25,8 @@ validation_url: "validation"
 idempotency_title: Idempotency
 idempotency_url: "idempotency"
 
-api_principles_title: API Principles
-api_principles_url: "api_principles"
+architectual principles_title: Architectual Principles
+architectual principles_url: "architectual_principles"
 
 pos_management_title: PoS Management
 pos_management_url: "pos_management"
