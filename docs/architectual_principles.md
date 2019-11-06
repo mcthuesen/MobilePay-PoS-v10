@@ -15,7 +15,7 @@ The API does not describe the abstractions of the underlying backend OR client i
 
 The API is defined using the RESTful principles.
 
-## <a href="security_model"></a> Security Model
+## <a name="security_model"></a> Security Model
 
 **Communication security**
 
@@ -33,7 +33,7 @@ Example with a Curl request:
 
 > --header 'X-IBM-Client-Id: 80e0075c-d0b5-4b74-a466-ecaca65234b0'
 
-## <a href="api_responses"></a> API Responses
+## <a name="api_responses"></a> API Responses
 
 Calls to the MobilePay PoS V10 API return HTTP status codes. For successful requests, 
 V10 APIs return HTTP 2XX status codes. For failed requests, V10 APIs return HTTP 
@@ -63,5 +63,5 @@ description. The error responses has the following structure:
 }
 ```
 
-## <a href="error_handling"></a> Error Handling
+## <a name="error_handling"></a> Error Handling
 
