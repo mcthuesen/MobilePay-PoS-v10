@@ -25,8 +25,8 @@ validation_url: "validation"
 idempotency_title: Idempotency
 idempotency_url: "idempotency"
 
-api_responses_title: API Responses
-api_responses_url: "api_responses"
+api_principles_title: API Principles
+api_principles_url: "api_principles"
 
 pos_management_title: PoS Management
 pos_management_url: "pos_management"
