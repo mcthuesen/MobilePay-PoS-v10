@@ -22,18 +22,15 @@ refund_url: "refund"
 validation_title: Validation Rules
 validation_url: "validation"
 
-idempotency_title: Idempotency
-idempotency_url: "idempotency"
-
 architectual_principles_title: Architectual Principles
 architectual_principles_url: "architectual_principles"
 architectual_principles:
+- title: Security Model
+  url: "architectual_principles#security_model"
 - title: API Responses
   url: "architectual_principles#api_responses"
 - title: Error Handling
   url: "architectual_principles#error_handling"
-- title: Security Model
-  url: "architectual_principles#security_model"
 
 pos_management_title: PoS Management
 pos_management_url: "pos_management"
