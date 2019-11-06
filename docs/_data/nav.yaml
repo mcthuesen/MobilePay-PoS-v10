@@ -32,12 +32,11 @@ architectual_principles:
   url: "architectual_principles#api_responses"
 - title: Error Handling
   url: "architectual_principles#error_handling"
+- title: Security Model
+  url: "architectual_principles#security_model"
 
 pos_management_title: PoS Management
 pos_management_url: "pos_management"
-
-security_title: Security Model
-security_url: "security"
 
 best_practices_title: Best Practices
 best_practices_url: "best_practices"
