@@ -76,6 +76,11 @@ to *IssuedToUser*. The rest of the flow proceeds in the same way as the scenario
 ##### Payment States for the Reservation Payment Flow
 
 The diagram below shows all the possible states and transitions for a reservation payment flow without prepare-ready.
+A reservation payment can be cancelled by the user until the user has accepted the payment and the payment amount has 
+been reserved. After a payment has been captured, it can be [refunded](refund), but can no longer be cancelled. A
+reservation payment can be cancelled by the client until it is captured or *expires*. A reservation payment expires if
+it is neither cancelled or captured within the reservation duration specified when the reservation payment is initiated. 
+If a reservation payment expires, the state transitions to *ExpiredAndCancelled*. 
 
 [![](assets/images/reservation-payment-states.png)](assets/images/reservation-payment-states.png)
 
