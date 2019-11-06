@@ -78,8 +78,8 @@ changes beyond those caused by the first call) and are therefore safe to retry.
 For instance, if a client calls to initiate a payment and the initiate call is successful but the client never
 receives the response due to an intermittent network issue, then it is safe to retry the initiate payment call.
 The second call will not initiate a new payment, but rather return the *PaymentId* of the already initiated
-payment. This is achieved using the *OrderId* choosen by the client when initiating a new payment. We use the
-*OrderId* as an *idempotency key*, to determine whether two or more consecutive initiate payment requests are
+payment. This is achieved using the *OrderId* choosen by the client when initiating a new payment. The
+*OrderId* is used as an *idempotency key*, to determine when two or more consecutive initiate payment requests are
 intended to refer to the same payment. 
 
 We recommend using an exponential backoff with jitter strategy for retrying failed calls due to network and
