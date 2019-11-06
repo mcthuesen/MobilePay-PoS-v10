@@ -92,5 +92,10 @@ We recommend retrying failed requests due to network and server errors using one
 
 Client errors (HTTP 4XX) indicate a problem with the client request and can typically not be resolved by retrying
 the request. HTTP 409 errors typically indicate that the client and the PoS backend is out-of-sync about
-the state of a given resource (e.g., payment, refund, ...). If possible, the client should try to query the given
+the state of a given resource (e.g., trying to capture a reservation that is not yet reserved or initiating
+a payment on a PoS that already has an active payment). If possible, the client should try to query the given
 resource to fix any inconsistencies between the client and the PoS backend.
+
+### Error handling examples
+
+TODO
