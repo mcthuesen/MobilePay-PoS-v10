@@ -15,6 +15,8 @@ The API does not describe the abstractions of the underlying backend OR client i
 
 The API is defined using the RESTful principles.
 
+## <a href="security_model"></a> Security Model
+
 ## <a href="api_responses"></a> API Responses
 
 Calls to the MobilePay PoS V10 API return HTTP status codes. For successful requests, 
@@ -46,3 +48,4 @@ description. The error responses has the following structure:
 ```
 
 ## <a href="error_handling"></a> Error Handling
+
