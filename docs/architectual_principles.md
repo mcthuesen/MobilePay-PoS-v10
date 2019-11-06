@@ -75,7 +75,8 @@ Network errors typically present themselves as timeouts or connections that are 
 Network errors and server errors (HTTP 5XX responses) should be handled by retrying requests. All POST, PUT and
 DELETE endpoints in the
 V10 API are *idempotent* (in the sense that performing the same call multiple times will not cause additional state
-changes beyond those caused by the first call) and are therefore safe to retry. 
+changes beyond those caused by the first call) and are therefore safe to retry. All GET endpoints are pure (i.e.,
+have no side-effects) and are therefore also safe to retry.
 
 For instance, if a client calls to initiate a payment and the initiate call is successful but the client never
 receives the response due to an intermittent network issue, then it is safe to retry the initiate payment call.
@@ -88,7 +89,7 @@ initiate payment requests must be unique for each payment on a given PoS. We rec
 We recommend retrying failed requests due to network and server errors using one of these strategies:
 * Retrying requests up to a fixed number of times with a constant delay between each call. 
 * Retrying requests until a proper response is received, using an exponential backoff with jitter strategy.
-    
+
 #### Client errors
 
 Client errors (HTTP 4XX) indicate a problem with the client request and can typically not be resolved by retrying
