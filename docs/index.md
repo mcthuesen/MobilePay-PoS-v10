@@ -110,8 +110,8 @@ The Client Id is used by the MobilePay PoS backend to identify the client on the
 
 Certification requirements in regard to changes to Client Id or Client Version
 
-Changes in ClientId, Major version or Minor version requires a new Certification
-Changes in Build version does not requires a new Certification
+* Changes in ClientId, Major version or Minor version requires a new Certification
+* Changes in Build version does not requires a new Certification
 
 Example with a Curl request:
 
