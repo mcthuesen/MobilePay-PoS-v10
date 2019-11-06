@@ -39,7 +39,7 @@ Calls to the MobilePay PoS V10 API return HTTP status codes. For successful requ
 V10 APIs return HTTP 2XX status codes. For failed requests, V10 APIs return HTTP 
 4XX or 5XX status codes.
 
-Titanium APIs return these HTTP status codes:
+V10 APIs return these HTTP status codes:
 
 | Status code               | Description                                                                               |
 |---------------------------|-------------------------------------------------------------------------------------------|
@@ -64,4 +64,5 @@ description. The error responses has the following structure:
 ```
 
 ## <a name="error_handling"></a> Error Handling
+
 
