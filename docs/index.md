@@ -44,33 +44,6 @@ The following diagram shows the ID-Hierarchy of the Master data in MobilePay PoS
 
 [![](assets/images/Pos-v10-id-hierarchy.png)](assets/images/Pos-v10-id-hierarchy.png)
 
-
-## Vendor, Merchant and version Identification
-# The Client Id is used by the MobilePay PoS backend to identify the client on the application level - the backend expects that different clients use different ClientId thereby requiring following the steps in the developer portal for each client.
-
-Headers containing the Client Name and the Client Version are required. The Client Name is suitable name used for the client, preferable the name that the Integrator uses in their own communication, this way support communication between Merchant, Integrator and MobilePay uses the same name which should aid in removing confusion in the support sitiation. The Client version is a 3 dimensional number Major.Minor.Build - it is recommended to use the power of the Client Version Header, as this will be used by MobilePay to block versions of clients that are not certified and/or are misbehaving. An example of misbehavior would be spamming irrelevant HTTP calls that endanger fast response times for other clients.
-
-* Major version represents major changes to the client version, perhaps representing breaking changes on the clients other interfaces or representing major changes communicated to merchants - A major change requires re-certification.
-* Minor version represents minor changes to the client version, changes that introduces new features or a change in the way internal logic is handled, minor version changes are perhaps not communicated to merchants - a minor change requires re-certification.
-* Build version represents a new build of the client, the include minor bug-fixes and changes of the lowest magnitude. A new build version does not require a re-certification
-
-Certification requirements in regard to changes to Client Name and Client Version
-
-* Changes in Client Name, Major version or Minor version requires a new Certification
-* Changes in Build version does not requires a new Certification
-
-Example with a Curl request:
-
-````
---header 'X-MP-Client-Name: MobilePay Pos Client Reference Implementation'
---header 'X-MP-Client-Version: 2.1.1'
-````
-
-## Automatic self Certification
-The certification process changes with API v10 - for the new API all minor and major versions of clients must be certified, MobilePay will provide an automatic certification process - where it will be possible for most integrators to create a fully automated self-certification. The certification will be concluded with an automated report on how the certification went.
-
-Further details on self certification will follow in December 2019.
-
 ## The MobilePay Developer Portal
 The MobilePay Developer Portal is a site where you will be able to find information about the products and available APIs and their documentations.
 It exposes live documentation that can be used for development and error correction. Access to the portal can be requested by writing to the following email address developer@mobilepay.dk .
