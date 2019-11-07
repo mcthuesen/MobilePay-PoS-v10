@@ -21,9 +21,9 @@ payment_flows:
 validation_title: Validation Rules
 validation_url: "validation"
 
-architectual_principles_title: Architectual Principles
-architectual_principles_url: "architectual_principles"
-architectual_principles:
+api_principles_title: API Principles
+api_principles_url: "api_principles"
+api_principles:
 - title: Security Model
   url: "architectual_principles#security_model"
 - title: API Responses
