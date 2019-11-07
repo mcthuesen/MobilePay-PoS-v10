@@ -88,11 +88,25 @@ If a reservation payment expires, the state transitions to *ExpiredAndCancelled*
 
 ### <a name="reservation_prepare"></a>Reservation Payment Flow Using Prepare-Ready
 
-The sequence diagram below shows a sunshine scenario for a reservation payment flow using the prepared-ready functionality. As for instant payments this allows the merchant to set the amount after knowing the user.
+The sequence diagram below shows a sunshine scenario for a reservation payment flow using the prepared-ready functionality. 
+A prepared reservation payment starts out in status Prepared and remains in the *Prepared* state until the payment is paired 
+with a user through a check-in. Once paired, the status changes to *Paired* and querying the payment will also return the 
+user's loyalty token, if any. Once the payment is ready for user approval, the client marks the payment as ready and provides 
+the payment amount. Then the payment is issued to the user and the payment state changes to *IssuedToUser*. Once the user 
+accepts the payment request and the payment amount has been reserved, the payment state transitions to *Reserved*
+and it is up to the client to cancel or capture the reservation. Upon calling capture, the reservation is captured and the 
+state of the payment transitions to *Captured*.
 
 [![](assets/images/ReservationPrepareFlow.png)](assets/images/ReservationPrepareFlow.png)
 
 ##### Payment States for the Reservation Payment Flow Using Prepare-Ready
+
+The diagram below shows all the possible states and transitions for a reservation payment flow with prepare-ready.
+A reservation payment can be cancelled by the user until the user has accepted the payment and the payment amount has 
+been reserved. After a payment has been captured, it can be [refunded](refund), but can no longer be cancelled. A
+reservation payment can be cancelled by the client until it is captured or *expires*. A reservation payment expires if
+it is neither cancelled or captured within the reservation duration specified when the reservation payment is initiated. 
+If a reservation payment expires, the state transitions to *ExpiredAndCancelled*. 
 
 [![](assets/images/reservation-payment-prepare-ready-states.png)](assets/images/reservation-payment-prepare-ready-states.png)
 
