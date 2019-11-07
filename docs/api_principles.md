@@ -1,5 +1,5 @@
 
-# Architectual Principles
+# API Principles
 
 This is a preliminary list of architectual principles.
 
