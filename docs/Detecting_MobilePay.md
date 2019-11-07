@@ -6,12 +6,20 @@ There are three ways in MobilePay PoS for a terminal/client to become aware that
 
 This is the default way of detecting MobilePay presence. In a supermarket this can be a button on the ECR that sends the payment request to MobilePay. For example the cashier will ask the customer or infer from the customer's actions which payment option the customer wants to choose and then push the MobilePay button. Another example of user activation is when the customer can choose MobilePay herself on a keypad placed on a vending machine for instance. Some vending machines only allow MobilePay to be used and therefore any request for the vending machine product would be inferred as a payment request to MobilePay.
 
+[![](assets/images/POD_MobilepayButton.png)](assets/images/POD_MobilepayButton.png)
+
 A last example of a user activation is in the case of a QR code being displayed in a terminal - in these cases the terminal calls a HTTP GET checkin endpoint in the MobilePay v10 API - this approach ensures that this endpoint is not overloaded with requests.
+
+[![](assets/images/POD_polling.png)](assets/images/POD_polling.png)
 
 **Notification service**
 
 Some interfaces do not naturally include a possibility for user activation - in these cases an endpoint can be exposed by the MobilePay PoS integrator. This endpoint will be called with a checkin Notification in the case a user has checked in. After receiving a notification the client can poll the HTTP GET checkin endpoint for that client.
 
+[![](assets/images/POD_BeaconIDRead.png)](assets/images/POD_BeaconIDRead.png)
+
 **BLE 2-way communication**
 
 It is possible to get information about check ins via Bluetooth Low Energy - To use this approach the Integrator will need to use one of the MobilePay defined Bluetooth communication protocols. TODO insert link to Bluetooth documentation.
+
+[![](assets/images/POD_BLEsignal.png)](assets/images/POD_BLEsignal.png)
