@@ -26,7 +26,7 @@ In the sequence diagram above, the user checked in on the PoS before the payment
 
 The diagram below shows all the possible states and transitions for an instant payment without prepare-ready. 
 An instant payment is cancellable by the client until the payment state changes to *Captured*. 
-After a payment has been captured, it can be [refunded](refund), but can no longer be cancelled. 
+After a payment has been captured, it can be [refunded](payment_flows#instant), but can no longer be cancelled. 
 A user can cancel an issued payment until they accept the payment.
 
 [![](assets/images/instant-payment-states.png)](assets/images/instant-payment-states.png)
@@ -79,7 +79,7 @@ to *IssuedToUser*. The rest of the flow proceeds in the same way as the scenario
 
 The diagram below shows all the possible states and transitions for a reservation payment flow without prepare-ready.
 A reservation payment can be cancelled by the user until the user has accepted the payment and the payment amount has 
-been reserved. After a payment has been captured, it can be [refunded](refund), but can no longer be cancelled. A
+been reserved. After a payment has been captured, it can be [refunded](payment_flows#instant), but can no longer be cancelled. A
 reservation payment can be cancelled by the client until it is captured or *expires*. A reservation payment expires if
 it is neither cancelled or captured within the reservation duration specified when the reservation payment is initiated. 
 If a reservation payment expires, the state transitions to *ExpiredAndCancelled*. 
@@ -103,7 +103,7 @@ state of the payment transitions to *Captured*.
 
 The diagram below shows all the possible states and transitions for a reservation payment flow with prepare-ready.
 A reservation payment can be cancelled by the user until the user has accepted the payment and the payment amount has 
-been reserved. After a payment has been captured, it can be [refunded](refund), but can no longer be cancelled. A
+been reserved. After a payment has been captured, it can be [refunded](payment_flows#instant), but can no longer be cancelled. A
 reservation payment can be cancelled by the client until it is captured or *expires*. A reservation payment expires if
 it is neither cancelled or captured within the reservation duration specified when the reservation payment is initiated. 
 If a reservation payment expires, the state transitions to *ExpiredAndCancelled*. 
