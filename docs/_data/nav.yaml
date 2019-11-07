@@ -25,11 +25,13 @@ api_principles_title: API Principles
 api_principles_url: "api_principles"
 api_principles:
 - title: Security Model
-  url: "architectual_principles#security_model"
+  url: "api_principles#security_model"
+- title: Client Identification
+  url: "api_principles#client_identification"
 - title: API Responses
-  url: "architectual_principles#api_responses"
+  url: "api_principles#api_responses"
 - title: Error Handling
-  url: "architectual_principles#error_handling"
+  url: "api_principles#error_handling"
 
 pos_management_title: PoS Management
 pos_management_url: "pos_management"
