@@ -33,6 +33,28 @@ Example with a Curl request:
 
 > --header 'X-IBM-Client-Id: 80e0075c-d0b5-4b74-a466-ecaca65234b0'
 
+## <a name="client_identification"></a> Client Identification
+
+# The Client Id is used by the MobilePay PoS backend to identify the client on the application level - the backend expects that different clients use different ClientId thereby requiring following the steps in the developer portal for each client.
+
+Headers containing the Client Name and the Client Version are required. The Client Name is suitable name used for the client, preferable the name that the Integrator uses in their own communication, this way support communication between Merchant, Integrator and MobilePay uses the same name which should aid in removing confusion in the support sitiation. The Client version is a 3 dimensional number Major.Minor.Build - it is recommended to use the power of the Client Version Header, as this will be used by MobilePay to block versions of clients that are not certified and/or are misbehaving. An example of misbehavior would be spamming irrelevant HTTP calls that endanger fast response times for other clients.
+
+* Major version represents major changes to the client version, perhaps representing breaking changes on the clients other interfaces or representing major changes communicated to merchants - A major change requires re-certification.
+* Minor version represents minor changes to the client version, changes that introduces new features or a change in the way internal logic is handled, minor version changes are perhaps not communicated to merchants - a minor change requires re-certification.
+* Build version represents a new build of the client, the include minor bug-fixes and changes of the lowest magnitude. A new build version does not require a re-certification
+
+Certification requirements in regard to changes to Client Name and Client Version
+
+* Changes in Client Name, Major version or Minor version requires a new Certification
+* Changes in Build version does not requires a new Certification
+
+Example with a Curl request:
+
+````
+--header 'X-MP-Client-Name: MobilePay Pos Client Reference Implementation'
+--header 'X-MP-Client-Version: 2.1.1'
+````
+
 ## <a name="api_responses"></a> API Responses
 
 The MobilePay PoS V10 API uses HTTP 2XX status codes for successful requests, HTTP 4XX
