@@ -1,6 +1,9 @@
 introduction_title: Introduction
 introduction_url: "index"
 
+detecting_mobilepay_title: Detecting MobilePay
+detecting_mobilepay_url: "Detecting_MobilePay"
+
 payment_flows_title: Payment Flows
 payment_flows_url: "payment_flows"
 payment_flows:
@@ -14,9 +17,6 @@ payment_flows:
   url: "payment_flows#reservation_prepare"
 - title: Refunds
   url: "payment_flows#refunds"
-
-loyalty_title: Loyalty Payments
-loyalty_url: "loyalty"
 
 validation_title: Validation Rules
 validation_url: "validation"
