@@ -119,14 +119,13 @@ the captured payment amount.
 
 The sequence diagram below shows a sunshine scenario for a refund. Initiating a refund yields a *RefundId* that can be
 used to query the status of the refund. A refund starts out in the *Initiated* state and transitions to the *Reserved*
-state when the refund has been reserved. Once a refund has been reserved, the client can choose to capture the refund,
-transitioning the state to *Captured*. When a refund is captured, the refunded amount is immediately transferred to the 
-user and the user is notified of the refund. 
+state when the refund has been reserved as shown in the state diagram below. Once a refund has been reserved, the client 
+can choose to capture the refund,transitioning the state to *Captured*. When a refund is captured, the refunded amount 
+is immediately transferred to the user and the user is notified of the refund. 
 
 [![](assets/images/refund-flow.png)](assets/images/refund-flow.png)
 
 Until the refund has been captured, the client can also choose to cancel the refund.
-
 The diagram below showes the possible states and transitions for a refund.
 
 [![](assets/images/refund-states.png)](assets/images/refund-states.png)
