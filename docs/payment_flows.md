@@ -127,11 +127,12 @@ user and the user is notified of the refund.
 
 Until the refund has been captured, the client can also choose to cancel the refund.
 
-The diagram below shoes the possible states and transitions for a refund.
+The diagram below showes the possible states and transitions for a refund.
 
 [![](assets/images/refund-states.png)](assets/images/refund-states.png)
 
 ### <a name="cancel"></a> Cancel Flows
+
 The V10 API supports cancelling of payments and refunds.
 
 A payment is cancellable by the client until the state has changed to Captured or ExpiredAndCancelled. Furthermore, a payment can be cancelled by the user when the payment is in state Paired or IssuedToUser. 
