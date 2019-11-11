@@ -4,7 +4,8 @@
 
 | Name | Type | Length | Validations | Uniqueness requirements | Description |
 |------|------|--------|-------------|-------------------------|-------------|
-| X-IBM-ClientId | Guid | 36 | | Globally unique | MobilePay Integrator Application Id. This identifies an application created through MobilePay Developer Portal. |
+| X-IBM-ClientId | Guid | 36 | | Globally unique | MobilePay Integrator Application Id. 
+This identifies an application created through MobilePay Developer Portal. |
 
 
 
