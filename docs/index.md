@@ -22,28 +22,6 @@ There are two types of transactions in MobilePay PoS:
 
 Currently MobilePay PoS uses BLE one-way and two-way beacons and QR-codes to set up the transaction requests - the technology choices are not important for the API - however the concept of a beacon ID is central to allow matching of the Customer willing to pay and the Merchant's transaction request.
 
-## Overview of Version 10 changes from Version 8.6 of the MobilePay PoS API
-Version 10 of the MobilePay PoS API introduces breaking changes from version 8.6 of the API. The following list describes the changes in overview:
-
-Notable changes from Version 8.6 to Version 10 of the MobilePay PoS API
-* Clients need to implement HTTP 1.1 and JSON standards
-* No API key and HMAC validation
-* New security setup using access tokens
-* Vendor Identification and Version numbering
-* API method naming has changed
-* The Error messages are more informative
-* There are minor changes to the payment flow
-* There is a new ID-structure
-* Documentation is live through a developer website (using OpenAPI standards) and GitHub
-* Certification will be done automatically
-
-
-## ID-hierarchy
-
-The following diagram shows the ID-Hierarchy of the Master data in MobilePay PoS.
-
-[![](assets/images/Pos-v10-id-hierarchy.png)](assets/images/Pos-v10-id-hierarchy.png)
-
 ## The MobilePay Developer Portal
 The MobilePay Developer Portal is a site where you will be able to find information about the products and available APIs and their documentations.
 It exposes live documentation that can be used for development and error correction. Access to the portal can be requested by writing to the following email address developer@mobilepay.dk .
