@@ -129,7 +129,7 @@ Until the refund has been captured, the client can also choose to cancel the ref
 
 The diagram below shoes the possible states and transitions for a refund.
 
-[![](assets/images/refund-flow.png)](assets/images/refund-states.png)
+[![](assets/images/refund-states.png)](assets/images/refund-states.png)
 
 ### <a name="cancel"></a> Cancel Flows
 The V10 API supports cancelling of payments and refunds.
