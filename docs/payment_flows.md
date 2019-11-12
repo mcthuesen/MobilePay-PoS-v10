@@ -135,9 +135,9 @@ The diagram below showes the possible states and transitions for a refund.
 The V10 API supports cancelling of payments and refunds.
 
 A payment is cancellable by the client until the state has changed to *Captured* or *ExpiredAndCancelled*. Furthermore, a payment can be cancelled by the user when the payment is in state *Paired* or *IssuedToUser*. 
-Payments can be cancelled by calling the endpoint **POST payments/{paymentId}/cancel**. It requires the payment id of the payment to be cancelled. When the payment has been cancelled the state transitions to *CancelledByClient*. 
+Payments can be cancelled by calling the endpoint **v10/payments/{paymentId}/cancel**. It requires the payment id of the payment to be cancelled. When the payment has been cancelled the state transitions to *CancelledByClient*. 
 If the user cancels the payment the state will transition to *CancelledByUser*.
 
-A refund is cancellable until it reaches the state *Captured* or *ExpiredAndCancelled*. Refunds can only be cancelled by the client since there is no user involved in the process. A refund can be cancelled by calling the endpoint **POST refunds/{refundId}/cancel**. It requires the id of the refund that was returned when the refund was initiated.
+A refund is cancellable until it reaches the state *Captured* or *ExpiredAndCancelled*. Refunds can only be cancelled by the client since there is no user involved in the process. A refund can be cancelled by calling the endpoint **v10/refunds/{refundId}/cancel**. It requires the id of the refund that was returned when the refund was initiated.
 When the refund has been cancelled the state transitions to *CancelledByClient*. 
 
