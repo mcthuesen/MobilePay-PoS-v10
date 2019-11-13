@@ -22,6 +22,16 @@
 | StoreId | Guid | 36 | Guid | Globally unique | MobilePay Store Id.<br><br>This identifies a Store in MobilePay. |
 | MerchantLocationId | String | 5 | Charset | /Merchant | MobilePay Location Id.<br><br>Together with a MerchantBrandId, this identifies a Store in MobilePay. |
 
+#### Point of Sales
+
+| Name | Type | Length | Validations | Uniqueness requirements | Description |
+|------|------|--------|-------------|-------------------------|-------------|
+| PosId | String | ≤ 36 | Charset | /Merchant | Merchant defined Point of Sale Id.<br><br>Together with a MerchantId, this identifies a Point of Sale. |
+| PosName | String | ≤ 36 | Charset | - | Merchant defined Point of Sale Name.<br><br>The name is visible to a MobilePay User, after the User has checked in on the Point of Sale. |
+| CallbackUrl | String | ≤ 2048 | Valid URI OR Charset | N/A |In case of the Integrator System not being able to detect User CheckIn's, they can have the MobilePay Notification Service call this URL when a User has checked in.<br><br>To use the Notification Service the Callback URL needs to be manually approved by MobilePay before use.<br><br>The CallbackUrl can be either a valid URL or it can contain an Alias predefined by an agreement between MobilePay and the Integrator.<br><br>It can be relevant to use an Alias in case it is hard for the Integrator to update the CallbackUrl on hardware units such as Terminals. |
+| BeaconId | String | 15 OR 36 | Digits OR Guid | Globally unique | Id of the Beacon.<br><br>In case of psysical device such as the MobilePay WhiteBox or a Terminal: The BeaconId is a 15 digit string.<br><br>If no psysical device (QR): BeaconId is not provided during Point of Sale creation and MobilePay will generate a String containing a random GUID as the BeaconId. |
+| BeaconType | Enum | N/A | QR / NFC / BluetoothOther / BluetoothMP1 / BluetoothMP2 / BluetoothMP3 / BluetoothMP4 | N/A	| Beacon broadcast type.<br><br>Identifies an option for how a MobilePay User can CheckIn on a Point of Sale.<br><br>During creation of a Point of Sale, a list of Beacon Types are provided that defines how MobilePay Users can CheckIn on the Point of Sale. |
+| CalibrationType | Integer |	≤ 5 | 0-65535 | N/A	| Calibration Type of a psysical Beacon.<br><br>This is used by the MobilePay app to know the distance between the Mobile Phone and the psycical Beacon before the MobilePay User Checks In on the Point of Sale.<br><br>This is only applicable if the Point of Sale contains any of the bluetooth BeaconTypes. |
 
 
 |Entity              | Type    | Validation rules     |
