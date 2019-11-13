@@ -2,12 +2,12 @@
 
 #### Headers
 
-| Name | Type | Length | Validations | Uniqueness requirements | Description |
+| Name | Validations | Uniqueness requirements | Description |
 |------|------|--------|-------------|-------------------------|-------------|
-| X-IBM-ClientId | Guid | 36 | Guid | Globally unique | MobilePay Integrator Application Id.<br><br> Identifies an application created through MobilePay Developer Portal. |
-| X-MP-IntegratorId | Guid | 36 | Guid | Globally unique | MobilePay Integrator Id.<br><br> Will be provided to Integrators by MobilePay. |
-| X-MP-Client-System-Name | String | ≤ 36 | Charset | - | Integrators System Name.<br><br>Will be used to identify what Integrator System that is making the call to MobilePay Point of Sale API's. |
-| X-MP-Client-System-Version | String | ≤ 36 | Valid Client-Version | - | Integrators System Version.<br><br>Will be used to identify what Version of the Integrator System that is making the call to MobilePay Point of Sale API's. |
+| X-IBM-ClientId | Guid | Globally unique | MobilePay Integrator Application Id.<br><br> Identifies an application created through MobilePay Developer Portal. |
+| X-MP-IntegratorId | | Guid | Globally unique | MobilePay Integrator Id.<br><br> Will be provided to Integrators by MobilePay. |
+| X-MP-Client-System-Name | String with up to 36 valid characters | - | Integrators System Name.<br><br>Will be used to identify what Integrator System that is making the call to MobilePay Point of Sale API's. |
+| X-MP-Client-System-Version | Valid Client-Version | - | Integrators System Version.<br><br>Will be used to identify what Version of the Integrator System that is making the call to MobilePay Point of Sale API's. |
 
 #### Brands
 
