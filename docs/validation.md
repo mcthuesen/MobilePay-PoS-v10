@@ -45,3 +45,13 @@
 | `CurrencyCode` | DKK / EUR | Currency Code for the Currency of the Payment. |
 | `MerchantPaymentLabel` | String with at most 36 valid characters	| Label for the Payment.<br><br>This is a way for the Merchant to tag a Payment with a Label.<br><br>This is visible in the transaction reporting section on the MobilePay Portal |
 | `ReservationDurationInDays` | Integer between 1 and 14 | The number of days to keep the Payment reserved on the MobilePay User's Card/Account.<br><br>It is recommended to use the shortest duration possible in regards to the use case. |
+
+#### Valid characters
+
+Valid characters for PoS V10 API request fields are:
+* 0 - 9
+* a-zA-Z
+* æÆøØåÅ
+* äÄöÖšŠžŽ
+* !"#$%&'()*+,-./":;<=>?@[\]^_\`{|}~
+* (space)
