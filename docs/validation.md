@@ -6,27 +6,28 @@
 |------|-------------|-------------|
 | `X-IBM-ClientId` | Guid | MobilePay Integrator Application Id.<br><br> Identifies an application created through MobilePay Developer Portal. |
 | `X-MP-IntegratorId` | Guid | MobilePay Integrator Id.<br><br> Will be provided to Integrators by MobilePay. |
-| `X-MP-Client-System-Name` | String with up to 36 valid characters | Integrators System Name.<br><br>Will be used to identify what Integrator System that is making the call to MobilePay Point of Sale API's. |
-| `X-MP-Client-System-Version` | Valid Client-Version:<br>Major.Minor.Build<br>Example: 1.2.231 | Integrators System Version.<br><br>Will be used to identify what Version of the Integrator System that is making the call to MobilePay Point of Sale API's. |
+| `X-MP-Client-System-Name` | String with up to 36 valid characters | Integrators System Name.<br><br>Used to identify the integrator system callling the API. |
+| `X-MP-Client-System-Version` | Valid Client-Version:<br>Major.Minor.Build<br>Example: 1.2.231 | Integrators System Version.<br><br>Used to identify the version of the integrator system calling the API. |
 
 #### Brands
 
 | Name | Format      | Description |
 |------|-------------|-------------|
-| `MerchantBrandId` | MPPOSXXXXX / POSDKXXXXX / POSFIXXXXX | MobilePay Brand Id<br><br>This identifies a Brand in MobilePay. |
+| `MerchantBrandId` | MPPOSXXXXX / POSDKXXXXX / POSFIXXXXX | Identifies a Brand in MobilePay. |
 
 #### Stores
 
 | Name | Format      | Description |
 |------|-------------|-------------|
-| `StoreId` | Guid | MobilePay Store Id.<br><br>This identifies a Store in MobilePay. |
+| `StoreId` | Guid | Identifies a Store in MobilePay. |
 | `MerchantLocationId` | String with exactly 5 valid characters | MobilePay Location Id.<br><br>Together with a MerchantBrandId, this identifies a Store in MobilePay. |
 
 #### Point of Sales
 
 | Name | Format      | Description |
 |------|-------------|-------------|
-| `PosId` | Guid | Merchant defined Point of Sale Id.<br><br>Together with a MerchantId, this identifies a Point of Sale. |
+| `PosId` | Guid | Identifies a Point of Sale in MobilePay. |
+| `MerchantPosId` | String with at most 36 valid characters | Merchant defined Point of Sale Id.<br><br>Together with a MerchantId, may refer to a unique a Point of Sale. |
 | `PosName` | String with at most 36 valid characters | Merchant defined Point of Sale Name.<br><br>The name is visible to a MobilePay User, after the User has checked in on the Point of Sale. |
 | `CallbackUrl` | TODO | In case of the Integrator System not being able to detect User CheckIn's, they can have the MobilePay Notification Service call this URL when a User has checked in.<br><br>To use the Notification Service the Callback URL needs to be manually approved by MobilePay before use.<br><br>The CallbackUrl can be either a valid URL or it can contain an Alias predefined by an agreement between MobilePay and the Integrator.<br><br>It can be relevant to use an Alias in case it is hard for the Integrator to update the CallbackUrl on hardware units such as Terminals. |
 | `BeaconId` | A GUID or 15 digits | Id of the Beacon.<br><br>In case of psysical device such as the MobilePay WhiteBox or a Terminal: The BeaconId is a 15 digit string.<br><br>If no psysical device (QR): BeaconId is not provided during Point of Sale creation and MobilePay will generate a String containing a random GUID as the BeaconId. |
