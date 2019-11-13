@@ -2,7 +2,7 @@
 
 #### Headers
 
-| Name | Validations | Description |
+| Name | Format      | Description |
 |------|-------------|-------------|
 | X-IBM-ClientId | Guid | MobilePay Integrator Application Id.<br><br> Identifies an application created through MobilePay Developer Portal. |
 | X-MP-IntegratorId | Guid | MobilePay Integrator Id.<br><br> Will be provided to Integrators by MobilePay. |
@@ -11,20 +11,20 @@
 
 #### Brands
 
-| Name | Validations | Description |
+| Name | Format      | Description |
 |------|-------------|-------------|
 | MerchantBrandId | MPPOSXXXXX / POSDKXXXXX / POSFIXXXXX | MobilePay Brand Id<br><br>This identifies a Brand in MobilePay. |
 
 #### Stores
 
-| Name | Validations | Description |
+| Name | Format      | Description |
 |------|-------------|-------------|
 | StoreId | Guid | MobilePay Store Id.<br><br>This identifies a Store in MobilePay. |
 | MerchantLocationId | String with exactly 5 valid characters | MobilePay Location Id.<br><br>Together with a MerchantBrandId, this identifies a Store in MobilePay. |
 
 #### Point of Sales
 
-| Name | Validations | Description |
+| Name | Format      | Description |
 |------|-------------|-------------|
 | PosId | Guid | Merchant defined Point of Sale Id.<br><br>Together with a MerchantId, this identifies a Point of Sale. |
 | PosName | String with at most 36 valid characters | Merchant defined Point of Sale Name.<br><br>The name is visible to a MobilePay User, after the User has checked in on the Point of Sale. |
@@ -35,7 +35,7 @@
 
 #### Payments
 
-| Name | Validations | Description |
+| Name | Format      | Description |
 |------|-------------|-------------|
 | PaymentId | Guid | MobilePay defined Payment Id. |
 | OrderId | String with at most 36 valid characters | Merchant defined Payment Order Id.<br><br>There is no uniqueness requirement for OrderId's, but we recommend using unique OrderIds if possible. |
