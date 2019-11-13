@@ -8,6 +8,7 @@
 | `X-MP-IntegratorId` | Guid | MobilePay Integrator Id.<br><br> Will be provided to Integrators by MobilePay. |
 | `X-MP-Client-System-Name` | String with up to 36 valid characters | Integrators System Name.<br><br>Used to identify the integrator system callling the API. |
 | `X-MP-Client-System-Version` | Valid Client-Version:<br>Major.Minor.Build<br>Example: 1.2.231 | Integrators System Version.<br><br>Used to identify the version of the integrator system calling the API. |
+| `X-MP-Idempotency-Key` | String with up to 36  | Integrators System Version.<br><br>Used to identify the version of the integrator system calling the API. |
 
 #### Brands
 
