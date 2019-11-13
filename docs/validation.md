@@ -15,6 +15,12 @@
 |------|------|--------|-------------|-------------------------|-------------|
 | MerchantBrandId | String | 10	| MPPOSXXXXX<br>POSDKXXXXX<br>POSFIXXXXX | Globally unique | MobilePay Brand Id<br><br>This identifies a Brand in MobilePay. |
 
+#### Stores
+
+| Name | Type | Length | Validations | Uniqueness requirements | Description |
+|------|------|--------|-------------|-------------------------|-------------|
+| StoreId | Guid | 36 | Guid | Globally unique | MobilePay Store Id.<br><br>This identifies a Store in MobilePay. |
+| MerchantLocationId | String | 5 | Charset | /Merchant | MobilePay Location Id.<br><br>Together with a MerchantBrandId, this identifies a Store in MobilePay. |
 
 
 
