@@ -124,7 +124,7 @@ resource to fix any inconsistencies between the client and the PoS backend.
 
 TODO
 
-## <a name="auto_certification"></a> Automatic self Certification
+## <a name="self_certification"></a> Self Certification
 
 The certification process changes with API v10 - for the new API all minor and major versions of clients 
 must be certified, MobilePay will provide an automatic certification process - where it will be possible 
