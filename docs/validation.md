@@ -17,8 +17,8 @@
 
 #### Stores
 
-| Name | Validations | Uniqueness requirements | Description |
-|------|-------------|-------------------------|-------------|
+| Name | Validations | Description |
+|------|-------------|-------------|
 | StoreId | Guid | MobilePay Store Id.<br><br>This identifies a Store in MobilePay. |
 | MerchantLocationId | String with exactly 5 valid characters | MobilePay Location Id.<br><br>Together with a MerchantBrandId, this identifies a Store in MobilePay. |
 
