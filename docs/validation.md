@@ -6,9 +6,9 @@
 |------|-------------|-------------|
 | `X-IBM-ClientId` | Guid | Identifies an application created through MobilePay Developer Portal. |
 | `X-MP-IntegratorId` | Guid | MobilePay Integrator Id.<br><br> Will be provided to Integrators by MobilePay. |
-| `X-MP-Client-System-Name` | String with up to 36 valid characters | Used to identify the integrator system callling the API. |
-| `X-MP-Client-System-Version` | Valid Client-Version:<br>Major.Minor.Build<br>Example: 1.2.231 | Used to identify the version of the integrator system calling the API. |
-| `X-MP-Idempotency-Key` | String with up to 36 valid characters | Used on POST endpoints that create resources (payments, refunds, point-of-sales) to ensure retried calls are handled correctly. Each such call should include a unique idempotency key. Retried calls should use the same idempotency key as the original call. See [error handling](api_principles#error_handling) for details |
+| `X-MP-Client-System-Name` | String with up to 36 valid characters | Used to identify the [integrator system](api_principles#client_identification) callling the API. |
+| `X-MP-Client-System-Version` | Valid Client-Version:<br>Major.Minor.Build<br>Example: 1.2.231 | Identifies the [version of the integrator system](api_principles#client_identification) calling the API. |
+| `X-MP-Idempotency-Key` | String with up to 36 valid characters | Used to allow calls to be [safely retried](api_principles#error_handling) in case of errors. |
 
 #### Brands
 
