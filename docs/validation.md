@@ -33,6 +33,15 @@
 | BeaconType | Enum | N/A | QR / NFC / BluetoothOther / BluetoothMP1 / BluetoothMP2 / BluetoothMP3 / BluetoothMP4 | N/A	| Beacon broadcast type.<br><br>Identifies an option for how a MobilePay User can CheckIn on a Point of Sale.<br><br>During creation of a Point of Sale, a list of Beacon Types are provided that defines how MobilePay Users can CheckIn on the Point of Sale. |
 | CalibrationType | Integer |	≤ 5 | 0-65535 | N/A	| Calibration Type of a psysical Beacon.<br><br>This is used by the MobilePay app to know the distance between the Mobile Phone and the psycical Beacon before the MobilePay User Checks In on the Point of Sale.<br><br>This is only applicable if the Point of Sale contains any of the bluetooth BeaconTypes. |
 
+#### Payments
+| PaymentId | Guid | 36 | Guid | Globally unique | MobilePay defined Payment Id. |
+| OrderId | String | ≤ 36 | Charset | No (Recommended: /Pos) | Merchant defined Payment Order Id. |
+| Amount | Decimal | - | Valid Positive Amount | N/A | Total Amount of the Payment. |
+| CurrencyCode | Enum	| - | DKK / EUR | N/A	 | Currency Code for the Currency of the Payment. |
+| MerchantPaymentLabel | String | ≤ 36 | Charset | No	| Label for the Payment.<br><br>This is a way for the Merchant to tag a Payment with a Label.<br><br>This is visible in the transaction reporting section on the MobilePay Portal |
+| ReservationDurationInDays | Int | N/A | 1 - 14 | N/A | The number of days to keep the Payment reserved on the MobilePay User's Card/Account.<br><br>It is recommended to use the shortest duration possible in regards to the use case.|
+
+
 
 |Entity              | Type    | Validation rules     |
 |--------------------|---------|----------------------|
