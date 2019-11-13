@@ -34,8 +34,8 @@ api_principles:
   url: "api_principles#api_responses"
 - title: Error Handling
   url: "api_principles#error_handling"
-- title: Automatic Self Certification
-  url: "api_principles#auto_certification"  
+- title: Self Certification
+  url: "api_principles#self_certification"  
 
 pos_management_title: PoS Management
 pos_management_url: "pos_management"
