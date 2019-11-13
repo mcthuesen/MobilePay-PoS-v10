@@ -34,6 +34,8 @@
 | CalibrationType | Integer |	≤ 5 | 0-65535 | N/A	| Calibration Type of a psysical Beacon.<br><br>This is used by the MobilePay app to know the distance between the Mobile Phone and the psycical Beacon before the MobilePay User Checks In on the Point of Sale.<br><br>This is only applicable if the Point of Sale contains any of the bluetooth BeaconTypes. |
 
 #### Payments
+| Name | Type | Length | Validations | Uniqueness requirements | Description |
+|------|------|--------|-------------|-------------------------|-------------|
 | PaymentId | Guid | 36 | Guid | Globally unique | MobilePay defined Payment Id. |
 | OrderId | String | ≤ 36 | Charset | No (Recommended: /Pos) | Merchant defined Payment Order Id. |
 | Amount | Decimal | - | Valid Positive Amount | N/A | Total Amount of the Payment. |
@@ -41,17 +43,3 @@
 | MerchantPaymentLabel | String | ≤ 36 | Charset | No	| Label for the Payment.<br><br>This is a way for the Merchant to tag a Payment with a Label.<br><br>This is visible in the transaction reporting section on the MobilePay Portal |
 | ReservationDurationInDays | Int | N/A | 1 - 14 | N/A | The number of days to keep the Payment reserved on the MobilePay User's Card/Account.<br><br>It is recommended to use the shortest duration possible in regards to the use case.|
 
-
-
-|Entity              | Type    | Validation rules     |
-|--------------------|---------|----------------------|
-|PoS ID              | string  |                      |
-|Beacon ID           | string  |                     |
-|Order ID            | string  |                    |
-|Refund order ID     | string  |                   |
-|Currency code       | string  |                  |                      
-|Payment amount      | decimal |                 |
-|Reservation length  | integer |                |
-|User minimum age    | integer |               |
-|Call back URL       | string  |              |
-|PoS name            | string  |             |
