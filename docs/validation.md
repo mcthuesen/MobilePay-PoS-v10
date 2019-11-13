@@ -11,9 +11,9 @@
 
 #### Brands
 
-| Name | Type | Length | Validations | Uniqueness requirements | Description |
-|------|------|--------|-------------|-------------------------|-------------|
-| MerchantBrandId | String | 10	| MPPOSXXXXX<br>POSDKXXXXX<br>POSFIXXXXX | Globally unique | MobilePay Brand Id<br><br>This identifies a Brand in MobilePay. |
+| Name | Validations | Uniqueness requirements | Description |
+|------|-------------|-------------------------|-------------|
+| MerchantBrandId | MPPOSXXXXX / POSDKXXXXX / POSFIXXXXX | Globally unique | MobilePay Brand Id<br><br>This identifies a Brand in MobilePay. |
 
 #### Stores
 
@@ -34,6 +34,7 @@
 | CalibrationType | Integer |	≤ 5 | 0-65535 | N/A	| Calibration Type of a psysical Beacon.<br><br>This is used by the MobilePay app to know the distance between the Mobile Phone and the psycical Beacon before the MobilePay User Checks In on the Point of Sale.<br><br>This is only applicable if the Point of Sale contains any of the bluetooth BeaconTypes. |
 
 #### Payments
+
 | Name | Type | Length | Validations | Uniqueness requirements | Description |
 |------|------|--------|-------------|-------------------------|-------------|
 | PaymentId | Guid | 36 | Guid | Globally unique | MobilePay defined Payment Id. |
