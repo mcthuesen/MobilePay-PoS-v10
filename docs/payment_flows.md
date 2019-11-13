@@ -142,7 +142,7 @@ If the user cancels the payment the state will transition to *CancelledByUser*.
 A refund is cancellable until it reaches the state *Captured* or *ExpiredAndCancelled*. Refunds can only be cancelled by the client since there is no user involved in the process. A refund can be cancelled by calling the endpoint **/v10/refunds/{refundId}/cancel**. It requires the id of the refund that was returned when the refund was initiated.
 When the refund has been cancelled the state transitions to *CancelledByClient*. 
 
-The diagrams below show the sunshine scenarios for a payment cancelled by the client and a payment cancelled by the user.
+The diagrams below show the sunshine scenarios for a payment cancelled by the client and a payment cancelled by the user, respectively.
 When the client cancels the payment a notification is sent to the app sending the user back to the pay screen with a message saying that the payment was cancelled by the shop.
 
 [![](assets/images/cancel-by-client.png)](assets/images/cancel-by-client.png)
