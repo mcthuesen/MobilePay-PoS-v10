@@ -13,7 +13,7 @@
 
 | Name | Validations | Uniqueness requirements | Description |
 |------|-------------|-------------------------|-------------|
-| MerchantBrandId | MPPOSXXXXX / POSDKXXXXX / POSFIXXXXX | Globally unique | MobilePay Brand Id<br><br>This identifies a Brand in MobilePay. |
+| MerchantBrandId | MPPOSXXXXX / POSDKXXXXX / POSFIXXXXX | MobilePay Brand Id<br><br>This identifies a Brand in MobilePay. |
 
 #### Stores
 
