@@ -151,4 +151,9 @@ When the user cancels the payment the app will show a message saying that the pa
 
 [![](assets/images/cancel-by-user.png)](assets/images/cancel-by-user.png)
 
-The cancel funtionality can also be used in case of non-sunshine scenarios. It could be if the call to initiate a payment is faulty or if the client never receives the response. In this case the client should either retry the call (as described in [Error Handling](api_principles#error_handling) or the client could try to get the payment id by the order id and cancel afterwards.
+The cancel funtionality can be used in various scenarios. It could be that the user changed his/her mind about paying with MobilePay or that something in the request was not correct (maybe the user added another item after the payment was initiated). In these cases the cancelling of the payment is straight forward and as shown in the diagrams above.
+
+The cancel functionality can also be used in case of non-sunshine scenarios. 
+It could be if the call to initiate a payment is faulty or if the client never receives the response. In this case the client should either retry the call (as described in [Error Handling](api_principles#error_handling) or the client could try to get the payment id by the order id and cancel afterwards.
+In the case of an unexpected restart of the client where the payment flow cannot be continued it might be necessary to cancel the active payment since there can be only one active payment on a PoS. If the payment id of the active payment is lost it can be retrieved by calling **/v10/payments** using the PoS id and setting the *active* boolean to true. When the payment id is retrieved the payment can be cancelled and the PoS is now ready for a new payment flow.
+
