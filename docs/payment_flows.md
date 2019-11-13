@@ -143,11 +143,11 @@ A refund is cancellable until it reaches the state *Captured* or *ExpiredAndCanc
 When the refund has been cancelled the state transitions to *CancelledByClient*. 
 
 The diagrams below show the sunshine scenarios for a payment cancelled by the client and a payment cancelled by the user.
-When the client cancels the payment a notification is sent to the app sending the user back to the pay screen with a message saying that the payment was cancelled by the shop. The payment will be visible in the Activity List but will be shown as cancelled.
+When the client cancels the payment a notification is sent to the app sending the user back to the pay screen with a message saying that the payment was cancelled by the shop.
 
 [![](assets/images/cancel-by-client.png)](assets/images/cancel-by-client.png)
 
-When the user cancels the payment the app will show a message saying that the payment was cancelled. The payment will be visible in the Activity List but will be shown as cancelled. The status of the payment when queried will be *CancelledByUser*.
+When the user cancels the payment the app will show a message saying that the payment was cancelled. The status of the payment when queried will be *CancelledByUser*.
 
 [![](assets/images/cancel-by-user.png)](assets/images/cancel-by-user.png)
 
