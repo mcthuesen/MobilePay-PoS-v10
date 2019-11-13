@@ -151,4 +151,4 @@ When the user cancels the payment the app will show a message saying that the pa
 
 [![](assets/images/cancel-by-user.png)](assets/images/cancel-by-user.png)
 
-The cancel funtionality can also be used in case of non-sunshine scenarios. It could be if the call to initiate a payment is faulty or it might be that the client never receives the response. In this case the client should either retry the call (as described in [Error Handling](api_principles#error_handling) or the client could try to get the payment id by the order id and cancel afterwards.
+The cancel funtionality can also be used in case of non-sunshine scenarios. It could be if the call to initiate a payment is faulty or if the client never receives the response. In this case the client should either retry the call (as described in [Error Handling](api_principles#error_handling) or the client could try to get the payment id by the order id and cancel afterwards.
