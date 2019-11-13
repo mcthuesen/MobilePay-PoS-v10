@@ -30,7 +30,7 @@ This page gives an overview of a the format and length restrictions for all inpu
 | Name | Format      | Description |
 |------|-------------|-------------|
 | `PosId` | Guid | Identifies a Point of Sale in MobilePay. |
-| `MerchantPosId` | String with at most 36 valid characters | Merchant defined Point of Sale Id.<br><br>Together with a MerchantId, may refer to a unique a Point of Sale. |
+| `MerchantPosId` | String with at most 36 valid characters | Merchant defined Point of Sale Id.<br>There can be at most one active Point of Sale with a given `MerchantPosId` for each merchant. |
 | `PosName` | String with at most 36 valid characters | Merchant defined Point of Sale Name.<br><br>The name is visible to a MobilePay user, after the user has checked in on the Point of Sale. |
 | `CallbackUrl` | TODO | In case of the Integrator System not being able to detect User CheckIn's, they can have the MobilePay Notification Service call this URL when a User has checked in.<br><br>To use the Notification Service the Callback URL needs to be manually approved by MobilePay before use.<br><br>The CallbackUrl can be either a valid URL or it can contain an Alias predefined by an agreement between MobilePay and the Integrator.<br><br>It can be relevant to use an Alias in case it is hard for the Integrator to update the CallbackUrl on hardware units such as Terminals. |
 | `BeaconId` | A GUID or 15 digits | Id of the Beacon.<br><br>In case of psysical device such as the MobilePay WhiteBox or a Terminal: The BeaconId is a 15 digit string.<br><br>If no psysical device (QR): BeaconId is not provided during Point of Sale creation and MobilePay will generate a String containing a random GUID as the BeaconId. |
