@@ -146,7 +146,7 @@ a `pollDelayInMs` field in the response body:
 /api/v10/refunds/{refundId}
 /api/v10/pointofsales/{posId}/checkin
 ````
-If a response includes a `pollDelayInMs` of 1000, the client *must* wait at least 1000ms (i.e., 1 second)
+If a response includes a `pollDelayInMs` of 1000, the client **must** wait at least 1000ms (i.e., 1 second)
 before polling the same endpoint. In case no response is received when querying one of the above polling endpoints,
 then clients should either:
 * use the `pollDelayInMs` from the last successful call to the given endpoint
