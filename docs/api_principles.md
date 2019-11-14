@@ -62,8 +62,8 @@ Certification requirements in regard to changes to Client Name and Client Versio
 Example with a Curl request:
 
 ````
---header 'X-MP-Client-Name: MobilePay Pos Client Reference Implementation'
---header 'X-MP-Client-Version: 2.1.1'
+--header 'X-MP-Client-System-Name: MobilePay Pos Client Reference Implementation'
+--header 'X-MP-Client-System-Version: 2.1.1'
 ````
 
 ## <a name="api_responses"></a> API Responses
