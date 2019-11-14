@@ -86,6 +86,10 @@ If a reservation payment expires, the state transitions to *ExpiredAndCancelled*
 
 [![](assets/images/reservation-payment-states.png)](assets/images/reservation-payment-states.png)
 
+A payment in the *Initiated* or *IssuedToUser* state can also be cancelled by MobilePay if it has been inactive
+for too long or an error occurs while reserving the payment amount on the user's card or account. If a payment is
+cancelled by MobilePay the state transitions to *CancelledByMobilePay*. 
+
 ### <a name="reservation_prepare"></a>Reservation Payment Flow Using Prepare-Ready
 
 The sequence diagram below shows a sunshine scenario for a reservation payment flow using the prepared-ready functionality. 
