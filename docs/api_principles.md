@@ -62,16 +62,16 @@ status codes for failed requests that failed due to a client error and HTTP 5XX 
 codes for failed requests that failed due to a server error. An overview of error codes
 used in the V10 API is given below.
 
-| Status code               | Description                                                                               |
-|---------------------------|-------------------------------------------------------------------------------------------|
-| 200 OK                    | The request succeeded                                                                     |
-| 204 No Content            | The request succeeded but no response was returned                                        |
-| 400 Bad Request           | The request is syntactically ill-formed or violates [validation rules](validation_rules)  |
-| 401 Unauthorized          | [Authentication](security) of the caller failed                                           |
-| 403 Forbidden             | The call was rejected due to insufficient permissions of the caller                       |
-| 404 Not Found             | The specified resource does not exist                                                     |
-| 409 Conflict              | The request was rejected due to the state of the underlying resource                      |
-| 500 Internal Server Error | An unrecoverable internal server error occured                                            |
+| Status code                 | Description                                                                               |
+|-----------------------------|-------------------------------------------------------------------------------------------|
+| `200 OK`                    | The request succeeded                                                                     |
+| `204 No Content`            | The request succeeded but no response was returned                                        |
+| `400 Bad Request`           | The request is syntactically ill-formed or violates [validation rules](validation_rules)  |
+| `401 Unauthorized`          | [Authentication](security) of the caller failed                                           |
+| `403 Forbidden`             | The call was rejected due to insufficient permissions of the caller                       |
+| `404 Not Found`             | The specified resource does not exist                                                     |
+| `409 Conflict`              | The request was rejected due to the state of the underlying resource                      |
+| `500 Internal Server Error` | An unrecoverable internal server error occured                                            |
 
 For most errors, V10 APIs returns an error response body that includes an error code and a error
 description. The error responses has the following structure:
