@@ -124,7 +124,7 @@ resource to fix any inconsistencies between the client and the PoS backend.
 
 TODO
 
-## <a name="throttling"></a> Throttling calls
+## <a name="throttling_calls"></a> Throttling Calls
 
 ## <a name="self_certification"></a> Self Certification
 
