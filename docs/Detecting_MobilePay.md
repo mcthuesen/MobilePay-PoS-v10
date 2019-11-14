@@ -17,7 +17,7 @@ constantly.
 
 **Notification service**
 
-Some interfaces do not naturally include a possibility for user activation - in these cases an endpoint can be exposed by the MobilePay PoS integrator. This endpoint will be called with a checkin Notification in the case a user has checked in. After receiving a notification the client can poll the HTTP GET checkin endpoint for that client.
+Some interfaces do not naturally include a possibility for user activation - in these cases an endpoint can be exposed by the MobilePay PoS integrator. This endpoint will be called with a checkin Notification when a user checks in. After receiving a notification the client can poll the HTTP GET checkin endpoint for that client.
 
 [![](assets/images/POD_BeaconIDRead.png)](assets/images/POD_BeaconIDRead.png)
 
