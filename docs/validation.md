@@ -1,4 +1,4 @@
-## <a name="validation"></a>Validation Rules
+## <a name="validation"></a> Input formats
 
 This page gives an overview of a the format and length restrictions for all input parameters used in the PoS V10 API. 
 
