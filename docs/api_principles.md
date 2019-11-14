@@ -19,7 +19,9 @@ The API is defined using the RESTful principles.
 
 **Communication security**
 
-MobilePay PoS version 10 uses TLS for communication security and data integrity (secure channel between the client and the API 10 servers). The current TLS version used with the MobilePay PoS solution is 1.2 -  Version 1.3 is finalized and will be implemented within 1-2 years - therefore clients should be able to handle the switch to 1.3 on the fly or with minimal changes.
+The MobilePay PoS V10 API uses TLS for communication security and data integrity (secure channel between the client and the 
+backend). The API currently uses TLS 1.2. It is the integrators responsibility to plan for an upgrade to TLS 1.3, when
+TLS 1.2 is deprecated. 
 
 **Integrator Authorization**
 
@@ -37,9 +39,16 @@ Example with a Curl request:
 
 ## <a name="client_identification"></a> Client Identification
 
-# The Client Id is used by the MobilePay PoS backend to identify the client on the application level - the backend expects that different clients use different ClientId thereby requiring following the steps in the developer portal for each client.
-
-Headers containing the Client Name and the Client Version are required. The Client Name is suitable name used for the client, preferable the name that the Integrator uses in their own communication, this way support communication between Merchant, Integrator and MobilePay uses the same name which should aid in removing confusion in the support sitiation. The Client version is a 3 dimensional number Major.Minor.Build - it is recommended to use the power of the Client Version Header, as this will be used by MobilePay to block versions of clients that are not certified and/or are misbehaving. An example of misbehavior would be spamming irrelevant HTTP calls that endanger fast response times for other clients.
+All calls to the MobilePay PoS V10 API must include the following two headers `X-MP-Client-System-Name` and
+`X-MP-Client-System-Version` to identify the client system and verify that the given system has been [certified]().
+The Client Name (`X-MP-Client-System-Name`) is a suitable name used for the 
+client, preferable the name that the Integrator uses in their own communication. This way support communication 
+between Merchant, Integrator and MobilePay uses the same name which should aid in removing confusion in the support 
+sitiation. The Client version (`X-MP-Client-System-Version`) is a 3 dimensional number Major.Minor.Build - it 
+is recommended that when the client software is updated, the client version is updated accordingly. 
+The client version will be used by MobilePay to block versions of clients that are not certified 
+and/or are misbehaving. An example of misbehavior would be spamming irrelevant HTTP calls that endanger fast 
+response times for other clients.
 
 * Major version represents major changes to the client version, perhaps representing breaking changes on the clients other interfaces or representing major changes communicated to merchants - A major change requires re-certification.
 * Minor version represents minor changes to the client version, changes that introduces new features or a change in the way internal logic is handled, minor version changes are perhaps not communicated to merchants - a minor change requires re-certification.
