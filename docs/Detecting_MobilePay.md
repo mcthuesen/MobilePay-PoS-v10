@@ -8,7 +8,10 @@ This is the default way of detecting MobilePay presence. In a supermarket this c
 
 [![](assets/images/POD_MobilepayButton.png)](assets/images/POD_MobilepayButton.png)
 
-A last example of a user activation is in the case of a QR code being displayed in a terminal - in these cases the terminal calls a HTTP GET checkin endpoint in the MobilePay v10 API - this approach ensures that this endpoint is not overloaded with requests.
+A last example of a user activation is in the case of a QR code being displayed in a terminal. Once the QR code is displayed,
+the terminal may start polling an HTTP GET checkin endpoint to determine if a user has checked in. The terminal may only poll
+for a checkin while the QR code is displayed on the terminal to ensure the checkin endpoint is not overloaded with requests 
+constantly.
 
 [![](assets/images/POD_polling.png)](assets/images/POD_polling.png)
 
