@@ -124,7 +124,11 @@ resource to fix any inconsistencies between the client and the PoS backend.
 
 TODO
 
-## <a name="throttling_calls"></a> Throttling Calls
+## <a name="call_throttling"></a> Call Throttling
+
+Several flows in the PoS V10 API requires the client to poll the PoS backend for state changes. To help 
+protect against excessive polling, all endpoints used for polling in the PoS V10 API includes a poll delay
+field to allow the backend to throttle polling calls from clients. 
 
 ## <a name="self_certification"></a> Self Certification
 
