@@ -40,7 +40,7 @@ Example with a Curl request:
 ## <a name="client_identification"></a> Client Identification
 
 All calls to the MobilePay PoS V10 API must include the following two headers `X-MP-Client-System-Name` and
-`X-MP-Client-System-Version` to identify the client system and verify that the given system has been [certified]().
+`X-MP-Client-System-Version` to identify the client system and verify that the given system has been [certified](api_principles#self_certification).
 The Client Name (`X-MP-Client-System-Name`) is a suitable name used for the 
 client, preferable the name that the Integrator uses in their own communication. This way support communication 
 between Merchant, Integrator and MobilePay uses the same name which should aid in removing confusion in the support 
