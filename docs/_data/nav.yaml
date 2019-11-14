@@ -34,8 +34,8 @@ api_principles:
   url: "api_principles#api_responses"
 - title: Error Handling
   url: "api_principles#error_handling"
-- title: Throttling Calls
-  url: "api_principles#throttling_calls"
+- title: Call Throttling
+  url: "api_principles#call_throttling"
 - title: Self Certification
   url: "api_principles#self_certification"  
 
