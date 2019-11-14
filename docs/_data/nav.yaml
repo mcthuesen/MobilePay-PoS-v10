@@ -20,7 +20,7 @@ payment_flows:
 - title: Cancel Flows
   url: "payment_flows#cancel"
   
-validation_title: Validation Rules
+validation_title: Input Formats
 validation_url: "validation"
 
 api_principles_title: API Principles
