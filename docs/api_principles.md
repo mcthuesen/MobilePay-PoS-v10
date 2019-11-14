@@ -31,7 +31,9 @@ Creating an app in MobilePay Developer portal will create a client Id that shoul
 
 Example with a Curl request:
 
-> --header 'X-IBM-Client-Id: 80e0075c-d0b5-4b74-a466-ecaca65234b0'
+````
+--header 'X-IBM-Client-Id: 80e0075c-d0b5-4b74-a466-ecaca65234b0'
+````
 
 ## <a name="client_identification"></a> Client Identification
 
