@@ -128,7 +128,15 @@ TODO
 
 Several flows in the PoS V10 API requires the client to poll the PoS backend for state changes. To help 
 protect against excessive polling, all endpoints used for polling in the PoS V10 API includes a poll delay
-field to allow the backend to throttle polling calls from clients. 
+field to allow the backend to throttle polling calls from clients. The following polling endpoints includes
+a `pollDelayInMs` field in the response body:
+````
+/api/v10/payments/{paymentId}
+/api/v10/refunds/{refundId}
+/api/v10/pointofsales/{posId}/checkin
+````
+If a response includes a `pollDelayInMs` of 1000, the client *must* wait at least 1000ms (i.e., 1 second)
+before polling the same endpoint.
 
 ## <a name="self_certification"></a> Self Certification
 
