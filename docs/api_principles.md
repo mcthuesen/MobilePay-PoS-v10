@@ -106,12 +106,12 @@ handled by fixing the client request.
 
 Network errors typically present themselves as timeouts or connections that are closed prematurely. 
 Network errors and server errors (HTTP 5XX responses) should initially be handled by retrying requests.
-If errors persist despite retries, the [flow should be aborted](). The PoS V10 API uses *idempotency* to
+If errors persist despite retries, the flow should be aborted. The PoS V10 API uses *idempotency* to
 ensure that requests can always be safely retried. Idempotency ensures that performing the same call 
 multiple times will not cause additional state changes beyond those caused by the first call. 
 
 For instance, if a
-[capture](...) call on a payment is successful on the backend, but the connection to the client is
+*capture* call on a payment is successful on the backend, but the connection to the client is
 closed before the client receives the response, then it is safe for the client to retry the capture 
 call. The second capture call will immediately return with a `200 OK` response as the capture was 
 already completed on the first capture call.
