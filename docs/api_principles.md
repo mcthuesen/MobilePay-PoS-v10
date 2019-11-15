@@ -136,7 +136,7 @@ client-generated *GUID* as the idempotency key.
 For instance, if a client calls to initiate a payment with a unique idempotency key, *key1*, and the 
 initiate call is successful but the client never receives the response due to an intermittent network 
 issue, then it is safe to retry the initiate payment call with the same idempotency key, *key1*.
-Because the idempotency is the same, the second call will not initiate a new payment, but rather 
+Because the idempotency key is the same, the second call will not initiate a new payment, but rather 
 return the *PaymentId* of the already initiated payment. 
 
 All other endpoints in the PoS V10 API are naturally idempotent and do not require explicit idempotency keys
