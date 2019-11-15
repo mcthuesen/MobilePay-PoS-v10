@@ -116,7 +116,7 @@ closed before the client receives the response, then it is safe to the client to
 second capture call will immediately return with a `200 OK` response as the capture was already completed
 on the first capture call.
 
-**Idempotency keys**
+**Idempotency keys**.
 In the case of `POST` endpoints that create new resources (e.g., initiating a payment or a refund) the backend
 cannot determine on its own whether two requests with identical request bodies is due to a retry or a request to
 create two resources. The PoS V10 API thus requires the client to set an *idempotency-key* header 
@@ -146,7 +146,7 @@ The PoS V10 API stores idempotency keys for at least 24 hours. If a call is retr
 key more than 24 hours after the original call, then the PoS V10 API does not guarantee that it will be handled
 as a retried call. 
 
-**Retrying requests**
+**Retrying requests**.
 We recommend retrying failed requests due to network and server errors using one of these strategies:
 * Retrying requests up to a fixed number of times with a constant delay between each call. 
 * Retrying requests until a proper response is received, using an exponential backoff with jitter strategy.
