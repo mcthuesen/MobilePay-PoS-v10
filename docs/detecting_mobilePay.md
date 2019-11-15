@@ -23,3 +23,9 @@ It is possible to get information about check ins via Bluetooth Low Energy - To 
 [![](assets/images/POD_BLEsignal.png)](assets/images/POD_BLEsignal.png)
 
 
+## <a name="notification_service"></a> Notification service
+
+Some interfaces do not naturally include a possibility for user activation - in these cases an endpoint can be exposed by the MobilePay PoS integrator. This endpoint will be called with a check-in Notification when a user checks in. After receiving a notification the client can poll the HTTP GET checkin endpoint for that client. For more details see [Notification Service](notification_service.md).
+
+[![](assets/images/POD_BeaconIDRead.png)](assets/images/POD_BeaconIDRead.png)
+
