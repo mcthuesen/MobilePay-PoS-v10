@@ -24,8 +24,8 @@ The PosId is used to delete a PoS. When a PoS is deleted, it is no longer possib
 
 ### Lookup
 The *GET /api/v10/pointofsales/{posId}* endpoint can be used to lookup what information is registered for a PoS.
+
 The *GET /api/v10/pointofsales* endpoint can be used with a filter to lookup a list of PosIds of PoSes satisfying that filter. The filter can include store ID, beacon ID, MerchantPosId and whether to return inactive PoSes.
 
 ### Check-in lookup
 The checkin endpoint will tell the client whether a user is checked in and the potential loyalty ids of the user. This can be used for polling, if the clients system expects a check-in before starting a payment. The endpoint also says how long time the client must wait before calling again.
-
