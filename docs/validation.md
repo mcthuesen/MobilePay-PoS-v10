@@ -2,7 +2,7 @@
 
 This page gives an overview of the format and length restrictions for all input parameters used in the PoS V10 API. 
 
-#### Headers
+## HTTP Headers
 
 | Name | Format      | Description |
 |------|-------------|-------------|
@@ -12,20 +12,20 @@ This page gives an overview of the format and length restrictions for all input 
 | `X-MP-Client-System-Version` | Valid Client-Version:<br>Major.Minor.Build<br>Example: 1.2.231 | Identifies the [version of the integrator system](api_principles#client_identification) calling the API. |
 | `X-MP-Idempotency-Key` | String with at most 36 valid characters | Used to allow calls to be [safely retried](api_principles#error_handling) in case of errors. |
 
-#### Brands
+## Brands
 
 | Name | Format      | Description |
 |------|-------------|-------------|
 | `MerchantBrandId` | MPPOSXXXXX /<br> POSDKXXXXX /<br> POSFIXXXXX | Identifies a Brand in MobilePay. |
 
-#### Stores
+## Stores
 
 | Name | Format      | Description |
 |------|-------------|-------------|
 | `StoreId` | Guid | Identifies a Store in MobilePay. |
 | `MerchantLocationId` | String with exactly 5 valid characters | MobilePay Location Id.<br><br>Together with a MerchantBrandId, this identifies a Store in MobilePay. |
 
-#### Point of Sales
+## Point of Sales
 
 | Name | Format      | Description |
 |------|-------------|-------------|
@@ -37,7 +37,7 @@ This page gives an overview of the format and length restrictions for all input 
 | `BeaconType` | QR / NFC / BluetoothOther / BluetoothMP1 / BluetoothMP2 / BluetoothMP3 / BluetoothMP4	| Beacon broadcast type.<br><br>Identifies an option for how a MobilePay User can CheckIn on a Point of Sale.<br><br>During creation of a Point of Sale, a list of Beacon Types are provided that defines how MobilePay Users can CheckIn on the Point of Sale. |
 | `CalibrationType` | Integer between 0 and 65535 | Calibration Type of a psysical Beacon.<br><br>This is used by the MobilePay app to know the distance between the Mobile Phone and the psycical Beacon before the MobilePay User Checks In on the Point of Sale.<br><br>This is only applicable if the Point of Sale contains any of the bluetooth BeaconTypes. |
 
-#### Payments
+## Payments
 
 | Name | Format      | Description |
 |------|-------------|-------------|
@@ -48,7 +48,7 @@ This page gives an overview of the format and length restrictions for all input 
 | `MerchantPaymentLabel` | String with at most 36 valid characters	| Label for the Payment.<br><br>This is a way for the Merchant to tag a Payment with a Label.<br><br>This is visible in the transaction reporting section on the MobilePay Portal |
 | `ReservationDurationInDays` | Integer between 1 and 14 | The number of days to keep the Payment reserved on the MobilePay User's Card/Account.<br><br>It is recommended to use the shortest duration possible in regards to the use case. |
 
-#### Valid characters
+## Valid characters
 
 Valid characters for PoS V10 API request fields are:
 * 0 - 9
