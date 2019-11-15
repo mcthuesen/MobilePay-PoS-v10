@@ -149,7 +149,8 @@ as a retried call.
 **Retrying requests**.
 We recommend retrying failed requests due to network and server errors using one of these strategies:
 * Retrying requests up to a fixed number of times with a constant delay between each call. 
-* Retrying requests until a proper response is received, using an exponential backoff with jitter strategy.
+* Retrying requests until a proper response is received, using an exponential backoff with jitter strategy (i.e.,
+doubling the delay between each retried call and adding some randomness to the delay to avoid overloading the backend).
 
 #### Client errors
 
@@ -177,8 +178,8 @@ before polling the same endpoint. In case no response is received when querying 
 then clients should either:
 
 * Use the `pollDelayInMs` from the last successful call to the given endpoint.
-* Continue polling using an exponential backoff strategy with random jitter to increase the delay between
-each polling call.
+* Continue polling using an exponential backoff with jitter strategy (i.e., doubling the delay between each retried 
+call and adding some randomness to the delay to avoid overloading the backend).
 
 ## <a name="self_certification"></a> Self Certification
 
