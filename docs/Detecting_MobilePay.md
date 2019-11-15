@@ -15,7 +15,7 @@ constantly.
 
 [![](assets/images/POD_polling.png)](assets/images/POD_polling.png)
 
-**Notification service**
+<a name="notification_service"></a>**Notification service**
 
 Some interfaces do not naturally include a possibility for user activation - in these cases an endpoint can be exposed by the MobilePay PoS integrator. This endpoint will be called with a checkin Notification when a user checks in. After receiving a notification the client can poll the HTTP GET checkin endpoint for that client.
 
