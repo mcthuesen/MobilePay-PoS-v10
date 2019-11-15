@@ -12,7 +12,7 @@ This document does not include detailed specification of the endpoints, response
 [![](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)
 
 ## MobilePay Point-of-Sale version 10.0
-MobilePay PoS has had several versions. This documentation describes version 10.0 of the API. Version 10.0 is an update from version 8.6 of the API. Mobilepay have made several changes in the latest API. These changes are made to improve the quality of the MobilePay PoS clients and to be able to build new fatures for the benefit of Merchants. For an overview of the changes in 10.0, see the [changes overview](overview_of_changes).
+There are several versions of MobilePay PoS. This documentation describes version 10.0 of the API. Version 10.0 is an update with several changes from version 8.6 of the API. The changes to the latest API are made to improve the quality of the MobilePay PoS clients and to make it easier to build new fatures for the benefit of Merchants. For an overview of the changes in 10.0, see the [changes overview](overview_of_changes).
 
 ## Payment experience
 MobilePay PoS is an API for setting up Merchant's transaction requests on customers' MobilePay apps in a store. MobilePay PoS does not require the customer to manually enter any information in the MobilePay app pertaining to the transaction. A transaction request can typically be obtained by the customer by holding the mobile device near a Merchant device (Terminal, BLE beacon, etc.) OR scanning a QR code.
