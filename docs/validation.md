@@ -3,7 +3,7 @@
 This page gives an overview of the format and length restrictions for all input parameters used in the PoS V10 API. 
 
 ## HTTP Headers
-For more information about the http headers, see [API principles](api_principles)
+For more information about the http headers, see [API principles](api_principles).
 
 | Name | Format      | Description |
 |------|-------------|-------------|
