@@ -13,7 +13,7 @@ The client can supply the name of a PoS. This name is shown in the app when the 
 
 The client can supply a BeaconId, or have one generated for them. If the client supplies one, it must be a 15-digit string. If MobilePay generates it, it will be a GUID.
 
-The client can supply a Callback for notifications. The Callback can be either a valid Url or it can contain an Alias preconfigured by MobilePay in collaboration with the integrator. See [Notification service](Detecting_MobilePay#notification_service).
+The client can supply a Callback for notifications. The Callback can be either a valid Url or it can contain an Alias preconfigured by MobilePay in collaboration with the integrator. See [Notification service](detecting_mobilePay#notification_service).
 
 The client has to specify supported beacon types. This list is used to keep track of which beacon types are used by the PoS, but is also used by MobilePay to better detect errors and for better customer support.
 
