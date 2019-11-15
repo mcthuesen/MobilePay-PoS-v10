@@ -1,15 +1,15 @@
 
 # API Principles
 
-This is a preliminary list of architectual principles.
+This is a preliminary list of architectural principles.
 
 **Backend has the truth**
 
-An architectual principle in MobilePay PoS is that the Backend has the truth - that means in a situation where certainty is required, for instance is the payment approved, the app and clients will have to wait for confirmation from the backend.
+An architectural principle in MobilePay PoS is that the Backend has the truth - that means in a situation where certainty is required, for instance is the payment approved, the app and client will have to wait for confirmation from the backend.
 
 **API versus Implementation**
 
-The API does not describe the abstractions of the underlying backend OR client implementations - instead the API serves as the joint Interface for Backend and Frontend. The rammification for this is that BOTH frontend and backend can move independently from the API however they must always support the API specification and not only support perceived details of current implementations. ANY valid HTTP request must be handled appropiately by the backend and produce a useful informative HTTP response. Any valid HTTP response received in the client must be handled appropriately by the client.
+The API does not describe the abstractions of the underlying backend OR client implementations - instead the API serves as the joint Interface for Backend and Frontend. The ramification for this is that BOTH frontend and backend can move independently from the API however they must always support the API specification and not only support perceived details of current implementations. ANY valid HTTP request must be handled appropriately by the backend and produce a useful informative HTTP response. Any valid HTTP response received in the client must be handled appropriately by the client.
 
 **RESTful API**
 
@@ -20,15 +20,15 @@ The API is defined using the RESTful principles.
 **Communication security**
 
 The MobilePay PoS V10 API uses TLS for communication security and data integrity (secure channel between the client and the 
-backend). The API currently uses TLS 1.2. It is the integrators responsibility to plan for an upgrade to TLS 1.3, when
+backend). The API currently uses TLS 1.2. It is the integrator's responsibility to plan for an upgrade to TLS 1.3, when
 TLS 1.2 is deprecated. 
 
 **Integrator Authorization**
 
-The MobilePay API Gateway is ensuring the authentication of all PoS API request. 
+The MobilePay API Gateway is ensuring the authentication of all PoS API requests. 
 In order to be granted access to the MobilePay PoS API each integrator/vendor will have to enroll their clients as a client (called App) in our API Gateway Developer Portal (see section below for more information about it).
 
-Creating an app in MobilePay Developer portal will create a client Id that should be used in all calls the the MobilePay PoS API in the following way:
+Creating an app in MobilePay Developer Portal will create a client id that should be used in all calls to the MobilePay PoS API in the following way:
 
 
 Example with a Curl request:
@@ -42,22 +42,22 @@ Example with a Curl request:
 All calls to the MobilePay PoS V10 API must include the following two headers `X-MP-Client-System-Name` and
 `X-MP-Client-System-Version` to identify the client system and verify that the given system has been [certified](api_principles#self_certification).
 The Client Name (`X-MP-Client-System-Name`) is a suitable name used for the 
-client, preferable the name that the Integrator uses in their own communication. This way support communication 
+client, preferably the name that the Integrator uses in their own communication. This way support communication 
 between Merchant, Integrator and MobilePay uses the same name which should aid in removing confusion in the support 
-sitiation. The Client version (`X-MP-Client-System-Version`) is a 3 dimensional number Major.Minor.Build - it 
+situation. The Client version (`X-MP-Client-System-Version`) is a 3 dimensional number Major.Minor.Build - it 
 is recommended that when the client software is updated, the client version is updated accordingly. 
 The client version will be used by MobilePay to block versions of clients that are not certified 
 and/or are misbehaving. An example of misbehavior would be spamming irrelevant HTTP calls that endanger fast 
 response times for other clients.
 
-* Major version represents major changes to the client version, perhaps representing breaking changes on the clients other interfaces or representing major changes communicated to merchants - A major change requires re-certification.
-* Minor version represents minor changes to the client version, changes that introduces new features or a change in the way internal logic is handled, minor version changes are perhaps not communicated to merchants - a minor change requires re-certification.
-* Build version represents a new build of the client, the include minor bug-fixes and changes of the lowest magnitude. A new build version does not require a re-certification
+* Major version represents major changes to the client version, perhaps representing breaking changes on the clients other interfaces or representing major changes communicated to merchants - A major change requires recertification.
+* Minor version represents minor changes to the client version, changes that introduces new features or a change in the way internal logic is handled. Minor version changes are perhaps not communicated to merchants - a minor change requires recertification.
+* Build version represents a new build of the client, including minor bug-fixes and changes of the lowest magnitude. A new build version does not require recertification.
 
-Certification requirements in regard to changes to Client Name and Client Version
+Certification requirements in regard to changes to Client Name and Client Version:
 
-* Changes in Client Name, Major version or Minor version requires a new Certification
-* Changes in Build version does not requires a new Certification
+* Changes in Client Name, Major version or Minor version require a new Certification.
+* Changes in Build version do not require a new Certification.
 
 Example with a Curl request:
 
@@ -75,17 +75,17 @@ used in the V10 API is given below.
 
 | Status code                 | Description                                                                               |
 |-----------------------------|-------------------------------------------------------------------------------------------|
-| `200 OK`                    | The request succeeded                                                                     |
-| `204 No Content`            | The request succeeded but no response was returned                                        |
-| `400 Bad Request`           | The request is syntactically ill-formed or violates [validation rules](validation_rules)  |
-| `401 Unauthorized`          | [Authentication](security) of the caller failed                                           |
-| `403 Forbidden`             | The call was rejected due to insufficient permissions of the caller                       |
-| `404 Not Found`             | The specified resource does not exist                                                     |
-| `409 Conflict`              | The request was rejected due to the state of the underlying resource                      |
-| `500 Internal Server Error` | An unrecoverable internal server error occured                                            |
+| `200 OK`                    | The request succeeded.                                                                     |
+| `204 No Content`            | The request succeeded but no response was returned.                                        |
+| `400 Bad Request`           | The request is syntactically ill-formed or violates [validation rules](validation_rules).  |
+| `401 Unauthorized`          | [Authentication](security) of the caller failed.                                           |
+| `403 Forbidden`             | The call was rejected due to insufficient permissions of the caller.                       |
+| `404 Not Found`             | The specified resource does not exist.                                                     |
+| `409 Conflict`              | The request was rejected due to the state of the underlying resource.                      |
+| `500 Internal Server Error` | An unrecoverable internal server error occurred.                                            |
 
-For most errors, V10 APIs returns an error response body that includes an error code and a error
-description. The error responses has the following structure:
+For most errors, V10 APIs return an error response body that includes an error code and an error
+description. The error response has the following structure:
 
 ```javascript
 {
@@ -137,25 +137,28 @@ TODO
 
 ## <a name="call_throttling"></a> Call Throttling
 
-Several flows in the PoS V10 API requires the client to poll the PoS backend for state changes. To help 
-protect against excessive polling, all endpoints used for polling in the PoS V10 API includes a poll delay
-field to allow the backend to throttle polling calls from clients. The following polling endpoints includes
+Several flows in the PoS V10 API require the client to poll the PoS backend for state changes. To help 
+protect against excessive polling, all endpoints used for polling in the PoS V10 API include a poll delay
+field to allow the backend to throttle polling calls from clients. The following polling endpoints include
 a `pollDelayInMs` field in the response body:
+
 ````
 /api/v10/payments/{paymentId}
 /api/v10/refunds/{refundId}
 /api/v10/pointofsales/{posId}/checkin
 ````
+
 If a response includes a `pollDelayInMs` of 1000, the client **must** wait at least 1000ms (i.e., 1 second)
 before polling the same endpoint. In case no response is received when querying one of the above polling endpoints,
 then clients should either:
-* use the `pollDelayInMs` from the last successful call to the given endpoint
-* continue polling using an exponential backoff strategy with random jitter to increase the delay between
-each polling call
+
+* Use the `pollDelayInMs` from the last successful call to the given endpoint.
+* Continue polling using an exponential backoff strategy with random jitter to increase the delay between
+each polling call.
 
 ## <a name="self_certification"></a> Self Certification
 
-The certification process changes with API v10 - for the new API all minor and major versions of clients 
+The certification process changes with API V10 - for the new API all minor and major versions of clients 
 must be certified, MobilePay will provide an automatic certification process - where it will be possible 
 for most integrators to create a fully automated self-certification. The certification will be concluded 
 with an automated report on how the certification went.
