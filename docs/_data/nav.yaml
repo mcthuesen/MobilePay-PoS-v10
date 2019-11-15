@@ -2,7 +2,10 @@ introduction_title: Introduction
 introduction_url: "index"
 
 detecting_mobilepay_title: Detecting MobilePay
-detecting_mobilepay_url: "Detecting_MobilePay"
+detecting_mobilepay_url: "detecting_mobilePay"
+detecting_mobilepay:
+- title: User Activation
+  url: "detecting_mobilePay#user_activation"
 
 payment_flows_title: Payment Flows
 payment_flows_url: "payment_flows"
