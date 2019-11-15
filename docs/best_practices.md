@@ -7,10 +7,10 @@ While our system supports users checking in both before or after a payment has b
 As an example: In a supermarket a user can check-in and then start bagging his groceries. When all the groceries have been scanned the cash register will initiate the payment and allow the user to swipe. 
 This is an advantage over both cash and card payments, as the user has no need to go back to the terminal/payment area again. which means a faster transaction for all involved parties.
 
-### Payment Flows
+### Payment and Loyalty-Payment flows
 We have two main payment flows in the V10 API.
 Initiate payment followed by a Capture, and a flow where initiate payment is split into two parts: Prepare-Ready and then followed by a capture.
-We recommend to use the Initiate-Capture flow if you do not have a use case for the latter. Then you will save a call to our API and in the end improve the overall time it takes to complete a payment.
+We recommend to use the Initiate-Capture flow if you do not need to calculate discounted amounts based on a loyalty ID. Then you will save a call to our API and in the end improve the overall time it takes to complete a payment.
 
 ### Specify Expected Capture When
 It is required to specify when the payment is expected to be captured. The values are either immediately, short, medium, and long. These are values that control how payments are handled by MobilePay Support and it is therefore beneficial that these values are set as accurately as possible.
