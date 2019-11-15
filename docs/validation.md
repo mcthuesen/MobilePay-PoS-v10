@@ -14,12 +14,14 @@ For more information about the http headers, see [API principles](api_principles
 | `X-MP-Idempotency-Key` | String with at most 36 valid characters | Used to allow calls to be [safely retried](api_principles#error_handling) in case of errors. |
 
 ## Brands
+For more information about brands, see [PoS management](pos_management).
 
 | Name | Format      | Description |
 |------|-------------|-------------|
 | `MerchantBrandId` | MPPOSXXXXX /<br> POSDKXXXXX /<br> POSFIXXXXX | Identifies a Brand in MobilePay. |
 
 ## Stores
+For more information about stores, see [PoS management](pos_management).
 
 | Name | Format      | Description |
 |------|-------------|-------------|
@@ -27,6 +29,7 @@ For more information about the http headers, see [API principles](api_principles
 | `MerchantLocationId` | String with exactly 5 valid characters | MobilePay Location Id.<br><br>Together with a MerchantBrandId, this identifies a Store in MobilePay. |
 
 ## Point of Sales
+For more information about a Point of Sale, see [PoS management](pos_management).
 
 | Name | Format      | Description |
 |------|-------------|-------------|
@@ -39,6 +42,7 @@ For more information about the http headers, see [API principles](api_principles
 | `CalibrationType` | Integer between 0 and 65535 | Calibration Type of a psysical Beacon.<br><br>This is used by the MobilePay app to know the distance between the Mobile Phone and the psycical Beacon before the MobilePay User Checks In on the Point of Sale.<br><br>This is only applicable if the Point of Sale contains any of the bluetooth BeaconTypes. |
 
 ## Payments
+For more information about payments, see [Payment flows](payment_flows).
 
 | Name | Format      | Description |
 |------|-------------|-------------|
