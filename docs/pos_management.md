@@ -17,14 +17,14 @@ The client can supply a Callback for notifications. The Callback can be either a
 
 The client has to specify supported beacon types. This list is used to keep track of which beacon types are used by the PoS, but is also used by MobilePay to better detect errors and for better customer support.
 
-TODO picture
+[![](assets/images/PoS_Onboarding.png)](assets/images/PoS_Onboarding.png)
 
 Note that a PoS is not editable. If the client needs to change something on the PoS (e.g. name, beacon ID, callback URL) they have to delete the existing PoS and create a new one with the changes. Best practice for changing values on a PoS is to re-use the same MerchantPosId.
 
 ### Offboarding / Deletion
 The PosId is used to delete a PoS. When a PoS is deleted, it is no longer possible to initiate payments on that PoS, and any checked in user will be checked out. Any payments that have reached the Reserved state can still be cancelled or captured. We recommend that any Reserved payments are handled (captured or cancelled) before deletion.
 
-TODO picture
+[![](assets/images/PoS_Offboarding.png)](assets/images/PoS_Offboarding.png)
 
 ### Lookup
 The *GET /api/v10/pointofsales/{posId}* endpoint can be used to lookup what information is registered for a PoS.
