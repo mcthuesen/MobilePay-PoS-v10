@@ -53,7 +53,7 @@ When creating your Point-of-Sales using the endpoint **/v10/pointofsales** you h
 This way of providing the URL is the easiest way to get started using the notification service. On the contrary if you imagine that the URL will change in the future then [URL by Alias](detecting_mobilePay#URL_by_Alias) is the best way to go.
 
 ### <a name="URL_by_Alias"></a> URL by Alias
-When you want the possibility of changing the URL, without having to re-configure all your clients with the new URL, you can have to use this method of providing the URL.
+When you want the possibility of changing the URL, without having to re-configure all your clients with the new URL, you will have to use this method of providing the URL.
 
 First you will need to send an email to developer@mobilepay.com and request to map your URL to an alias.
 Then you can create your Point-of-Sales using the endpoint **/v10/pointofsales** with a callback looking like this:
