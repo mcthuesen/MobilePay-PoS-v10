@@ -1,9 +1,9 @@
-## <a name="validation"></a> Input Formats
+# <a name="validation"></a> Input Formats
 
 This page gives an overview of the format and length restrictions for all input parameters used in the PoS V10 API. 
 
 ## HTTP Headers
-
+For more information about the http headers, see [API principles](api_principles)
 | Name | Format      | Description |
 |------|-------------|-------------|
 | `X-IBM-ClientId` | Guid | Identifies an application created through MobilePay Developer Portal. |
