@@ -21,7 +21,8 @@ In error cases where you lost the paymentId you can use the **/v10/payments** en
 That is why we recommend always to use unique orderIds.
 
 ### Capture or Cancel of old Reservations
-All reservations should be captured or cancelled as soon as practically possible. It is the task of the PoS Client to determine whether or not a reservation should be captured or cancelled. Therefore it is bad practice to poll for outstanding payments that are in reserved state and either cancel or capture.
+All reservations should be captured or cancelled as soon as practically possible. If an error occurs that result in either Cancel or Capture being impossible - It is the responsibility of the PoS Client to persist which payments should be captured at a later stage. When processing for capturing at the later stage, it is important that only payments that should actually be captured are processed.
+It is bad practice to poll for outstanding payments that are in reserved state, since that could lead to payments that should be cancelled or expired, to be captured.
 
 ### Polling
 It is possible to get information on a payment using **/v10/payments/{paymentId}**, and it is possible to get information about an active check-in using **/v10/pointofsales/{posId}/checkin**. 
