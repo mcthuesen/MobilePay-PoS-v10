@@ -13,7 +13,7 @@ Initiate payment followed by a Capture, and a flow where initiate payment is spl
 We recommend to use the Initiate-Capture flow if you do not need to calculate discounted amounts based on a loyalty ID. Then you will save a call to our API and in the end improve the overall time it takes to complete a payment.
 
 ### Specify Expected Capture When
-It is required to specify when the payment is expected to be captured. The values are either immediately, Within1Hour, Within24Hours, and Within14Days. These are values that control how payments are handled by MobilePay Support and it is therefore beneficial that these values are set as accurately as possible.
+It is required to specify when the payment is expected to be captured. The values are either immediately, Within24Hours, and Within14Days. These are values that control how payments are handled by MobilePay Support and it is therefore beneficial that these values are set as accurately as possible.
 
 ### Order ids
 Order ids are not required to be unique however we do recommend it.
