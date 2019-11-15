@@ -38,4 +38,4 @@ The checkin endpoint will tell the client whether a user is checked in and the p
 ### <a name="master-data"></a>Master Data
 A store is uniquely defined by the combination of MerchantBrandId and MerchantLocationId. Two stores with the same MerchantLocationId but different MerchantBrandIds are not related in any way. The MerchantBrandId, MerchantLocationId and StoreId are supplied by MobilePay when the Merchant/Store is onboarded. 
 
-TODO id hierarchy
+[![](assets/images/Master_Data_Hierarchy.png)](assets/images/Master_Data_Hierarchy.png)
