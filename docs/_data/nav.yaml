@@ -6,6 +6,10 @@ detecting_mobilepay_url: "detecting_mobilePay"
 detecting_mobilepay:
 - title: User Activation
   url: "detecting_mobilePay#user_activation"
+- title: BLE 2-way Communication
+  url: "detecting_mobilePay#ble"
+- title: Notification Service
+  url: "detecting_mobilePay#notification_service"
 
 payment_flows_title: Payment Flows
 payment_flows_url: "payment_flows"
