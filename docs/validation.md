@@ -4,6 +4,7 @@ This page gives an overview of the format and length restrictions for all input 
 
 ## HTTP Headers
 For more information about the http headers, see [API principles](api_principles)
+
 | Name | Format      | Description |
 |------|-------------|-------------|
 | `X-IBM-ClientId` | Guid | Identifies an application created through MobilePay Developer Portal. |
