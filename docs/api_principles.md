@@ -112,9 +112,9 @@ multiple times will not cause additional state changes beyond those caused by th
 
 For instance, if a
 [capture](...) call on a payment is successful on the backend, but the connection to the client is
-closed before the client receives the response, then it is safe to the client to retry the capture. The
-second capture call will immediately return with a `200 OK` response as the capture was already completed
-on the first capture call.
+closed before the client receives the response, then it is safe for the client to retry the capture 
+call. The second capture call will immediately return with a `200 OK` response as the capture was 
+already completed on the first capture call.
 
 **Idempotency keys**.
 In the case of `POST` endpoints that create new resources (e.g., initiating a payment or a refund) the backend
@@ -128,10 +128,10 @@ POST /api/v10/payments/prepare
 POST /api/v10/refunds
 POST /api/v10/pointofsales
 ````
-For each call to the endpoints above, the client should generate a unique idempotency-key for the
+For each call to the endpoints above, the client should generate a unique idempotency key for the
 given call. In case the client decides to retry a call due to a failure, the client **must** use the
 same idempotency-key, to allow the backend to identify it as a retried call. We recommend using a
-client-generated *GUID* as the idempotency-key.
+client-generated *GUID* as the idempotency key.
 
 For instance, if a client calls to initiate a payment with a unique idempotency key, *key1*, and the 
 initiate call is successful but the client never receives the response due to an intermittent network 
@@ -139,7 +139,7 @@ issue, then it is safe to retry the initiate payment call with the same idempote
 Because the idempotency is the same, the second call will not initiate a new payment, but rather 
 return the *PaymentId* of the already initiated payment. 
 
-All other endpoints in the PoS V10 API are naturally idempotent and does not require an explicit idempotency key
+All other endpoints in the PoS V10 API are naturally idempotent and do not require explicit idempotency keys
 to be set by the client. 
 
 The PoS V10 API stores idempotency keys for at least 24 hours. If a call is retried with the same idempotency
