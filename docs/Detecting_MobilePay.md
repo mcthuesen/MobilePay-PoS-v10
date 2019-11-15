@@ -23,6 +23,6 @@ Some interfaces do not naturally include a possibility for user activation - in 
 
 **BLE 2-way communication**
 
-It is possible to get information about check ins via Bluetooth Low Energy - To use this approach the Integrator will need to use one of the MobilePay defined Bluetooth communication protocols. TODO insert link to Bluetooth documentation.
+It is possible to get information about check ins via Bluetooth Low Energy - To use this approach the Integrator will need to use one of the MobilePay defined Bluetooth communication protocols.
 
 [![](assets/images/POD_BLEsignal.png)](assets/images/POD_BLEsignal.png)
