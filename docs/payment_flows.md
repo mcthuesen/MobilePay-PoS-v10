@@ -68,12 +68,11 @@ Until the refund has been captured, the client can also choose to cancel the ref
 
 The V10 API supports cancelling of payments and refunds.
 
+#### Cancelling Payments
+
 A payment is cancellable by the client until the state has changed to *Captured* or *ExpiredAndCancelled*. Furthermore, a payment can be cancelled by the user when the payment is in state *Paired* or *IssuedToUser*. 
 Payments can be cancelled by calling the endpoint **/v10/payments/{paymentId}/cancel**. It requires the payment id of the payment to be cancelled. When the payment has been cancelled the state transitions to *CancelledByClient*. 
 If the user cancels the payment the state will transition to *CancelledByUser*.
-
-A refund is cancellable until it reaches the state *Captured* or *ExpiredAndCancelled*. Refunds can only be cancelled by the client since there is no user involved in the process. A refund can be cancelled by calling the endpoint **/v10/refunds/{refundId}/cancel**. It requires the id of the refund that was returned when the refund was initiated.
-When the refund has been cancelled the state transitions to *CancelledByClient*. 
 
 The diagrams below show the sunshine scenarios for a payment cancelled by the client and a payment cancelled by the user, respectively.
 When the client cancels the payment a notification is sent to the app sending the user back to the pay screen with a message saying that the payment was cancelled by the shop.
@@ -93,3 +92,9 @@ the payment id by the order id and cancel afterwards.
 
 In the case of an unexpected restart of the client where the payment flow cannot be continued it might be necessary to cancel the active payment since there can be only one active payment on a PoS. If the payment id of the active payment is lost it can be retrieved by calling **/v10/payments** using the PoS id and setting the *active* boolean to true. When the payment id is retrieved the payment can be cancelled and the PoS is now ready for a new payment flow.
 
+#### Cancelling Refunds
+
+A refund is cancellable until it reaches the state *Captured* or *ExpiredAndCancelled*. Refunds can only be cancelled by the client since there is no user involved in the process. A refund can be cancelled by calling the endpoint **/v10/refunds/{refundId}/cancel**. It requires the id of the refund that was returned when the refund was initiated.
+When the refund has been cancelled the state transitions to *CancelledByClient*. 
+
+[![](assets/images/cancel-refund-by-client.png)](assets/images/cancel-refund-by-client.png)
