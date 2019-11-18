@@ -24,4 +24,4 @@ Notable changes from Version 8.6 to Version 10 of the MobilePay PoS API
 
 The following diagram shows the ID-Hierarchy of the Master data in MobilePay PoS.
 
-[![](assets/images/Pos-v10-id-hierarchy.png)](assets/images/Pos-v10-id-hierarchy.png)
+[![](assets/images/ID_Hierarchy_Changes.png)](assets/images/ID_Hierarchy_Changes.png)
