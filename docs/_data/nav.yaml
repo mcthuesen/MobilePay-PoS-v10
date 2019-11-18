@@ -14,14 +14,10 @@ detecting_mobilepay:
 payment_flows_title: Payment Flows
 payment_flows_url: "payment_flows"
 payment_flows:
-- title: Instant Payment Flow
-  url: "payment_flows#instant"
-- title: Instant Payment Flow Using Prepare-Ready
-  url: "payment_flows#instant_prepare"
-- title: Reservation Payment Flow
-  url: "payment_flows#reservation"
-- title: Reservation Payment Flow Using Prepare-Ready
-  url: "payment_flows#reservation_prepare"
+- title: Payment Flow
+  url: "payment_flows#payment_flow"
+- title: Prepared Payment Flow
+  url: "payment_flows#prepared_payment_flow"
 - title: Refunds
   url: "payment_flows#refunds"
 - title: Cancel Flows
