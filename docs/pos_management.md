@@ -11,7 +11,8 @@ The merchantLocationId together with the merchantBrandId identifies a store with
 
 The merchant creates their brand and store when onboarding MobilePay and they have to provide their integrator with the id's of the two entities so that the integrator's client can manage PoS'es on the merchants behalf.
 
-When the integrator has received the merchantBrandId and the merchantLocationId they will have to call *GET /api/v10/stores* with the two ids and in return they will receive a storeId which will be used to create all the PoS'es on that store. The storeId will therefore have to be persisted in an application configuration file for subsequent calls to the V10 API.
+When the integrator has received the merchantBrandId and the merchantLocationId they will have to call *GET /api/v10/stores* with the two ids and in return they will receive a storeId which will be used to create all the PoS'es on that store. The storeId will therefore have to be persisted in an application configuration file for subsequent calls to the V10 API. Here is a flow for getting the storeId using *GET /stores*:
+[![](assets/images/get_store.png)](assets/images/get_store.png)
 
 ### PoS Creation
 
