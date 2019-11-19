@@ -1,5 +1,5 @@
 # <a name="NotificationService"></a> Notification Service
-If your client is unable to detect whether a MobilePay user has checked-in by either [User Activation](detecting_mobilepay#user_activation) or [BLE 2-Way](detecting_mobilepay#ble) you can use our notification service.
+If your client is unable to detect whether a MobilePay user has checked-in by either [User Activation](detecting_mobilePay#user_activation) or [BLE 2-Way](detecting_mobilePay#ble) you can use our notification service.
 
 To be able to use the notification service, you need to implement an [endpoint](notification_service#NotificationEndpoint) that MobilePay will send a notification to, when we want you to query the active check-in on a PoS.
 
