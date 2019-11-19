@@ -17,7 +17,7 @@ When the integrator has received the merchantBrandId and the merchantLocationId 
 ### PoS Creation
 
 #### Beacon Types
-The first thing to consider is what [beacon types](beacon_type) that will be supported by the client.
+The first thing to consider is what [beacon types](validations#poses) that will be supported by the client.
 It can range from an unmanned vending machine that has no payment hardware at all and hence only show a QR code on a screen, to a full fledged super market ECR with a 2-way bluetooth capable terminal that also can show a QR code. To create a Pos, the client needs to provide a list of possible ways to detect the PoS. The more accurate the list is, the better MobilePay will be able to detect eventual errors (if bluetooth is provided as a beacon type but we can see no one ever checks-in via bluetooth something is likely wrong). It is recommended to keep the list of supported beacon types in an application configuration and then edit the list in case the setup changes.
 
 #### <a name="beacon_ids"></a>Beacon Id's
