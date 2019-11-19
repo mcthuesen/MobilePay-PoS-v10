@@ -3,7 +3,7 @@ The point-of-sale (reffered to as 'PoS' from this point on) represents the conta
 So to get started making MobilePay payments the first thing to do is to create a PoS.
 
 ### Onboarding
-Before the client can even start creating PoS'es, the integrator needs to ask the merchants for some information. First of all they will need one or more merchantBrandId's and a list of merchantLocationId's (one merchantLocationId pr. store) that they need the client to handle.
+Before the client can even start creating PoS'es, the integrator needs to ask the merchants for some information. First of all they will need one or more merchantBrandId's and a list of merchantLocationId's (one merchantLocationId pr. store) that they need their client to handle.
 
 The merchantBrandId identifies a brand which for simplicity can be thought of as a name and a logo. When a MobilePay user checks-in on a PoS they will see the brand name and the logo in the app, which helps the MobilePay user to confirm that they have in fact checked in where they intended. An example of a brand could be 7-Eleven in Denmark or K-Market in Finland.
 
