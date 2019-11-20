@@ -21,11 +21,19 @@ The first thing to consider is what [beacon types](validation#poses) that will b
 It can range from an unmanned vending machine that has no payment hardware at all and hence only shows a QR code on a screen, to a full fledged super market ECR with a 2-way bluetooth capable terminal that also can show a QR code. To create a PoS, the client needs to provide a list of possible ways to detect the PoS. The more accurate the list is, the better MobilePay will be able to detect errors (if bluetooth is provided as a beacon type but we detect that no user ever checks-in via bluetooth something is likely wrong). It is recommended to keep the list of supported beacon types in an application configuration and then edit the list in case the setup changes.
 
 #### <a name="beacon_ids"></a>Beacon Id's
+A central concept in the V10 api is the beaconId. The beaconId is what connects the MobilePay user to a specific PoS.
+When the MobilePay app scans for ways to connect to a PoS (Bluetooth, NFC or QR) it is the beaconId the app will use to map to the right PoS. A MobilePay QR code is a representation of a beaconId, and all physical devices (terminals or MobilePay white boxes) will either broadcast the beaconId by BLE or/and NFC for the app to read.
+
+Depending on the client setup, here are different use cases for handling beaconIds in API V10
+
+##### Client only supports QR codes and can create and show it on a screen
 In case the client only allows QR beacons (no physical device) and can create a QR code dynamicaly (i.e generate a QR code and show it on a screen in opposition to printing a physical QR code), then the client can choose to let MobilePay create a random GUID to use as beaconId. The client then omits to provide a beaconId on PoS creation and afterwards queries the PoS to get the beaconId. The client can then store the beaconId in memory for QR code generation. Everytime the client reboots the client then has to query the PoS and grab the beaconId. This way the client is not required to store a beaconId in a configuration file since they can rely on querying it dynamically.
 
+##### Client only supports QR codes and depends on printed QR codes
 In case the client only allows QR beacons but is not able to generate a QR code dynamically, the client will have to create a guid and provide that as beaconId on PoS creation. The beaconId will then have to be stored locally in a configuration file so that it can be used if the PoS needs to be updated (i.e. deleted and re-created. See [PoS Updating and Deletion](pos_management#pos_updating_deletion))
 It is best practice to use a true random Guid to avoid Guid clashes and to eliminate risk that the beaconId will be stolen by another client in between the call to Delete and the call to re-create.
 
+##### Client supports physical devices (terminals, MobilePay white boxes)
 In cases where the client will use a physical device then that device will have a MobilePay beaconId associated with it. On PoS creation this beaconId has to be provided. Some devices allows a client to read the beaconId from it. If that is the case we recommend to read the beaconId when the client reboots and query the PoS to see if the beaconIds match. If not delete the PoS and re-create it with the new beaconId. This will make it possible to replace the device if its broken, and only have to reboot the system to propagate the changes.
 If reading the beaconId from the device is not possible, we recommend to store the beaconId locally in a configuration file so that it persists through reboots.
 
