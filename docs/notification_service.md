@@ -26,4 +26,4 @@ The requirements for a notification endpoint are as follows:
 
 ## Migrating to a different notification endpoint
 
-In case existing PoSes have to be migrated to use a different notification, you can write to us at developer@mobilepay.com and ask us to whitelist the new URL, and afterwards change the mapping from your alias to the new URL. Close collaboration on the time of switching the URL is important to make sure your new endpoint is ready to receive notifications at the time we change the URL of the alias.
+In case existing PoSes have to be migrated to use a different notification, you can write to us at developer@mobilepay.com and ask us to whitelist the new URL and change the mapping for an existing alias to a new URL. Close collaboration on the time of switching the URL is important to make sure your new endpoint is ready to receive notifications at the time we change the URL of the alias.
