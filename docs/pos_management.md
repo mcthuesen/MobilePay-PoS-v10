@@ -1,9 +1,8 @@
 ## <a name="pos_management"></a>Point-of-Sale Management
-The point-of-sale (*PoS*) represents the contact point between a MobilePay user and the merchant.
+The Point-of-Sale (*PoS*) represents the contact point between a MobilePay user and the merchant.
 To initiate a MobilePay payment it is necessary to first create a PoS. 
 
 ### Onboarding
-
 Each PoS belongs to a *Store* which in turn is associated with a *Brand*. A brand can be thought of as a combination of a name and a logo. When a MobilePay user checks-in on a PoS they will see the brand name and the logo in the app, which helps the MobilePay user confirm that they have in fact checked in where they intended. An example of a brand could be 7-Eleven in Denmark or K-Market in Finland. A brand is identified by a ````merchantBrandId````. Each brand consists of one or more stores. Each store also has a name which is also shown to the MobilePay user when they check-in on a PoS that belongs to that store. A ````merchantLocationId```` together with a ````merchantBrandId```` identifies a store within a brand. 
 
 Brands and stores are created by the merchant when onboarding with MobilePay PoS and the merchant will typically provide the ````merchantBrandId````s and ````merchantLocationId````s for the merchant's brands and stores to the integrator. 
@@ -12,16 +11,15 @@ When the integrator has received the ````merchantBrandId```` and the ````merchan
 [![](assets/images/get_store.png)](assets/images/get_store.png)
 
 ### PoS Creation
-
-PoSes are created using the ````POST /api/v10/pointofsales```` endpoint. A PoS is identified in the PoS V10 API by a ````posId```` that is assigned by MobilePay upon creation of the PoS. Clients can provide their own internal identifier as a ````merchantPosId```` upon creation and use the ````GET /api/v10/pointofsales```` endpoint to lookup a ````posId```` based on a ````merchantPosId````. 
+A PoS is created using the ````POST /api/v10/pointofsales```` endpoint. A PoS is identified in the PoS V10 API by a ````posId```` that is assigned by MobilePay upon creation of the PoS. Clients can provide their own internal identifier as a ````merchantPosId```` upon creation and use the ````GET /api/v10/pointofsales```` endpoint to lookup a ````posId```` based on a ````merchantPosId````. 
 
 #### Beacons
-The first thing to consider when creating PoSes is what beacon(s) will be used to connect MobilePay users to the given PoS.
+The first thing to consider when creating a PoS is what beacon(s) will be used to connect MobilePay users to the given PoS.
 This can range from an unmanned vending machine that has no payment hardware at all and hence only shows a QR code on a screen, to a full fledged super market ECR with a 2-way bluetooth capable terminal that also can show a QR code. To create a PoS, the client needs to provide a list of possible ways to detect the PoS. The more accurate the list is, the better MobilePay will be able to detect errors (if bluetooth is provided as a beacon type but we detect that no user ever checks-in via bluetooth something is likely wrong). It is recommended to keep the list of supported beacon types in an application configuration and then edit the list in case the setup changes.
 
-Each beacon, whether through a MobilePay QR code or a bluetooth/NFC signal, encodes a ````beaconId```` that can be read by the MobilePay app. It is ````beaconId```` that is used to connect a MobilePay user to a specific PoS. ````beaconId````s are globally unique across all merchants in MobilePay PoS and each ````beaconId```` can refer to at most one active PoS at any given time. 
+Each beacon, whether through a MobilePay QR code or a bluetooth/NFC signal, encodes a ````beaconId```` that can be read by the MobilePay app. It is the ````beaconId```` that is used to connect a MobilePay user to a specific PoS. ````beaconId````s are globally unique across all merchants in MobilePay PoS and each ````beaconId```` can refer to at most one active PoS at any given time. 
 
-Depending on the client setup, here are different use cases for handling ````beaconId````s in API V10
+Depending on the client setup, there are different use cases for handling ````beaconId````s in API V10
 
 ##### Client that only supports dynamic QR codes
 In case the client only allows QR beacons (no physical device) and can create a QR code dynamicaly (i.e generate a QR code and show it on a screen in opposition to printing a physical QR code), then the client can choose to let MobilePay create a GUID to use as ````beaconId````. The client then omits to provide a ````beaconId```` on PoS creation and afterwards queries the PoS to get the ````beaconId````. The client can then store the ````beaconId```` in memory for QR code generation. Everytime the client reboots the client then has to query the PoS and grab the ````beaconId````. This way the client is not required to store a ````beaconId```` in a configuration file since they can rely on querying it dynamically.
@@ -51,7 +49,7 @@ When a PoS is deleted it is no longer possible to issue payments. However it wil
 ### Keeping in sync with MobilePay
 
 #### When PoS reboots
-When the client reboots it is good practice to query the PoS with ````GET /api/v10/pointofsales```` with the merchantPosId and persist the posId in memory to use for initiating payments. If no PoS is returned, the client will have to re-create it. Here is the flow described:
+When the client reboots it is good practice to query the PoS with ````GET /api/v10/pointofsales```` with the ````merchantPosId```` and persist the ````posId```` in memory to use for initiating payments. If no PoS is returned, the client will have to re-create it. Here is the flow described:
 [![](assets/images/PoS_Onboarding.png)](assets/images/PoS_Onboarding.png)
 
 
@@ -68,7 +66,7 @@ We recommend the client to store the following in a configuration file to be abl
 
 The following diagram gives an overview of the various identifiers and how they relate. 
 
-A PoS belongs to a store which in turn belongs to a merchant and associated with a brand. PoSes are identified by ````posId````, but it is also possible to refer to a PoS by its ````beaconId```` or ````merchantPosId````. There can be at most one active PoS with a given ````beaconId```` at any given time. There can be at most one active PoS with a given ````merchantPosId```` at any given time, for a given integrator and merchant. 
+A PoS belongs to a store which in turn belongs to a merchant and associated with a brand. A PoS is identified by a ````posId````, but it is also possible to refer to a PoS by its ````beaconId```` or ````merchantPosId````. There can be at most one active PoS with a given ````beaconId```` at any given time. There can be at most one active PoS with a given ````merchantPosId```` at any given time, for a given integrator and merchant. 
 
 A store is identified by a ````storeId````, but it is also possible to refer to a store by the combination of ````merchantBrandId```` and ````merchantLocationId````. Two stores with the same ````merchantLocationId```` but different ````merchantBrandId````s are not related in any way. The ````merchantBrandId````, ````merchantLocationId```` and ````storeId```` are supplied by MobilePay when the Merchant/Store is onboarded. 
 
