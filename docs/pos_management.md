@@ -13,13 +13,11 @@ When the integrator has received the ````merchantBrandId```` and the ````merchan
 
 ### PoS Creation
 
-#### Beacon Types
-The first thing to consider when creating PoSes is what [beacon types](validation#poses) the client will use for the given PoS.
-It can range from an unmanned vending machine that has no payment hardware at all and hence only shows a QR code on a screen, to a full fledged super market ECR with a 2-way bluetooth capable terminal that also can show a QR code. To create a PoS, the client needs to provide a list of possible ways to detect the PoS. The more accurate the list is, the better MobilePay will be able to detect errors (if bluetooth is provided as a beacon type but we detect that no user ever checks-in via bluetooth something is likely wrong). It is recommended to keep the list of supported beacon types in an application configuration and then edit the list in case the setup changes.
+#### Beacons
+The first thing to consider when creating PoSes is what beacon(s) will be used to connect MobilePay users to the given PoS.
+This can range from an unmanned vending machine that has no payment hardware at all and hence only shows a QR code on a screen, to a full fledged super market ECR with a 2-way bluetooth capable terminal that also can show a QR code. To create a PoS, the client needs to provide a list of possible ways to detect the PoS. The more accurate the list is, the better MobilePay will be able to detect errors (if bluetooth is provided as a beacon type but we detect that no user ever checks-in via bluetooth something is likely wrong). It is recommended to keep the list of supported beacon types in an application configuration and then edit the list in case the setup changes.
 
-#### <a name="beacon_ids"></a>Beacon Id
-A central concept in the V10 API is the ````beaconId````. The ````beaconId```` is what connects the MobilePay user to a specific PoS.
-When the MobilePay app scans for ways to connect to a PoS (Bluetooth, NFC or QR) it is the ````beaconId```` that is used to map to the right PoS. ````beaconId````s are globally unique across all merchants in MobilePay PoS and each ````beaconId```` can refer to at most one active PoS at any given time. A MobilePay QR code is a representation of a ````beaconId````, and all physical devices (terminals or MobilePay white boxes) will either broadcast the ````beaconId```` by BLE or/and NFC for the app to read.
+Each beacon, whether through a MobilePay QR code or a bluetooth/NFC signal, encodes a ````beaconId```` that can be read by the MobilePay app. It is ````beaconId```` that is used to connect a MobilePay user to a specific PoS. ````beaconId````s are globally unique across all merchants in MobilePay PoS and each ````beaconId```` can refer to at most one active PoS at any given time. 
 
 Depending on the client setup, here are different use cases for handling ````beaconId````s in API V10
 
