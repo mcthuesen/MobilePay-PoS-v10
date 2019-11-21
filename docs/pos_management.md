@@ -6,7 +6,7 @@ To initiate a MobilePay payment it is necessary to first create a PoS.
 
 Each PoS belongs to a *Store* which in turn belongs to a *Brand*. A brand can be thought of as a combination of a name and a logo. When a MobilePay user checks-in on a PoS they will see the brand name and the logo in the app, which helps the MobilePay user confirm that they have in fact checked in where they intended. An example of a brand could be 7-Eleven in Denmark or K-Market in Finland. A brand is identified by a ````merchantBrandId````. Each brand consists of one or more stores. Each store also has a name which is also shown to the MobilePay user when they check-in on a PoS that belongs to that store. A ````merchantLocationId```` together with a merchantBrandId identifies a store within a brand. 
 
-Brands and stores are created by the merchant when onboarding with MobilePay PoS and the merchant will typically provide the ````merchantBrandId````s and ````merchantLocationId````s for the merchant's brands and stores to the integrator. nt to handle.
+Brands and stores are created by the merchant when onboarding with MobilePay PoS and the merchant will typically provide the ````merchantBrandId````s and ````merchantLocationId````s for the merchant's brands and stores to the integrator. 
 
 When the integrator has received the merchantBrandId and the merchantLocationId they will have to call ````GET /api/v10/stores```` with the two ids, and in return they will receive a ````storeId```` which will be used to create all the PoS'es on that store. The ````storeId```` will therefore have to be persisted in an application configuration file for subsequent calls to the V10 API. Here is a flow for getting the storeId using ````GET /api/v10/stores````:
 [![](assets/images/get_store.png)](assets/images/get_store.png)
@@ -17,9 +17,9 @@ When the integrator has received the merchantBrandId and the merchantLocationId 
 The first thing to consider is what [beacon types](validation#poses) that will be supported by the client.
 It can range from an unmanned vending machine that has no payment hardware at all and hence only shows a QR code on a screen, to a full fledged super market ECR with a 2-way bluetooth capable terminal that also can show a QR code. To create a PoS, the client needs to provide a list of possible ways to detect the PoS. The more accurate the list is, the better MobilePay will be able to detect errors (if bluetooth is provided as a beacon type but we detect that no user ever checks-in via bluetooth something is likely wrong). It is recommended to keep the list of supported beacon types in an application configuration and then edit the list in case the setup changes.
 
-#### <a name="beacon_ids"></a>Beacon Id's
-A central concept in the V10 api is the beaconId. The beaconId is what connects the MobilePay user to a specific PoS.
-When the MobilePay app scans for ways to connect to a PoS (Bluetooth, NFC or QR) it is the beaconId the app will use to map to the right PoS. A MobilePay QR code is a representation of a beaconId, and all physical devices (terminals or MobilePay white boxes) will either broadcast the beaconId by BLE or/and NFC for the app to read.
+#### <a name="beacon_ids"></a>Beacon Id
+A central concept in the V10 API is the ````beaconId````. The ````beaconId```` is what connects the MobilePay user to a specific PoS.
+When the MobilePay app scans for ways to connect to a PoS (Bluetooth, NFC or QR) it is the ````beaconId```` that is used to map to the right PoS. A MobilePay QR code is a representation of a beaconId, and all physical devices (terminals or MobilePay white boxes) will either broadcast the beaconId by BLE or/and NFC for the app to read.
 
 Depending on the client setup, here are different use cases for handling beaconIds in API V10
 
