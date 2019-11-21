@@ -14,12 +14,12 @@ When the integrator has received the ````merchantBrandId```` and the ````merchan
 ### PoS Creation
 
 #### Beacon Types
-The first thing to consider is what [beacon types](validation#poses) that will be supported by the client.
+The first thing to consider when creating PoSes is what [beacon types](validation#poses) the client will use for the given PoS.
 It can range from an unmanned vending machine that has no payment hardware at all and hence only shows a QR code on a screen, to a full fledged super market ECR with a 2-way bluetooth capable terminal that also can show a QR code. To create a PoS, the client needs to provide a list of possible ways to detect the PoS. The more accurate the list is, the better MobilePay will be able to detect errors (if bluetooth is provided as a beacon type but we detect that no user ever checks-in via bluetooth something is likely wrong). It is recommended to keep the list of supported beacon types in an application configuration and then edit the list in case the setup changes.
 
 #### <a name="beacon_ids"></a>Beacon Id
 A central concept in the V10 API is the ````beaconId````. The ````beaconId```` is what connects the MobilePay user to a specific PoS.
-When the MobilePay app scans for ways to connect to a PoS (Bluetooth, NFC or QR) it is the ````beaconId```` that is used to map to the right PoS. ````beaconId````s are thus globally unique across all merchants in MobilePay PoS and each ````beaconId```` can refer to at most one active PoS at any given time. A MobilePay QR code is a representation of a ````beaconId````, and all physical devices (terminals or MobilePay white boxes) will either broadcast the ````beaconId```` by BLE or/and NFC for the app to read.
+When the MobilePay app scans for ways to connect to a PoS (Bluetooth, NFC or QR) it is the ````beaconId```` that is used to map to the right PoS. ````beaconId````s are globally unique across all merchants in MobilePay PoS and each ````beaconId```` can refer to at most one active PoS at any given time. A MobilePay QR code is a representation of a ````beaconId````, and all physical devices (terminals or MobilePay white boxes) will either broadcast the ````beaconId```` by BLE or/and NFC for the app to read.
 
 Depending on the client setup, here are different use cases for handling ````beaconId````s in API V10
 
@@ -39,7 +39,7 @@ If the client system cannot detect when a MobilePay user wants to pay and theref
 It is recommended to store the callback alias in the config file of the application.
 
 #### Naming
-The last thing to keep in mind before creating the PoS is to consider the name. When a MobilePay user checks in on the PoS they will in the app see, in sequence: The name of the brand, the name of the store and at last the name of the PoS. We recommend naming the PoS so that the MobilePay user can verify that they in fact have checked in the right place. So in a supermarket scenario a good name for the PoS would be "Check-out 1" for the first check-out counter in that supermarket.
+The last thing to keep in mind when creating PoSes is to consider the name. When a MobilePay user checks in on the PoS they will in the app see, in sequence: The name of the brand, the name of the store and the name of the PoS. We recommend naming the PoS so that the MobilePay user can verify that they in fact have checked in the right place. So in a supermarket scenario a good name for the PoS would be "Check-out 1" for the first check-out counter in that supermarket.
 
 Here is a flow to showcase creation of a PoS with ````POST /api/v10/pointofsales````:
 [![](assets/images/pos_creation.png)](assets/images/pos_creation.png)
