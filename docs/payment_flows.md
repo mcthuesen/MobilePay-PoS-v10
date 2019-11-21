@@ -48,7 +48,7 @@ The diagram below shows all the possible states and transitions for a Prepared P
 Of all the ways a payment flow can fail, there are some error scenarios related to initiating payment flows that the client needs to have focus on. One is the payment-in-progress error and another important one is hanging payments in the reserved state and connection to the V10 api fails.
 
 #### Payment in progress error handling
-A client might try to initiate a payment even though a payment is already in progress. For instance, this might happen if the client has experienced a crash and did not finish the previous payment flow gracefully. To combat this possible scenario it is best practice to be prepared for a payment in progress and cancel it like this flow:
+In the case of an unexpected restart of the client where the payment flow cannot be continued it might be necessary to cancel the active payment since there can be only one active payment on a PoS. If the payment id of the active payment is lost it can be retrieved by calling **/v10/payments** using the PoS id and setting the *active* boolean to true. When the payment id is retrieved the payment can be cancelled and the PoS is now ready for a new payment flow. Here is a sequence diagram for handling a payment in progress:
 [![](assets/images/initiate_payment_error_active_payment.png)](assets/images/initiate_payment_error_active_payment.png)
 
 #### Hanging payments in reserved state
@@ -102,8 +102,6 @@ The cancel functionality can also be used in case of non-sunshine scenarios.
 It could be if the call to initiate a payment is faulty or if the client never receives the response. In this case the client 
 should either retry the call (as described in [Error Handling](api_principles#error_handling)) or the client could try to get 
 the payment id by the order id and cancel afterwards.
-
-In the case of an unexpected restart of the client where the payment flow cannot be continued it might be necessary to cancel the active payment since there can be only one active payment on a PoS. If the payment id of the active payment is lost it can be retrieved by calling **/v10/payments** using the PoS id and setting the *active* boolean to true. When the payment id is retrieved the payment can be cancelled and the PoS is now ready for a new payment flow.
 
 #### Cancelling Refunds
 
