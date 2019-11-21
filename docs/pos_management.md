@@ -69,5 +69,3 @@ The following diagram gives an overview of the various identifiers and how they 
 A PoS belongs to a store which in turn belongs to a merchant and associated with a brand. A PoS is identified by a ````posId````, but it is also possible to refer to a PoS by its ````beaconId```` or ````merchantPosId````. There can be at most one active PoS with a given ````beaconId```` at any given time. There can be at most one active PoS with a given ````merchantPosId```` at any given time, for a given integrator and merchant. 
 
 A store is identified by a ````storeId````, but it is also possible to refer to a store by the combination of ````merchantBrandId```` and ````merchantLocationId````. Two stores with the same ````merchantLocationId```` but different ````merchantBrandId````s are not related in any way. The ````merchantBrandId````, ````merchantLocationId```` and ````storeId```` are supplied by MobilePay when the Merchant/Store is onboarded. 
-
-[![](assets/images/Master_Data_Hierarchy.png)](assets/images/Master_Data_Hierarchy.png)
