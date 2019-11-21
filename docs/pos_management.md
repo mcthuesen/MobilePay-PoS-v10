@@ -13,7 +13,7 @@ When the integrator has received the ````merchantBrandId```` and the ````merchan
 
 ### PoS Creation
 
-PoS are created using the ````POST /api/v10/pointofsales```` endpoint. 
+PoS are created using the ````POST /api/v10/pointofsales```` endpoint. A PoS is identified in the PoS V10 API by a ````posId```` that is assigned by MobilePay upon creation of the PoS. Clients can provide their own internal identifier as a ````merchantPosId```` upon creation and use the ````GET /api/v10/pointofsales```` endpoint to lookup a ````posId```` based on a ````merchantPosId````. 
 
 #### Beacons
 The first thing to consider when creating PoSes is what beacon(s) will be used to connect MobilePay users to the given PoS.
@@ -57,10 +57,10 @@ When the client reboots it is good practice to query the PoS with ````GET /api/v
 
 We recommend the client to store the following in a configuration file to be able to create the PoS when needed:
 
-* StoreId
-* MerchantPosId
+* ````StoreId````
+* ````MerchantPosId````
 * Name of PoS
-* BeaconId (unless it can be read from the device itself. See [Beacon Id's](pos_management#beacon_ids) )
+* ````BeaconId```` (unless it can be read from the device itself. See [Beacon Id's](pos_management#beacon_ids) )
 * Callback (If the client is dependent on the notification service. See [Callback](pos_management#callback))
 * Supported beacon types
 
