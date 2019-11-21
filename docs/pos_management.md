@@ -13,6 +13,8 @@ When the integrator has received the ````merchantBrandId```` and the ````merchan
 
 ### PoS Creation
 
+PoS are created using the ````POST /api/v10/pointofsales```` endpoint. 
+
 #### Beacons
 The first thing to consider when creating PoSes is what beacon(s) will be used to connect MobilePay users to the given PoS.
 This can range from an unmanned vending machine that has no payment hardware at all and hence only shows a QR code on a screen, to a full fledged super market ECR with a 2-way bluetooth capable terminal that also can show a QR code. To create a PoS, the client needs to provide a list of possible ways to detect the PoS. The more accurate the list is, the better MobilePay will be able to detect errors (if bluetooth is provided as a beacon type but we detect that no user ever checks-in via bluetooth something is likely wrong). It is recommended to keep the list of supported beacon types in an application configuration and then edit the list in case the setup changes.
@@ -38,18 +40,13 @@ It is recommended to store the callback alias in the config file of the applicat
 #### Naming
 The last thing to keep in mind when creating PoSes is to consider the name. When a MobilePay user checks in on the PoS they will in the app see, in sequence: The name of the brand, the name of the store and the name of the PoS. We recommend naming the PoS so that the MobilePay user can verify that they in fact have checked in the right place. So in a supermarket scenario a good name for the PoS would be "Check-out 1" for the first check-out counter in that supermarket.
 
-Here is a flow to showcase creation of a PoS with ````POST /api/v10/pointofsales````:
-[![](assets/images/pos_creation.png)](assets/images/pos_creation.png)
-
 ### <a name="pos_updating_deletion"></a>PoS Updating and Deletion
+
+PoSes can be deleted using the ````DELETE /api/v10/pointofsales/{posId}```` endpoint.
+
 We recommend only deleting a PoS if it is either not going to be used anymore, or you need to update it to reflect changes like a new callback alias, new name, new ````beaconId```` etc.
 
 When a PoS is deleted it is no longer possible to issue payments. However it will still be possible to capture or cancel payments that are in the reserved state. It is best practice to delay the deletion of a PoS until all payments have either been cancelled or captured.
-
-To delete a PoS you will have to call ````DELETE /api/v10/pointofsales/{posId}````
-
-Here is a flow diagram to showcase a successfull delete:
-[![](assets/images/pos_deletion.png)](assets/images/pos_deletion.png)
 
 ### Keeping in sync with MobilePay
 
