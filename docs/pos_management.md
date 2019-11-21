@@ -64,16 +64,6 @@ We recommend the client to store the following in a configuration file to be abl
 * Callback (If the client is dependent on the notification service. See [Callback](pos_management#callback))
 * Supported beacon types
 
-#### When initiating payment
-A client might try to initiate a payment even though a payment is already on-going. For instance, this might happen if the client has experienced a crash and did not finish the previous payment flow gracefully. To combat this possible scenario it is best practice to be prepared for an ongoing payment and cancel it like this flow:
-[![](assets/images/initiate_payment_error_active_payment.png)](assets/images/initiate_payment_error_active_payment.png)
-
-#### Once in a while
-The client is responsible for persisting if a reserved payment should be cancelled or captured. In case the client gets a timeout (or other errors resulting in failed calls) trying to either call Capture or Cancel on a payment, it is crucial that they persist whether the payment should be captured or cancelled so they can try again later.
-
-It is required of the client to implement a periodically scheduled job of running through all their payments left in reserved state, and try to either cancel or capture it. The flow would look like this:
-[![](assets/images/capture_cancel_hanging_reservations.png)](assets/images/capture_cancel_hanging_reservations.png)
-
 ### <a name="master-data"></a>Master Data
 
 The following diagram gives an overview of the various identifiers and how they relate. 
