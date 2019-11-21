@@ -8,7 +8,7 @@ Each PoS belongs to a *Store* which in turn belongs to a *Brand*. A brand can be
 
 Brands and stores are created by the merchant when onboarding with MobilePay PoS and the merchant will typically provide the ````merchantBrandId````s and ````merchantLocationId````s for the merchant's brands and stores to the integrator. 
 
-When the integrator has received the merchantBrandId and the merchantLocationId they will have to call ````GET /api/v10/stores```` with the two ids, and in return they will receive a ````storeId```` which will be used to create all the PoS'es on that store. The ````storeId```` will therefore have to be persisted in an application configuration file for subsequent calls to the V10 API. Here is a flow for getting the storeId using ````GET /api/v10/stores````:
+When the integrator has received the ````merchantBrandId```` and the ````merchantLocationId```` they will have to call ````GET /api/v10/stores```` with the two ids, and in return they will receive a ````storeId```` which will be used to create all the PoS'es on that store. The ````storeId```` will therefore have to be persisted in an application configuration file for subsequent calls to the V10 API. Here is a flow for getting the storeId using ````GET /api/v10/stores````:
 [![](assets/images/get_store.png)](assets/images/get_store.png)
 
 ### PoS Creation
@@ -19,20 +19,20 @@ It can range from an unmanned vending machine that has no payment hardware at al
 
 #### <a name="beacon_ids"></a>Beacon Id
 A central concept in the V10 API is the ````beaconId````. The ````beaconId```` is what connects the MobilePay user to a specific PoS.
-When the MobilePay app scans for ways to connect to a PoS (Bluetooth, NFC or QR) it is the ````beaconId```` that is used to map to the right PoS. A MobilePay QR code is a representation of a beaconId, and all physical devices (terminals or MobilePay white boxes) will either broadcast the beaconId by BLE or/and NFC for the app to read.
+When the MobilePay app scans for ways to connect to a PoS (Bluetooth, NFC or QR) it is the ````beaconId```` that is used to map to the right PoS. ````beaconId````s are thus globally unique across all merchants in MobilePay PoS and each ````beaconId```` can refer to at most one active PoS at any given time. A MobilePay QR code is a representation of a ````beaconId````, and all physical devices (terminals or MobilePay white boxes) will either broadcast the ````beaconId```` by BLE or/and NFC for the app to read.
 
-Depending on the client setup, here are different use cases for handling beaconIds in API V10
+Depending on the client setup, here are different use cases for handling ````beaconId````s in API V10
 
 ##### Client only supports QR codes and can create and show it on a screen
-In case the client only allows QR beacons (no physical device) and can create a QR code dynamicaly (i.e generate a QR code and show it on a screen in opposition to printing a physical QR code), then the client can choose to let MobilePay create a random GUID to use as beaconId. The client then omits to provide a beaconId on PoS creation and afterwards queries the PoS to get the beaconId. The client can then store the beaconId in memory for QR code generation. Everytime the client reboots the client then has to query the PoS and grab the beaconId. This way the client is not required to store a beaconId in a configuration file since they can rely on querying it dynamically.
+In case the client only allows QR beacons (no physical device) and can create a QR code dynamicaly (i.e generate a QR code and show it on a screen in opposition to printing a physical QR code), then the client can choose to let MobilePay create a GUID to use as ````beaconId````. The client then omits to provide a ````beaconId```` on PoS creation and afterwards queries the PoS to get the ````beaconId````. The client can then store the ````beaconId```` in memory for QR code generation. Everytime the client reboots the client then has to query the PoS and grab the ````beaconId````. This way the client is not required to store a ````beaconId```` in a configuration file since they can rely on querying it dynamically.
 
 ##### Client only supports QR codes and depends on printed QR codes
-In case the client only allows QR beacons but is not able to generate a QR code dynamically, the client will have to create a guid and provide that as beaconId on PoS creation. The beaconId will then have to be stored locally in a configuration file so that it can be used if the PoS needs to be updated (i.e. deleted and re-created. See [PoS Updating and Deletion](pos_management#pos_updating_deletion))
-It is best practice to use a true random Guid to avoid Guid clashes and to eliminate risk that the beaconId will be stolen by another client in between the call to Delete and the call to re-create.
+In case the client only allows QR beacons but is not able to generate a QR code dynamically, the client will have to create a guid and provide that as the ````beaconId```` on PoS creation. The ````beaconId```` should then be stored locally in a configuration file so that it can be used if the PoS needs to be updated (i.e. deleted and re-created. See [PoS Updating and Deletion](pos_management#pos_updating_deletion))
+It is best practice to use a GUID as the ````beaconId```` to avoid ````beaconId```` clashes and to eliminate risk that the ````beaconId```` will be stolen by another client in between the call to Delete and the call to re-create.
 
 ##### Client supports physical devices (terminals, MobilePay white boxes)
-In cases where the client will use a physical device then that device will have a MobilePay beaconId associated with it. On PoS creation this beaconId has to be provided. Some devices allows a client to read the beaconId from it. If that is the case we recommend to read the beaconId when the client reboots and query the PoS to see if the beaconIds match. If not delete the PoS and re-create it with the new beaconId. This will make it possible to replace the device if its broken, and only have to reboot the system to propagate the changes.
-If reading the beaconId from the device is not possible, we recommend to store the beaconId locally in a configuration file so that it persists through reboots.
+In cases where the client will use a physical device then that device will have a MobilePay ````beaconId```` associated with it. On PoS creation this ````beaconId```` has to be provided. Some devices allows a client to read the ````beaconId```` from it. If that is the case we recommend to read the ````beaconId```` when the client reboots and query the PoS to see if the ````beaconId````s match. If not delete the PoS and re-create it with the new ````beaconId````. This will make it possible to replace the device if its broken, and only have to reboot the system to propagate the changes.
+If reading the ````beaconId```` from the device is not possible, we recommend to store the ````beaconId```` locally in a configuration file so that it persists through reboots.
 
 #### <a name="callback"></a>Callback
 If the client system cannot detect when a MobilePay user wants to pay and therefore needs to use the [Notification service](detecting_mobilePay#notification_service), the client should set the callback parameter accordingly when calling ````POST /api/v10/pointofsales````.
@@ -45,7 +45,7 @@ Here is a flow to showcase creation of a PoS with ````POST /api/v10/pointofsales
 [![](assets/images/pos_creation.png)](assets/images/pos_creation.png)
 
 ### <a name="pos_updating_deletion"></a>PoS Updating and Deletion
-We recommend only deleting a PoS if it is either not going to be used anymore, or you need to update it to reflect changes like new callback alias, new name, new beaconId etc.
+We recommend only deleting a PoS if it is either not going to be used anymore, or you need to update it to reflect changes like a new callback alias, new name, new ````beaconId```` etc.
 
 When a PoS is deleted it is no longer possible to issue payments. However it will still be possible to capture or cancel payments that are in the reserved state. It is best practice to delay the deletion of a PoS until all payments have either been cancelled or captured.
 
