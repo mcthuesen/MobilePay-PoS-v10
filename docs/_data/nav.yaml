@@ -18,6 +18,8 @@ payment_flows:
   url: "payment_flows#payment_flow"
 - title: Prepared Payment Flow
   url: "payment_flows#prepared_payment_flow"
+- title: Payment Flow Error Handling
+  url: "payment_flows#payment_management"
 - title: Refunds
   url: "payment_flows#refunds"
 - title: Cancel Flows
