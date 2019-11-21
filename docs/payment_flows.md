@@ -45,16 +45,16 @@ The diagram below shows all the possible states and transitions for a Prepared P
 [![](assets/images/reservation-payment-prepare-ready-states.png)](assets/images/reservation-payment-prepare-ready-states.png)
 
 ### <a name="payment_management"></a> Payment Flow Error Handling
-Of all the ways a payment flow can fail, there are some error scenarios related to initiating payment flows that the client needs to have focus on. One is the payment-in-progress error and another important one is hanging payments in the reserved state and connection to the V10 api fails.
+Of all the ways a payment flow can fail, there are some error scenarios related to initiating payment flows that the client needs to focus on. One is the payment-in-progress error and another important one is hanging payments in the reserved state and connection to the V10 API fails.
 
 #### Payment in progress error handling
-In the case of an unexpected restart of the client where the payment flow cannot be continued it might be necessary to cancel the active payment since there can be only one active payment on a PoS. If the payment id of the active payment is lost it can be retrieved by calling **/v10/payments** using the PoS id and setting the *active* boolean to true. When the payment id is retrieved the payment can be cancelled and the PoS is now ready for a new payment flow. Here is a sequence diagram for handling a payment in progress:
+In the case of an unexpected restart of the client where the payment flow cannot be continued it might be necessary to cancel the active payment since there can be only one active payment on a PoS. If the payment id of the active payment is lost it can be retrieved by calling ````GET api/v10/payments```` using the PoS id and setting the *active* boolean to true. When the payment id is retrieved the payment can be cancelled and the PoS is now ready for a new payment flow. A sequence diagram showing how to handle a payment in progress is shown below.
 [![](assets/images/initiate_payment_error_active_payment.png)](assets/images/initiate_payment_error_active_payment.png)
 
 #### Hanging payments in reserved state
 The client is responsible for persisting if a reserved payment should be cancelled or captured. In case the client gets a timeout (or other errors resulting in failed calls) trying to either call Capture or Cancel on a payment, it is crucial that they persist whether the payment should be captured or cancelled so they can try again later.
 
-It is required of the client to implement a periodically scheduled job of running through all their payments left in reserved state, and try to either cancel or capture it. The flow would look like this:
+It is required of the client to implement a periodically scheduled job of running through all their payments left in reserved state, and try to either cancel or capture it. A sequence diagram of this flow is shown below.
 [![](assets/images/capture_cancel_hanging_reservations.png)](assets/images/capture_cancel_hanging_reservations.png)
 
 ### <a name="refunds"></a> Refunds
