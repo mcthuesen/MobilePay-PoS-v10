@@ -21,15 +21,15 @@ Each beacon, whether through a MobilePay QR code or a bluetooth/NFC signal, enco
 
 Depending on the client setup, here are different use cases for handling ````beaconId````s in API V10
 
-##### Client only supports QR codes and can create and show it on a screen
+##### Client that only supports dynamic QR codes
 In case the client only allows QR beacons (no physical device) and can create a QR code dynamicaly (i.e generate a QR code and show it on a screen in opposition to printing a physical QR code), then the client can choose to let MobilePay create a GUID to use as ````beaconId````. The client then omits to provide a ````beaconId```` on PoS creation and afterwards queries the PoS to get the ````beaconId````. The client can then store the ````beaconId```` in memory for QR code generation. Everytime the client reboots the client then has to query the PoS and grab the ````beaconId````. This way the client is not required to store a ````beaconId```` in a configuration file since they can rely on querying it dynamically.
 
-##### Client only supports QR codes and depends on printed QR codes
+##### Client that only supports static QR codes
 In case the client only allows QR beacons but is not able to generate a QR code dynamically, the client will have to create a guid and provide that as the ````beaconId```` on PoS creation. The ````beaconId```` should then be stored locally in a configuration file so that it can be used if the PoS needs to be updated (i.e. deleted and re-created. See [PoS Updating and Deletion](pos_management#pos_updating_deletion))
 It is best practice to use a GUID as the ````beaconId```` to avoid ````beaconId```` clashes and to eliminate risk that the ````beaconId```` will be stolen by another client in between the call to Delete and the call to re-create.
 
-##### Client supports physical devices (terminals, MobilePay white boxes)
-In cases where the client will use a physical device then that device will have a MobilePay ````beaconId```` associated with it. On PoS creation this ````beaconId```` has to be provided. Some devices allows a client to read the ````beaconId```` from it. If that is the case we recommend to read the ````beaconId```` when the client reboots and query the PoS to see if the ````beaconId````s match. If not delete the PoS and re-create it with the new ````beaconId````. This will make it possible to replace the device if its broken, and only have to reboot the system to propagate the changes.
+##### Client that supports physical devices (terminals, MobilePay white boxes)
+In cases where the client uses a physical device then that device will have a MobilePay ````beaconId```` associated with it. On PoS creation this ````beaconId```` has to be provided. Some devices allows a client to read the ````beaconId```` from it. If that is the case we recommend to read the ````beaconId```` when the client reboots and query the PoS to see if the ````beaconId````s match. If not delete the PoS and re-create it with the new ````beaconId````. This will make it possible to replace the device if its broken, and only have to reboot the system to propagate the changes.
 If reading the ````beaconId```` from the device is not possible, we recommend to store the ````beaconId```` locally in a configuration file so that it persists through reboots.
 
 #### <a name="callback"></a>Callback
