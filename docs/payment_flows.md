@@ -16,7 +16,7 @@ It is also possible to initiate a payment on a PoS without an active check-in, a
 
 [![](assets/images/reservationflow-checkin-after-initiate.png)](assets/images/reservationflow-checkin-after-initiate.png)
 
-##### <a name="payment_flow_states"></a>Payment States for the Payment Flow
+#### <a name="payment_flow_states"></a>Payment States for the Payment Flow
 
 The diagram below shows all the possible states and transitions for a Payment flow. A payment can be cancelled by the user until the user has accepted the payment and the payment amount has been reserved. A payment can be cancelled by the client until it is captured or *expires*. After a payment has been captured, it can be [refunded](payment_flows#refunds), but can no longer be cancelled. A payment expires if it is neither cancelled nor captured within the lifetime of the reservation. If a payment expires, the state transitions to *ExpiredAndCancelled*.
 
