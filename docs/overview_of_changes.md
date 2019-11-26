@@ -8,7 +8,7 @@ Notable changes from Version 8.6 to Version 10 of the MobilePay PoS API
 * Clients need to implement HTTP 1.1 and JSON standards
 * Security setup has changed
   * No API key and HMAC validation
-  * use of access tokens
+  * Use of access tokens
   * Vendor Identification and Version numbering
 * The Error messages are more informative
 * There are changes to the payment flow
