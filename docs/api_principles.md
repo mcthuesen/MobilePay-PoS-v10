@@ -77,7 +77,7 @@ used in the V10 API is given below.
 |-----------------------------|-------------------------------------------------------------------------------------------|
 | `200 OK`                    | The request succeeded.                                                                     |
 | `204 No Content`            | The request succeeded but no response was returned.                                        |
-| `400 Bad Request`           | The request is syntactically ill-formed or violates [validation rules](validation).  |
+| `400 Bad Request`           | The request is syntactically ill-formed or violates [validation rules](input_formats).  |
 | `401 Unauthorized`          | [Authentication](api_principles#security_model) of the caller failed.                      |
 | `403 Forbidden`             | The call was rejected due to insufficient permissions of the caller.                       |
 | `404 Not Found`             | The specified resource does not exist.                                                     |
