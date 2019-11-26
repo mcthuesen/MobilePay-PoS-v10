@@ -27,5 +27,5 @@ The MobilePay Developer Portal is available at the following addresses:
 
 | Environment  | Endpoint |
 |--------------|-------------|
-| Sandbox/Test | [https://sandbox-developer.mobilepay.dk/](https://sandbox-developer.mobilepay.dk)     |
+| Sandbox/Test | [https://sandbox-developer.mobilepay.dk](https://sandbox-developer.mobilepay.dk)     |
 | Production   | [https://developer.mobilepay.dk](https://developer.mobilepay.dk)     |
