@@ -13,7 +13,7 @@ When the integrator has received the ````merchantBrandId```` and the ````merchan
 ### PoS Creation
 A PoS is created using the ````POST /api/v10/pointofsales```` endpoint. A PoS is identified in the PoS V10 API by a ````posId```` that is assigned by MobilePay upon creation of the PoS. Clients can provide their own internal identifier as a ````merchantPosId```` upon creation and use the ````GET /api/v10/pointofsales```` endpoint to lookup a ````posId```` based on a ````merchantPosId````. 
 
-####<a name="pos_management#beacons"></a> Beacons
+####<a name="beacons"></a> Beacons
 The first thing to consider when creating a PoS is what beacon(s) will be used to connect MobilePay users to the given PoS.
 This can range from an unmanned vending machine that has no payment hardware at all and hence only shows a QR code on a screen, to a full fledged super market ECR with a 2-way bluetooth capable terminal that also can show a QR code. To create a PoS, the client needs to provide a list of possible ways to detect the PoS. The more accurate the list is, the better MobilePay will be able to detect errors (if bluetooth is provided as a beacon type but we detect that no user ever checks in via bluetooth something is likely wrong). It is recommended to keep the list of supported beacon types in an application configuration and then edit the list in case the setup changes.
 
