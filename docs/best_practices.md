@@ -1,6 +1,6 @@
 ## <a name="best_practices"></a> Best Practices
 
-This section is an overview over best practices when integrating to MobilePay PoS. The purpose of these best practices is to optimize the user and merchant experience, to reduce errors and keep the integration as simple as possible without reducing user and merchant experince. 
+This section is an overview over best practices when integrating to MobilePay PoS. The purpose of these best practices is to optimize the user and merchant experience, to reduce errors and keep the integration as simple as possible without reducing user and merchant experience. 
 
 ### Check-in before or after payment has been initiated?
 While our system supports users checking in both before or after a payment has been initiated, we suggest urging users to check-in before.
