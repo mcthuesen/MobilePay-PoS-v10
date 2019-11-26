@@ -10,7 +10,7 @@ Brands and stores are created by the merchant when onboarding with MobilePay PoS
 When the integrator has received the ````merchantBrandId```` and the ````merchantLocationId```` they will have to call ````GET /api/v10/stores```` with the two ids, and in return they will receive a ````storeId```` which will be used to create all the PoS'es on that store. The ````storeId```` will therefore have to be persisted in an application configuration file for subsequent calls to the V10 API. Here is a flow for getting the storeId using ````GET /api/v10/stores````:
 [![](assets/images/get_store.png)](assets/images/get_store.png)
 
-### PoS Creation
+### <a name="pos_creation"></a> PoS Creation
 A PoS is created using the ````POST /api/v10/pointofsales```` endpoint. A PoS is identified in the PoS V10 API by a ````posId```` that is assigned by MobilePay upon creation of the PoS. Clients can provide their own internal identifier as a ````merchantPosId```` upon creation and use the ````GET /api/v10/pointofsales```` endpoint to lookup a ````posId```` based on a ````merchantPosId````. 
 
 #### <a name="beacons"></a> Beacons
