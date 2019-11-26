@@ -2,7 +2,7 @@
 
 The MobilePay PoS API exposes two separate flows for payments which are documented in this section. All payments must be explicitly captured by the client after user (app) approval. The capture amount can be for the full- or a partial amount.
 
-For a client to start a payment flow, the client first has to detect that a customer is present, ready and willing to pay. In the following descriptions of payment flows it is assumed that the client has already detected a customer. How to detect a MobilePay customer can be read under [Detecting MobilePay](detecting_mobilePay). 
+For a client to start a payment flow, the client first has to detect that a user is present, ready and willing to pay. In the following descriptions of payment flows it is assumed that the client has already detected a user. How to detect a MobilePay user can be read under [Detecting MobilePay](detecting_mobilePay). 
 
 ### <a name="payment_flow"></a>Payment Flow
 
@@ -73,7 +73,7 @@ is immediately transferred to the user and the user is notified of the refund.
 
 [![](assets/images/refund-flow.png)](assets/images/refund-flow.png)
 
-Until the refund has been captured, the client can also choose to cancel the refund. The diagram below showes the possible states and transitions for a refund.
+Until the refund has been captured, the client can also choose to cancel the refund. The diagram below shows the possible states and transitions for a refund.
 
 [![](assets/images/refund-states.png)](assets/images/refund-states.png)
 
@@ -88,7 +88,7 @@ Payments can be cancelled by calling the endpoint **/v10/payments/{paymentId}/ca
 If the user cancels the payment the state will transition to *CancelledByUser*.
 
 The diagrams below show the sunshine scenarios for a payment cancelled by the client and a payment cancelled by the user, respectively.
-When the client cancels the payment a notification is sent to the app sending the user back to the pay screen with a message saying that the payment was cancelled by the shop.
+When the client cancels the payment a notification is sent to the app. The app returns to the pay screen with a message saying that the payment was cancelled by the shop.
 
 [![](assets/images/cancel-by-client.png)](assets/images/cancel-by-client.png)
 
