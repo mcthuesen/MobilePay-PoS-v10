@@ -2,7 +2,7 @@
 
 The MobilePay PoS API exposes two separate flows for payments which are documented in this section. All payments must be explicitly captured by the client after user (app) approval. The capture amount can be for the full- or a partial amount.
 
-For a client to start a payment flow, the client first has to detect that a customer is present, ready and willing to pay. In the following descriptions of payment flows it is assumed that the client has already detected a customer. How to detect a MobilePay customer can be read under [Payment Option Detection](Payment_Option_detection). 
+For a client to start a payment flow, the client first has to detect that a customer is present, ready and willing to pay. In the following descriptions of payment flows it is assumed that the client has already detected a customer. How to detect a MobilePay customer can be read under [Detecting MobilePay](detecting_mobilePay). 
 
 ### <a name="payment_flow"></a>Payment Flow
 
