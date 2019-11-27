@@ -47,6 +47,9 @@ api_principles:
 pos_management_title: PoS Management
 pos_management_url: "pos_management"
 
+notification_service_title: Notification Service
+notification_service_url: "notification_service"
+
 best_practices_title: Best Practices
 best_practices_url: "best_practices"
 
