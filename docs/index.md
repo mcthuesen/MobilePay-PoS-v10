@@ -3,11 +3,11 @@
 Our MobilePay Point of Sale (PoS) REST API is intended for integrators implementing MobilePay payments in a PoS system.
 
 For information about the PoS product and details on Getting Started, Test and Certification please visit our
-<a href="https://developer.mobilepay.dk/products/pos">Developer Portal</a>. On the portal you will also find FAQ and support resources.
+[Developer Portal](https://developer.mobilepay.dk/products/pos). On the portal you will also find FAQ and support resources.
 
 This document will explain in more detail how to implement the different payment flows, how to manage the PoS, how the Security model is built and what is needed from the integrator.
 
-This document does not include detailed specification of the endpoints, responses and response codes. This information can be found in the <a href="https://developer.mobilepay.dk/product"> API section</a> of the portal.
+This document does not include detailed specification of the endpoints, responses and response codes. This information can be found in the API section of the portal.
 
 [![](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)
 
@@ -27,5 +27,5 @@ The MobilePay Developer Portal is available at the following addresses:
 
 | Environment  | Endpoint |
 |--------------|-------------|
-| Sandbox/Test | [https://sandbox-developer.mobilepay.dk](https://sandbox-developer.mobilepay.dk)     |
-| Production   | [https://developer.mobilepay.dk](https://developer.mobilepay.dk)     |
+| Sandbox/Test | [https://sandbox-developer.mobilepay.dk](https://sandbox-developer.mobilepay.dk/products/pos)     |
+| Production   | [https://developer.mobilepay.dk](https://developer.mobilepay.dk/products/pos)     |
