@@ -8,7 +8,7 @@ For more information about the http headers, see [API principles](api_principles
 | Name | Format      | Description |
 |------|-------------|-------------|
 | `X-IBM-ClientId` | Guid | Identifies an application created through MobilePay Developer Portal. |
-| `X-MP-IntegratorId` | Guid | MobilePay Integrator ID.<br><br> Will be provided to integrators by MobilePay. |
+| `X-MP-IntegratorId` | Guid | MobilePay Integrator ID.<br> Will be provided to integrators by MobilePay. |
 | `X-MP-Client-System-Name` | String with at most 36 valid characters | Identifies the [integrator system](api_principles#client_identification) calling the API. |
 | `X-MP-Client-System-Version` | Valid Client-Version:<br>Major.Minor.Build<br>Example: 1.2.231 | Identifies the [version of the integrator system](api_principles#client_identification) calling the API. |
 | `X-MP-Idempotency-Key` | String with at most 36 valid characters | Used to allow calls to be [safely retried](api_principles#error_handling) in case of errors. |
