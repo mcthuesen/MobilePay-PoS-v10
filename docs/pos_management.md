@@ -1,5 +1,5 @@
 # <a name="pos_management"></a>Point-of-Sale Management
-The Point-of-Sale (PoS) represents the contact point between a MobilePay customer and the merchant.
+The Point-of-Sale (PoS) represents the contact point between a customer wanting to pay with MobilePay and the merchant.
 To initiate a MobilePay payment it is necessary to first create a PoS. 
 
 ## Onboarding
