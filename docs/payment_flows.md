@@ -44,31 +44,31 @@ The diagram below shows all the possible states and transitions for a prepared p
 [![](assets/images/reservation-payment-prepare-ready-states.png)](assets/images/reservation-payment-prepare-ready-states.png)
 
 ## <a name="payment_management"></a> Payment Flow Error Handling
-Of all the ways a payment flow can fail, there are some error scenarios related to initiating payment flows that the client needs to focus on. The following sections describes how to handle the payment-in-progress error and how to handle payments hanging in the reserved state.
+Of all the ways a payment flow can fail, there are some error scenarios related to initiating payment flows that the client needs to focus on. The following sections describes how to handle the payment-in-progress error and how to handle payments hanging in the *Reserved* state.
 
 ### Payment in progress error handling
-In the case of an unexpected restart of the client where the payment flow cannot be continued it might be necessary to cancel the active payment since there can be only one active payment on a PoS. If the payment id of the active payment is lost it can be retrieved by calling ``GET api/v10/payments`` using the PoS id and setting the *active* boolean to true. When the payment id is retrieved the payment can be cancelled and the PoS is now ready for a new payment flow. A sequence diagram showing how to handle a payment in progress is shown below.
+In the case of an unexpected restart of the client where the payment flow cannot be continued it might be necessary to cancel the active payment since there can be only one active payment on a PoS. If the ``paymentId`` of the active payment is lost it can be retrieved by calling ``GET api/v10/payments`` using the ``posId`` and setting the *active* boolean to true. When the ``paymentId`` is retrieved the payment can be cancelled and the PoS is now ready for a new payment flow. A sequence diagram showing how to handle a payment-in-progress error is shown below.
 [![](assets/images/initiate_payment_error_active_payment.png)](assets/images/initiate_payment_error_active_payment.png)
 
 ### Hanging payments in reserved state
 The client is responsible for persisting if a reserved payment should be cancelled or captured. In case the client gets a timeout (or other errors resulting in failed calls) trying to either call Capture or Cancel on a payment, it is crucial that they persist whether the payment should be captured or cancelled so they can try again later.
 
-It is required of the client to implement a periodically scheduled job of running through all their payments left in reserved state, and try to either cancel or capture it. A sequence diagram of this flow is shown below.
+It is required of the client to implement a periodically scheduled job of running through all their payments left in *Reserved* state, and try to either cancel or capture it. A sequence diagram of this flow is shown below.
+
 [![](assets/images/capture_cancel_hanging_reservations.png)](assets/images/capture_cancel_hanging_reservations.png)
 
 ## <a name="refunds"></a> Refunds
 
-Once a payment is captured, the payment amount is immediately charged from the user. The payment can therefore no
-longer be cancelled. Instead, the payment amount can be transferred back to the user, by performing *refunds*. 
+Once a payment is captured, the payment amount is immediately charged from the customer. Therefore, the payment can no
+longer be cancelled. Instead, the payment amount can be transferred back to the customer, by performing *refunds*. 
 Each captured payment can be refunded multiple times with the restriction that the sum of the refunds cannot exceed
-the captured payment amount. 
-A payment can be refunded up to 30 days after the payment was completed. After 30 days a refund is no longer possible with MobilePay.
+the captured payment amount. A payment can be refunded up to 30 days after the payment was completed. After 30 days a refund is no longer possible with MobilePay.
 
-The sequence diagram below shows a sunshine scenario for a refund. Initiating a refund yields a *RefundId* that can be
+The sequence diagram below shows a sunshine scenario for a refund. Initiating a refund yields a ``refundId`` that can be
 used to query the status of the refund. A refund starts out in the *Initiated* state and transitions to the *Reserved*
 state when the refund has been reserved as shown in the state diagram below. Once a refund has been reserved, the client 
 can choose to capture the refund, transitioning the state to *Captured*. When a refund is captured, the refunded amount 
-is immediately transferred to the user and the user is notified of the refund. 
+is immediately transferred to the customer and the customer is notified of the refund.
 
 [![](assets/images/refund-flow.png)](assets/images/refund-flow.png)
 
@@ -82,29 +82,29 @@ The V10 API supports cancelling of payments and refunds.
 
 ### Cancelling Payments
 
-A payment is cancellable by the client until the state has changed to *Captured* or *ExpiredAndCancelled*. Furthermore, a payment can be cancelled by the user when the payment is in state *Paired* or *IssuedToUser*. 
-Payments can be cancelled by calling the endpoint **/v10/payments/{paymentId}/cancel**. It requires the payment id of the payment to be cancelled. When the payment has been cancelled the state transitions to *CancelledByClient*. 
-If the user cancels the payment the state will transition to *CancelledByUser*.
+A payment is cancellable by the client until the state has changed to *Captured* or *ExpiredAndCancelled*. Furthermore, a payment can be cancelled by the customer when the payment is in state *Paired* or *IssuedToCustomer*. 
+Payments can be cancelled by calling the endpoint ``POST /api/v10/payments/{paymentId}/cancel``. It requires the ``paymentId`` of the payment to be cancelled. When the payment has been cancelled the state transitions to *CancelledByClient*. 
+If the customer cancels the payment the state will transition to *CancelledByCustomer*.
 
-The diagrams below show the sunshine scenarios for a payment cancelled by the client and a payment cancelled by the user, respectively.
+The diagrams below show the sunshine scenarios for a payment cancelled by the client and a payment cancelled by the customer, respectively.
 When the client cancels the payment a notification is sent to the app. The app returns to the pay screen with a message saying that the payment was cancelled by the shop.
 
 [![](assets/images/cancel-by-client.png)](assets/images/cancel-by-client.png)
 
-When the user cancels the payment the app will show a message saying that the payment was cancelled. The status of the payment when queried will be *CancelledByUser*.
+When the customer cancels the payment the app will show a message saying that the payment was cancelled. The status of the payment when queried will be *CancelledByCustomer*.
 
 [![](assets/images/cancel-by-user.png)](assets/images/cancel-by-user.png)
 
-The cancel funtionality can be used in various scenarios. It could be that the user changed his/her mind about paying with MobilePay or that something in the request was not correct (maybe the user added another item after the payment was initiated). In these cases the cancelling of the payment is straight forward and as shown in the diagrams above.
+The cancel funtionality can be used in various scenarios. It could be that the customer changed their mind about paying with MobilePay or that something in the request was not correct (maybe the customer added another item after the payment was initiated). In these cases the cancelling of the payment is straight forward and as shown in the diagrams above.
 
 The cancel functionality can also be used in case of non-sunshine scenarios. 
 It could be if the call to initiate a payment is faulty or if the client never receives the response. In this case the client 
 should either retry the call (as described in [Error Handling](api_principles#error_handling)) or the client could try to get 
-the payment id by the order id and cancel afterwards.
+the ``paymentId`` by the ``orderId`` and cancel afterwards.
 
 ### Cancelling Refunds
 
-A refund is cancellable until it reaches the state *Captured* or *ExpiredAndCancelled*. Refunds can only be cancelled by the client since there is no user involved in the process. A refund can be cancelled by calling the endpoint **/v10/refunds/{refundId}/cancel**. It requires the id of the refund that was returned when the refund was initiated.
+A refund is cancellable until it reaches the state *Captured* or *ExpiredAndCancelled*. Refunds can only be cancelled by the client since there is no customer involved in the process. A refund can be cancelled by calling the endpoint ``POST /api/v10/refunds/{refundId}/cancel``. It requires the id of the refund that was returned when the refund was initiated.
 When the refund has been cancelled the state transitions to *CancelledByClient*. 
 
 [![](assets/images/cancel-refund-by-client.png)](assets/images/cancel-refund-by-client.png)
