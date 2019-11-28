@@ -1,15 +1,15 @@
 
-# API Principles
+# <a name="api_principles"></a> API Principles
 
 This is a preliminary list of architectural principles.
 
-### Backend has the truth
+### Backend Has the Truth
 
-An architectural principle in MobilePay PoS is that the Backend has the truth - that means in a situation where certainty is required, for instance is the payment approved, the app and client will have to wait for confirmation from the backend.
+One of the architectural principles in MobilePay PoS is that the backend has the truth. This means that in a situation where certainty is required, for instance whether the payment has been approved, the app and client will have to wait for confirmation from the backend.
 
-### API versus Implementation
+### API Versus Implementation
 
-The API does not describe the abstractions of the underlying backend OR client implementations - instead the API serves as the joint Interface for Backend and Frontend. The ramification for this is that BOTH frontend and backend can move independently from the API however they must always support the API specification and not only support perceived details of current implementations. ANY valid HTTP request must be handled appropriately by the backend and produce a useful informative HTTP response. Any valid HTTP response received in the client must be handled appropriately by the client.
+The API does not describe the abstractions of the underlying backend or client implementations. Instead the API serves as the joint interface for backend and frontend. The ramification for this is that both frontend and backend can move independently from the API. However, they must always support the API specification and not only support perceived details of current implementations. Any valid HTTP request must be handled appropriately by the backend and produce a useful informative HTTP response. Any valid HTTP response received in the client must be handled appropriately by the client.
 
 ### RESTful API
 
@@ -17,7 +17,7 @@ The API is defined using the RESTful principles.
 
 ## <a name="security_model"></a> Security Model
 
-### Communication security
+### Communication Security
 
 The MobilePay PoS V10 API uses TLS for communication security and data integrity (secure channel between the client and the 
 backend). The API currently uses TLS 1.2. It is the integrator's responsibility to plan for an upgrade to TLS 1.3, when
@@ -26,12 +26,9 @@ TLS 1.2 is deprecated.
 ### Integrator Authorization
 
 The MobilePay API Gateway is ensuring the authentication of all PoS API requests. 
-In order to be granted access to the MobilePay PoS API each integrator/vendor will have to enroll their clients as a client (called App) in our API Gateway Developer Portal (see section below for more information about it).
+In order to be granted access to the MobilePay PoS API each integrator/vendor will have to enroll their clients as a client (called App) in our API Gateway Developer Portal (see [Client Identification](client_identification) for more information about it).
 
-Creating an app in MobilePay Developer Portal will create a client id that should be used in all calls to the MobilePay PoS API in the following way:
-
-
-Example with a Curl request:
+Creating an app in MobilePay Developer Portal will create a client ID that should be used in all calls to the MobilePay PoS API in the following way:
 
 ````
 --header 'X-IBM-Client-Id: 80e0075c-d0b5-4b74-a466-ecaca65234b0'
