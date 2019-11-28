@@ -3,11 +3,12 @@ The Point-of-Sale (PoS) represents the contact point between a MobilePay custome
 To initiate a MobilePay payment it is necessary to first create a PoS. 
 
 ## Onboarding
-Each PoS belongs to a *Store* which in turn is associated with a *Brand*. A brand can be thought of as a combination of a name and a logo. When a MobilePay user checks in on a PoS they will see the brand name and the logo in the app, which helps the MobilePay user confirm that they have in fact checked in where they intended. An example of a brand could be 7-Eleven in Denmark or K-Market in Finland. A brand is identified by a ``merchantBrandId``. Each brand consists of one or more stores. Each store also has a name which is also shown to the MobilePay user when they check-in on a PoS that belongs to that store. A ````merchantLocationId```` together with a ````merchantBrandId```` identifies a store within a brand. 
+Each PoS belongs to a *Store* which in turn is associated with a *Brand*. A brand can be thought of as a combination of a name and a logo. When a MobilePay cusotmer checks in on a PoS they will see the brand name and the logo in the app, which helps the customer confirm that they have in fact checked in where they intended. An example of a brand could be 7-Eleven in Denmark or K-Market in Finland. A brand is identified by a ``merchantBrandId``. Each brand consists of one or more stores. Each store also has a name which is also shown to the customer when they check in on a PoS that belongs to that store. A ``merchantLocationId`` together with a ``merchantBrandId`` identifies a store within a brand. 
 
-Brands and stores are created by the merchant when onboarding with MobilePay PoS and the merchant will typically provide the ````merchantBrandId````s and ````merchantLocationId````s for the merchant's brands and stores to the integrator. 
+Brands and stores are created by the merchant when onboarding with MobilePay PoS and the merchant will typically provide the ``merchantBrandId``s and ``merchantLocationId``s for the merchant's brands and stores to the integrator.
 
-When the integrator has received the ````merchantBrandId```` and the ````merchantLocationId```` they will have to call ````GET /api/v10/stores```` with the two ids, and in return they will receive a ````storeId```` which will be used to create all the PoS'es on that store. The ````storeId```` will therefore have to be persisted in an application configuration file for subsequent calls to the V10 API. Here is a flow for getting the storeId using ````GET /api/v10/stores````:
+When the integrator has received the ``merchantBrandId`` and the ``merchantLocationId`` they will have to call ``GET /api/v10/stores`` with the two ids, and in return they will receive a ``storeId`` which will be used to create all the PoSes on that store. The ``storeId`` will therefore have to be persisted in an application configuration file for subsequent calls to the V10 API. Below diagram illustrates a flow for getting the ``storeId`` using ``GET /api/v10/stores``.
+
 [![](assets/images/get_store.png)](assets/images/get_store.png)
 
 ## <a name="pos_creation"></a> PoS Creation
