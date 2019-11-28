@@ -1,5 +1,5 @@
 
-# Overview of changes between version 10 and version 8.6 of the MobilePay PoS API
+# <a name="overview_of_changes"></a>Overview of changes between version 10 and version 8.6 of the MobilePay PoS API
 
 Version 10 of the MobilePay PoS API introduces breaking changes from version 8.6 of the API. 
 The following list describes the changes in overview:
@@ -19,7 +19,7 @@ The following list describes the changes in overview:
 * Certification will be done automatically
 * Possibility to do age verification and card restrictions for purchases
 
-## ID hierarchy
+## <a name="id_heirarchy"></a>ID hierarchy
 
 The following diagram shows the ID-Hierarchy of the Master data in MobilePay PoS.
 
