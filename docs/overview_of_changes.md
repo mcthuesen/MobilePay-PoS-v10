@@ -14,7 +14,7 @@ The following list describes the changes in overview:
   * Inclusion of the Prepare-Ready flow
   * It is only possible to do Reservation-Capture flows
   * API method naming has changed
-* There is a new ID structure (see [ID hierarchy](id_hierarchy))
+* There is a new ID structure (see [ID hierarchy](overview_of_changes#id_hierarchy))
 * Documentation is live through a developer website (using OpenAPI standards) and GitHub
 * Certification will be done automatically
 * Possibility to do age verification and card restrictions for purchases
