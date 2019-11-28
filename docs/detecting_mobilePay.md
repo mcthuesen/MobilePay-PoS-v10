@@ -9,23 +9,21 @@ This is the default way of detecting MobilePay presence. In a supermarket, this 
 [![](assets/images/POD_MobilepayButton.png)](assets/images/POD_MobilepayButton.png)
 
 A last example of a user activation is in the case of a QR code being displayed in a terminal. Once the QR code is displayed,
-the terminal may start polling an HTTP GET check-in endpoint to determine if a user has checked in. The terminal may only poll
-for a check-in while the QR code is displayed on the terminal to ensure the check-in endpoint is not overloaded with requests 
-constantly.
+the terminal may start polling the endpoint ``GET /api/v10/pointofsales/{posId}/checkin`` to determine if a customer has checked in. The terminal may only poll for a check-in while the QR code is displayed on the terminal to ensure the check-in endpoint is not overloaded with requests.
 
 [![](assets/images/POD_polling.png)](assets/images/POD_polling.png)
 
 
 ## <a name="ble"></a> BLE 2-way communication
 
-It is possible to get information about check-ins via Bluetooth Low Energy - To use this approach the Integrator will need to use one of the MobilePay defined Bluetooth communication protocols.
+It is possible to get information about check-ins via Bluetooth Low Energy. To use this approach the integrator will need to use one of the MobilePay defined Bluetooth communication protocols.
 
 [![](assets/images/POD_BLEsignal.png)](assets/images/POD_BLEsignal.png)
 
 
 ## <a name="notification"></a> Notification service
 
-Some interfaces do not naturally include a possibility for user activation - in these cases an endpoint can be exposed by the MobilePay PoS integrator. This endpoint will be called with a check-in Notification when a user checks in. After receiving a notification the client can poll the HTTP GET check-in endpoint for that client. For more details see [Notification Service](notification_service).
+Some interfaces do not naturally include a possibility for user activation - in these cases an endpoint can be exposed by the MobilePay PoS integrator. This endpoint will be called with a check-in notification when a customer checks in. After receiving a notification the client can poll the ``GET /api/v10/pointofsales/{posId}/checkin`` endpoint for that PoS. For more details see [Notification Service](notification_service).
 
 [![](assets/images/POD_BeaconIDRead.png)](assets/images/POD_BeaconIDRead.png)
 
