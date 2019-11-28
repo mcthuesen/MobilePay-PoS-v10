@@ -14,7 +14,7 @@
 | Reservation     | A reservation is a pre-authorization which guarantees that the user has sufficient funds to pay for the given transaction. |
 | Capture          | Capture is the process by which payments are secured once the payment has been authorized, i.e. a reservation has been made.|
 | PoS                 | In common language a point-of-sale might mean an Electronic Cash Register. In MobilePay PoS, a point-of-sale is an abstraction that describes a place where a payment can occur and therefore NOT a synonym for ECR. The distinction is subtle but important.|
-|Check-in| Customer action performed in order to initiate payment. This could be scanning a QR code or connect to a terminal.|
+|Check-in| Customer action performed in order to initiate payment. This could be scanning a QR code or connecting to a terminal.|
 | PoS vendor    | The company that develops the client and calls the MobilePay PoS API on behalf of the merchant. Sometimes the merchant acts as integrator. Used interchangeably with Integrator.|
 | VAT-number   | In Denmark, this is the CVR-number. In Finland, this is the Y-tunnus. Both refer to the official business ID.| 
 
