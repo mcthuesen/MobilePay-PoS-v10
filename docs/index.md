@@ -15,7 +15,7 @@ This document does not include detailed specification of the endpoints, response
 There are several versions of MobilePay PoS. This documentation describes version 10.0 of the API. Version 10.0 is an update with several changes from version 8.6 of the API. The changes to the latest API are made to improve the quality of the MobilePay PoS clients and to make it easier to build new features for the benefit of merchants. For an overview of the changes in 10.0, see the [changes overview](overview_of_changes).
 
 ## Payment experience
-MobilePay PoS is an API for setting up a merchant's transaction requests on customers' MobilePay apps in a store. MobilePay PoS does not require the customer to manually enter any information in the MobilePay app pertaining to the transaction. A transaction request can typically be obtained by the customer by holding the mobile device near a merchant device (Terminal, BLE beacon, etc.) OR scanning a QR code.
+MobilePay PoS is an API for setting up a merchant's transaction requests on customers' MobilePay apps in a store. MobilePay PoS does not require the customer to manually enter any information in the MobilePay app pertaining to the transaction. A transaction request can typically be obtained by the customer by holding the mobile device near a merchant device (Terminal, BLE beacon, etc.) or scanning a QR code.
 
 Currently MobilePay PoS uses BLE one-way and two-way beacons and QR-codes to set up the transaction requests - the technology choices are not important for the API - however the concept of a beacon ID is central to allow matching of the customer willing to pay and the merchant's transaction request.
 
