@@ -46,11 +46,11 @@ For more information about payments, see [Payment Flows](payment_flows).
 
 | Name | Format      | Description |
 |------|-------------|-------------|
-| `PaymentId` | Guid | MobilePay defined Payment ID. |
-| `OrderId` | String with at most 36 valid characters | Merchant defined payment order ID.<br><br>There is no uniqueness requirement for the OrderId, but we recommend using unique OrderIds if possible. |
+| `PaymentId` | GUID | MobilePay defined Payment ID. |
+| `OrderId` | String with at most 36 valid characters | Merchant defined payment order ID.<br><br>There is no uniqueness requirement for the `OrderId`, but it is highly recommended to use unique order IDs. |
 | `Amount` | Valid positive amount | Total amount of the payment. |
 | `CurrencyCode` | DKK / EUR | Currency code for the currency of the payment. |
-| `MerchantPaymentLabel` | String with at most 36 valid characters	| Label for the payment.<br><br>This is a way for the merchant to tag a payment with a label.<br><br>This is visible in the transaction reporting section on the MobilePay Portal |
+| `MerchantPaymentLabel` | String with at most 36 valid characters	| Label for the payment.<br><br>This is a way for the merchant to tag a payment with a label that will be visible in the transaction reporting section on the MobilePay Portal |
 
 ## Valid characters
 
