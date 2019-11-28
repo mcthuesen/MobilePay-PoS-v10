@@ -1,8 +1,8 @@
 # <a name="payment_flows"></a>Payment Flows
 
-The MobilePay PoS API exposes two separate flows for payments which are documented in this section. All payments must be explicitly captured by the client after customer (app) approval. The capture amount can be for the full or a partial amount.
+The MobilePay PoS API exposes two separate flows for payments which are documented in this section. All payments must be explicitly captured by the client after the customer has approved the payment. The capture amount can be for the full or a partial amount.
 
-For a client to start a payment flow, the client first has to detect that a customer is present, ready and willing to pay. In the following descriptions of payment flows it is assumed that the client has already detected a customer. How to detect a MobilePay customer is described in the [Detecting MobilePay](detecting_mobilePay) section. 
+For a client to start a payment flow, the client first has to detect that a customer is present, ready and willing to pay. In the following descriptions of payment flows it is assumed that the client has already detected a customer. How to detect a customer wanting to pay with MobilePay is described in the [Detecting MobilePay](detecting_mobilePay) section. 
 
 ## <a name="payment_flow"></a>Payment Flow
 
@@ -33,7 +33,7 @@ As an example, this flow could be used to start a payment before the payment amo
 
 The sequence diagram below illustrates a sunshine scenario for a prepared payment flow.
 
-A prepared payment starts out in state *Prepared* and remains in this state until the payment is paired with a customer through a check-in. Once paired, the state transitions to *Paired* and querying the payment will also return the customer's loyalty token, if any. Once the payment is ready for customer approval, the client marks the payment as *Ready* and provides the payment amount. The payment is then issued to the customer and the payment state changes to *IssuedToCustomer*. Once the customer accepts the payment request and the payment amount has been reserved, the payment state transitions to the *Reserved* state. In this state, the payment can be cancelled or captured by the client resulting in the payment state transitioning to either the *Cancelled* or *Captured* state, respectively.
+A prepared payment starts out in state *Prepared* and remains in this state until the payment is paired with a customer through a check-in. Once paired, the state transitions to *Paired* and querying the payment will also return the customer's loyalty token, if any. Once the payment is ready for customer approval, the client marks the payment as *Ready* and provides the payment amount. The payment is then issued to the customer and the payment state changes to *IssuedToCustomer*. Once the customer accepts the payment request and the payment amount has been reserved, the payment state transitions to the *Reserved* state. In this state, the payment can be cancelled or captured by the client resulting in the payment state transitioning to either the *CancelledByClient* or *Captured* state, respectively.
 
 [![](assets/images/ReservationPrepareFlow.png)](assets/images/ReservationPrepareFlow.png)
 
@@ -44,14 +44,14 @@ The diagram below shows all the possible states and transitions for a prepared p
 [![](assets/images/reservation-payment-prepare-ready-states.png)](assets/images/reservation-payment-prepare-ready-states.png)
 
 ## <a name="payment_management"></a> Payment Flow Error Handling
-Of all the ways a payment flow can fail, there are some error scenarios related to initiating payment flows that the client needs to focus on. The following sections describes how to handle the payment-in-progress error and how to handle payments hanging in the *Reserved* state.
+Of all the ways a payment flow can fail, there are some error scenarios related to initiating payment flows that the client needs to focus on. The following sections describes how to handle payment-in-progress errors and how to handle payments hanging in the *Reserved* state.
 
 ### Payment in progress error handling
 In the case of an unexpected restart of the client where the payment flow cannot be continued it might be necessary to cancel the active payment since there can be only one active payment on a PoS. If the ``paymentId`` of the active payment is lost it can be retrieved by calling ``GET api/v10/payments`` using the ``posId`` and setting the *active* boolean to true. When the ``paymentId`` is retrieved the payment can be cancelled and the PoS is now ready for a new payment flow. A sequence diagram showing how to handle a payment-in-progress error is shown below.
 [![](assets/images/initiate_payment_error_active_payment.png)](assets/images/initiate_payment_error_active_payment.png)
 
 ### Hanging payments in reserved state
-The client is responsible for persisting if a reserved payment should be cancelled or captured. In case the client gets a timeout (or other errors resulting in failed calls) trying to either call Capture or Cancel on a payment, it is crucial that they persist whether the payment should be captured or cancelled so they can try again later.
+The client is responsible for persisting if a reserved payment should be cancelled or captured. In case the client gets a timeout (or other errors resulting in failed calls) trying to either call capture or cancel on a payment, it is crucial that they persist whether the payment should be captured or cancelled so they can try again later.
 
 It is required of the client to implement a periodically scheduled job of running through all their payments left in *Reserved* state, and try to either cancel or capture it. A sequence diagram of this flow is shown below.
 
