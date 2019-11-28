@@ -82,7 +82,7 @@ used in the V10 API is given below.
 | `409 Conflict`              | The request was rejected due to the state of the underlying resource.                      |
 | `500 Internal Server Error` | An unrecoverable internal server error occurred.                                            |
 
-For most errors, V10 APIs return an error response body that includes an error code and an error
+For most errors, the V10 API returns an error response body that includes an error code and an error
 description. The error response has the following structure:
 
 ```javascript
@@ -108,8 +108,7 @@ If errors persist despite retries, the flow should be aborted. The PoS V10 API u
 ensure that requests can always be safely retried. Idempotency ensures that performing the same call 
 multiple times will not cause additional state changes beyond those caused by the first call. 
 
-For instance, if a
-*capture* call on a payment is successful on the backend, but the connection to the client is
+For instance, if a capture call on a payment is successful on the backend, but the connection to the client is
 closed before the client receives the response, then it is safe for the client to retry the capture 
 call. The second capture call will immediately return with a `200 OK` response as the capture was 
 already completed on the first capture call.
@@ -128,14 +127,14 @@ POST /api/v10/pointofsales
 ````
 For each call to the endpoints above, the client should generate a unique idempotency key for the
 given call. In case the client decides to retry a call due to a failure, the client **must** use the
-same idempotency-key, to allow the backend to identify it as a retried call. We recommend using a
+same idempotency key, to allow the backend to identify it as a retried call. We recommend using a
 client-generated *GUID* as the idempotency key.
 
 For instance, if a client calls to initiate a payment with a unique idempotency key, *key1*, and the 
 initiate call is successful but the client never receives the response due to an intermittent network 
 issue, then it is safe to retry the initiate payment call with the same idempotency key, *key1*.
 Because the idempotency key is the same, the second call will not initiate a new payment, but rather 
-return the *PaymentId* of the already initiated payment. 
+return the `paymentId` of the already initiated payment. 
 
 All other endpoints in the PoS V10 API are naturally idempotent and do not require explicit idempotency keys
 to be set by the client. 
@@ -147,14 +146,14 @@ as a retried call.
 ### Retrying requests
 We recommend retrying failed requests due to network and server errors using one of these strategies:
 * Retrying requests up to a fixed number of times with a constant delay between each call. 
-* Retrying requests until a proper response is received, using an exponential backoff with jitter strategy (i.e.,
+* Retrying requests until a proper response is received, using an exponential backoff with jitter strategy (i.e.
 doubling the delay between each retried call and adding some randomness to the delay to avoid overloading the backend).
 
 ### Client errors
 
 Client errors (HTTP 4XX) indicate a problem with the client request and can typically not be resolved by retrying
 the request. HTTP 409 errors typically indicate that the client and the PoS backend is out-of-sync about
-the state of a given resource (e.g., trying to capture a reservation that is not yet reserved or initiating
+the state of a given resource (e.g. trying to capture a reservation that is not yet reserved or initiating
 a payment on a PoS that already has an active payment). If possible, the client should try to query the given
 resource to fix any inconsistencies between the client and the PoS backend.
 
@@ -171,18 +170,18 @@ GET /api/v10/refunds/{refundId}
 GET /api/v10/pointofsales/{posId}/checkin
 ````
 
-If a response includes a `pollDelayInMs` of 1000, the client **must** wait at least 1000ms (i.e., 1 second)
+If a response includes a `pollDelayInMs` of 1000, the client **must** wait at least 1000ms (i.e. 1 second)
 before polling the same endpoint. In case no response is received when querying one of the above polling endpoints,
 then clients should either:
 
 * Use the `pollDelayInMs` from the last successful call to the given endpoint.
-* Continue polling using an exponential backoff with jitter strategy (i.e., doubling the delay between each retried 
+* Continue polling using an exponential backoff with jitter strategy (i.e. doubling the delay between each retried 
 call and adding some randomness to the delay to avoid overloading the backend).
 
 ## <a name="self_certification"></a> Self Certification
 
-The certification process changes with API V10 - for the new API all minor and major versions of clients 
-must be certified, MobilePay will provide an automatic certification process - where it will be possible 
+The certification process changes with API V10. For the new API all minor and major versions of clients 
+must be certified. MobilePay will provide an automatic certification process where it will be possible 
 for most integrators to create a fully automated self-certification. The certification will be concluded 
 with an automated report on how the certification went.
 
