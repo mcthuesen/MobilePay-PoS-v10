@@ -19,7 +19,7 @@ The following list describes the changes in overview:
 * Certification will be done automatically
 * Possibility to do age verification and card restrictions for purchases
 
-## <a name="id_heirarchy"></a>ID hierarchy
+## <a name="id_hierarchy"></a>ID hierarchy
 
 The following diagram shows the ID-Hierarchy of the Master data in MobilePay PoS.
 
