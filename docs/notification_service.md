@@ -2,7 +2,7 @@
 
 Clients that are unable to detect whether a customer has checked in by either [user activation](detecting_mobilePay#user_activation) or [BLE 2-Way](detecting_mobilePay#ble) can use the notification service. To be able to use the notification service, the integrator needs to implement an endpoint that MobilePay will call, when a client should query the active check-in on a PoS.
 
-When the endpoint is implemented the URL has to be communicated to MobilePay in order to validate and whitelist it in the firewalls. This is done by sending an email to [developer@mobilepay.com](mailto:developer@mobilepay.com). When the URL is whitelisted the integrator will receive a reference to that URL called a ``CallbackAlias``. The client will use this alias when [creating a PoS](pos_management#pos_creation) to indicate which notification endpoint to call.
+When the endpoint is implemented the URL has to be communicated to MobilePay in order to validate and whitelist it in the firewalls. This is done by sending an email to [developer@mobilepay.dk](mailto:developer@mobilepay.com). When the URL is whitelisted the integrator will receive a reference to that URL called a ``CallbackAlias``. The client will use this alias when [creating a PoS](pos_management#pos_creation) to indicate which notification endpoint to call.
 
 ## <a name="notification_endpoint"></a> Notification endpoint
 
