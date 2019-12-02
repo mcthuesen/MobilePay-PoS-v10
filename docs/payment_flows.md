@@ -82,16 +82,16 @@ The V10 API supports cancelling of payments and refunds.
 
 ### Cancelling Payments
 
-A payment is cancellable by the client until the state has changed to *Captured* or *ExpiredAndCancelled*. Furthermore, a payment can be cancelled by the customer when the payment is in state *Paired* or *IssuedToCustomer*. 
+A payment is cancellable by the client until the state has changed to *Captured* or *ExpiredAndCancelled*. Furthermore, a payment can be cancelled by the customer when the payment is in state *Paired* or *IssuedToUser*. 
 Payments can be cancelled by calling the endpoint ``POST /api/v10/payments/{paymentId}/cancel``. It requires the ``paymentId`` of the payment to be cancelled. When the payment has been cancelled the state transitions to *CancelledByClient*. 
-If the customer cancels the payment the state will transition to *CancelledByCustomer*.
+If the customer cancels the payment the state will transition to *CancelledByUser*.
 
 The diagrams below show the sunshine scenarios for a payment cancelled by the client and a payment cancelled by the customer, respectively.
 When the client cancels the payment a notification is sent to the app. The app returns to the pay screen with a message saying that the payment was cancelled by the shop.
 
 [![](assets/images/cancel-by-client.png)](assets/images/cancel-by-client.png)
 
-When the customer cancels the payment the app will show a message saying that the payment was cancelled. The status of the payment when queried will be *CancelledByCustomer*.
+When the customer cancels the payment the app will show a message saying that the payment was cancelled. The status of the payment when queried will be *CancelledByUser*.
 
 [![](assets/images/cancel-by-user.png)](assets/images/cancel-by-user.png)
 
