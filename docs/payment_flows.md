@@ -18,12 +18,11 @@ It is also possible to initiate a payment on a PoS without an active check-in, a
 
 ### <a name="payment_flow_states"></a>Payment States for the Payment Flow
 
-The diagram below shows all the possible states and transitions for a Payment flow. A payment can be cancelled by the customer until the customer has accepted the payment and the payment amount has been reserved. A payment can be cancelled by the client until it is captured or expires. After a payment has been captured, it can be [refunded](payment_flows#refunds), but can no longer be cancelled. A payment expires if it is neither cancelled nor captured within the lifetime of the reservation. If a payment expires, the state transitions to *ExpiredAndCancelled*.
-
-[![](assets/images/reservation-payment-states.png)](assets/images/reservation-payment-states.png)
-
+The diagram below shows all the possible states and transitions for a Payment flow. A payment can be cancelled by the customer until the customer has accepted the payment and the payment amount has been reserved. A payment can be cancelled by the client until it is captured or expires. After a payment has been captured, it can be [refunded](payment_flows#refunds), but can no longer be cancelled. A payment expires if it is neither cancelled nor captured within the lifetime of the reservation (at the moment at least 7 days). If a payment expires, the state transitions to *ExpiredAndCancelled*.
 A payment in the *Initiated* or *IssuedToUser* state can also be cancelled by MobilePay if it has been inactive for too long or an error occurs while reserving the payment amount on the customer's card or account. If a payment is
 cancelled by MobilePay the state transitions to *CancelledByMobilePay*.
+
+[![](assets/images/reservation-payment-states.png)](assets/images/reservation-payment-states.png)
 
 ## <a name="prepared_payment_flow"></a>Prepared Payment Flow
 
@@ -53,7 +52,7 @@ In the case of an unexpected restart of the client where the payment flow cannot
 ### Hanging payments in reserved state
 The client is responsible for persisting if a reserved payment should be cancelled or captured. In case the client gets a timeout (or other errors resulting in failed calls) trying to either call capture or cancel on a payment, it is crucial that they persist whether the payment should be captured or cancelled so they can try again later.
 
-It is required of the client to implement a periodically scheduled job of running through all their payments left in *Reserved* state, and try to either cancel or capture it. A sequence diagram of this flow is shown below.
+It is required of the client to implement a periodically scheduled job of running through all their payments left in *Reserved* state, and try to either cancel or capture it. A sequence diagram of this flow is shown below. It is the responsibility of the client to keep track of the payments left in *Reserved* state.
 
 [![](assets/images/capture_cancel_hanging_reservations.png)](assets/images/capture_cancel_hanging_reservations.png)
 
@@ -68,7 +67,8 @@ The sequence diagram below shows a sunshine scenario for a refund. Initiating a 
 used to query the status of the refund. A refund starts out in the *Initiated* state and transitions to the *Reserved*
 state when the refund has been reserved as shown in the state diagram below. Once a refund has been reserved, the client 
 can choose to capture the refund, transitioning the state to *Captured*. When a refund is captured, the refunded amount 
-is immediately transferred to the customer and the customer is notified of the refund.
+is immediately transferred to the customer and the customer will be able to see the refund in the activity list.
+A refund reservation will expire after 2 minutes, at the moment.
 
 [![](assets/images/refund-flow.png)](assets/images/refund-flow.png)
 
