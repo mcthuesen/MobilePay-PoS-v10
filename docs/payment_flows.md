@@ -8,11 +8,11 @@ For a client to start a payment flow, the client first has to detect that a cust
 
 The payment flow makes the payment ready for customer approval immediately upon creation. The sequence diagram below illustrates a sunshine scenario for a payment flow.
 
-The customer checks in on the PoS and receives information about the store on his device. Then, the client initiates a payment on the PoS which is immediately ready for approval and issued to the customer. The payment is now in the *IssuedToCustomer* state and will remain there until the customer accepts the payment and the payment amount has been reserved. At that point the payment will transition to the *Reserved* state. In this state, the payment can be cancelled or captured by the client resulting in the payment state transitioning to either the *Cancelled* or *Captured* state, respectively.
+The customer checks in on the PoS and receives information about the store on his device. Then, the client initiates a payment on the PoS which is immediately ready for approval and issued to the customer. The payment is now in the *IssuedToUser* state and will remain there until the customer accepts the payment and the payment amount has been reserved. At that point the payment will transition to the *Reserved* state. In this state, the payment can be cancelled or captured by the client resulting in the payment state transitioning to either the *Cancelled* or *Captured* state, respectively.
 
 [![](assets/images/ReservationFlow.png)](assets/images/ReservationFlow.png)
 
-It is also possible to initiate a payment on a PoS without an active check-in, as shown in the sequence diagram below. In this case the payment state starts out as *Initiated* and remains in that state until a customer is paired with the payment through a check-in. At that point the payment request is immediately issued to the customer and the state of the payment transitions to *IssuedToCustomer*. The rest of the flow proceeds in the same way as the scenario above. 
+It is also possible to initiate a payment on a PoS without an active check-in, as shown in the sequence diagram below. In this case the payment state starts out as *Initiated* and remains in that state until a customer is paired with the payment through a check-in. At that point the payment request is immediately issued to the customer and the state of the payment transitions to *IssuedToUser*. The rest of the flow proceeds in the same way as the scenario above. 
 
 [![](assets/images/reservationflow-checkin-after-initiate.png)](assets/images/reservationflow-checkin-after-initiate.png)
 
@@ -22,7 +22,7 @@ The diagram below shows all the possible states and transitions for a Payment fl
 
 [![](assets/images/reservation-payment-states.png)](assets/images/reservation-payment-states.png)
 
-A payment in the *Initiated* or *IssuedToCustomer* state can also be cancelled by MobilePay if it has been inactive for too long or an error occurs while reserving the payment amount on the customer's card or account. If a payment is
+A payment in the *Initiated* or *IssuedToUser* state can also be cancelled by MobilePay if it has been inactive for too long or an error occurs while reserving the payment amount on the customer's card or account. If a payment is
 cancelled by MobilePay the state transitions to *CancelledByMobilePay*.
 
 ## <a name="prepared_payment_flow"></a>Prepared Payment Flow
@@ -33,7 +33,7 @@ As an example, this flow could be used to start a payment before the payment amo
 
 The sequence diagram below illustrates a sunshine scenario for a prepared payment flow.
 
-A prepared payment starts out in state *Prepared* and remains in this state until the payment is paired with a customer through a check-in. Once paired, the state transitions to *Paired* and querying the payment will also return the customer's loyalty token, if any. Once the payment is ready for customer approval, the client marks the payment as *Ready* and provides the payment amount. The payment is then issued to the customer and the payment state changes to *IssuedToCustomer*. Once the customer accepts the payment request and the payment amount has been reserved, the payment state transitions to the *Reserved* state. In this state, the payment can be cancelled or captured by the client resulting in the payment state transitioning to either the *CancelledByClient* or *Captured* state, respectively.
+A prepared payment starts out in state *Prepared* and remains in this state until the payment is paired with a customer through a check-in. Once paired, the state transitions to *Paired* and querying the payment will also return the customer's loyalty token, if any. Once the payment is ready for customer approval, the client marks the payment as *Ready* and provides the payment amount. The payment is then issued to the customer and the payment state changes to *IssuedToUser*. Once the customer accepts the payment request and the payment amount has been reserved, the payment state transitions to the *Reserved* state. In this state, the payment can be cancelled or captured by the client resulting in the payment state transitioning to either the *CancelledByClient* or *Captured* state, respectively.
 
 [![](assets/images/ReservationPrepareFlow.png)](assets/images/ReservationPrepareFlow.png)
 
