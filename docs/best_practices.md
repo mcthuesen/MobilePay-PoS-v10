@@ -15,7 +15,11 @@ Using the Initiate-Capture flow will save a call to the API and in the end impro
 Cases in which knowing the customer before setting the amount includes loyalty payments where a discount is based on the customer's loyalty ID. 
 
 ## Specify planned capture delay
-It is required to specify when the payment is expected to be captured. The values are either Immediately, Within24Hours, and Within14Days. These are values that control how payments are handled by MobilePay Support and it is therefore beneficial that these values are set as accurate as possible.
+It is required to specify when the payment is expected to be captured. The values are either *Immediately*, *Within24Hours*, and *Within14Days*. These are values that control how payments are handled by MobilePay Support and it is therefore beneficial that these values are set as accurate as possible.
+The three values differ in the following way:
+* **Immediately**: If reservations with this value are not captured **the following day** it is possible for MobilePay Support to reach out to make sure the reservervations are handled (either cancelled or captured) although this is not guaranteed.
+* **Within24Hours**: If reservations with this value are not captured **the following 2-3 days** it is possible for MobilePay Support to reach out to make sure the reservervations are handled (either cancelled or captured) although this is not guaranteed.
+* **Within14Days**: If reservations with this value are not captured MobilePay Support cannot help since the reservation will be expired and, hence, cannot be captured. Make sure this value is only used when appropriate.
 
 ## Order IDs
 Order IDs are not required to be unique however this is highly recommended.
