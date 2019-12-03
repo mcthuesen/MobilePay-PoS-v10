@@ -10,11 +10,11 @@ The payment flow makes the payment ready for customer approval immediately upon 
 
 The customer checks in on the PoS and receives information about the store on his device. Then, the client initiates a payment on the PoS which is immediately ready for approval and issued to the customer. The payment is now in the *IssuedToUser* state and will remain there until the customer accepts the payment and the payment amount has been reserved. At that point the payment will transition to the *Reserved* state. In this state, the payment can be cancelled or captured by the client resulting in the payment state transitioning to either the *Cancelled* or *Captured* state, respectively.
 
-[![](assets/images/ReservationFlow.png)](assets/images/PaymentFlow-PaymentAfterCheckIn.png)
+[![](assets/images/PaymentFlow-PaymentAfterCheckIn.png)](assets/images/PaymentFlow-PaymentAfterCheckIn.png)
 
 It is also possible to initiate a payment on a PoS without an active check-in, as shown in the sequence diagram below. In this case the payment state starts out as *Initiated* and remains in that state until a customer is paired with the payment through a check-in. At that point the payment request is immediately issued to the customer and the state of the payment transitions to *IssuedToUser*. The rest of the flow proceeds in the same way as the scenario above. 
 
-[![](assets/images/reservationflow-checkin-after-initiate.png)](assets/images/PaymentFlow-PaymentBeforeCheckIn.png)
+[![](assets/images/PaymentFlow-PaymentBeforeCheckIn.png)](assets/images/PaymentFlow-PaymentBeforeCheckIn.png)
 
 ### <a name="payment_flow_states"></a>Payment States for the Payment Flow
 
