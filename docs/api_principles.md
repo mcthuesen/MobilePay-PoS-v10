@@ -26,7 +26,7 @@ TLS 1.2 is deprecated.
 ### Integrator Authorization
 
 The MobilePay API Gateway is ensuring the authentication of all PoS API requests. 
-In order to be granted access to the MobilePay PoS API each integrator/vendor will have to enroll their clients as a client (called App) in our API Gateway Developer Portal (see [Client Identification](client_identification) for more information).
+In order to be granted access to the MobilePay PoS API each integrator/vendor will have to enroll their clients as a client (called App) in our API Gateway Developer Portal (see [Client Identification](api_principles#client_identification) for more information).
 
 Creating an app in MobilePay Developer Portal will create a client ID that should be used in all calls to the MobilePay PoS API in the following way:
 
