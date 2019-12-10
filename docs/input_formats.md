@@ -1,4 +1,4 @@
-# <a name="input_formats"></a> Input Formats
+# <a name="input_formats"></a> Input and Output Formats
 
 This page gives an overview of the format and length restrictions for all input parameters used in the PoS V10 API. 
 
