@@ -36,12 +36,12 @@ Creating an app in MobilePay Developer Portal will create a client ID that shoul
 
 ## <a name="client_identification"></a> Client Identification
 
-All calls to the MobilePay PoS V10 API must include the following two headers `X-MP-Client-System-Name` and
-`X-MP-Client-System-Version` to identify the client system and verify that the given system has been [certified](api_principles#self_certification).
-The Client Name (`X-MP-Client-System-Name`) is a suitable name used for the 
+All calls to the MobilePay PoS V10 API must include the following two headers `X-MobilePay-Client-System-Name` and
+`X-MobilePay-Client-System-Version` to identify the client system and verify that the given system has been [certified](api_principles#self_certification).
+The Client Name (`X-MobilePay-Client-System-Name`) is a suitable name used for the 
 client, preferably the name that the integrator uses in their own communication. This way support communication 
 between merchant, integrator and MobilePay uses the same name which should aid in removing confusion in the support 
-situation. The Client Version (`X-MP-Client-System-Version`) is a 3 dimensional number Major.Minor.Build. It 
+situation. The Client Version (`X-MobilePay-Client-System-Version`) is a 3 dimensional number Major.Minor.Build. It 
 is recommended that when the client software is updated, the client version is updated accordingly. 
 The client version will be used by MobilePay to block versions of clients that are not certified 
 and/or are misbehaving. An example of misbehavior is spamming irrelevant HTTP calls that endanger fast 
@@ -60,8 +60,8 @@ Certification requirements in regard to changes to Client Name and Client Versio
 The Client Name and Client Version should be added in all calls as shown below.
 
 ````
---header 'X-MP-Client-System-Name: MobilePay Pos Client Reference Implementation'
---header 'X-MP-Client-System-Version: 2.1.1'
+--header 'X-MobilePay-Client-System-Name: MobilePay Pos Client Reference Implementation'
+--header 'X-MobilePay-Client-System-Version: 2.1.1'
 ````
 
 ## <a name="api_responses"></a> API Responses
@@ -117,7 +117,7 @@ already completed on the first capture call.
 In the case of `POST` endpoints that create new resources (e.g., initiating a payment or a refund) the backend
 cannot determine on its own whether two requests with identical request bodies is due to a retry or a request to
 create two resources. The PoS V10 API thus requires the client to set an *idempotency-key* header 
-(`X-MP-Idempotency-Key`) on each request when calling the following endpoints, to allow the 
+(`X-MobilePay-Idempotency-Key`) on each request when calling the following endpoints, to allow the 
 backend to identify retried calls:
 ````
 POST /api/v10/payments
