@@ -25,7 +25,7 @@ payment_flows:
 - title: Cancel Flows
   url: "payment_flows#cancel"
   
-input_formats_title: Input Formats
+input_formats_title: Input and Output Formats
 input_formats_url: "input_formats"
 
 api_principles_title: API Principles
