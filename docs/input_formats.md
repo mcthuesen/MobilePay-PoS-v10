@@ -8,10 +8,9 @@ For more information about the http headers, see [API principles](api_principles
 | Name | Format      | Description |
 |------|-------------|-------------|
 | `X-IBM-ClientId` | Guid | Identifies an application created through MobilePay Developer Portal. |
-| `X-MP-IntegratorId` | Guid | MobilePay Integrator ID.<br><br> Will be provided to integrators by MobilePay. |
-| `X-MP-Client-System-Name` | String with at most 36 valid characters | Identifies the [integrator system](api_principles#client_identification) calling the API. |
-| `X-MP-Client-System-Version` | Valid Client-Version:<br>Major.Minor.Build<br>Example: 1.2.1 | Identifies the [version of the integrator system](api_principles#client_identification) calling the API. |
-| `X-MP-Idempotency-Key` | String with at most 36 valid characters | Used to allow calls to be [safely retried](api_principles#error_handling) in case of errors. |
+| `X-MobilePay-Client-System-Name` | String with at most 36 valid characters | Identifies the [integrator system](api_principles#client_identification) calling the API. |
+| `X-MobilePay-Client-System-Version` | Valid Client-Version:<br>Major.Minor.Build<br>Example: 1.2.1 | Identifies the [version of the integrator system](api_principles#client_identification) calling the API. |
+| `X-MobilePay-Idempotency-Key` | String with at most 36 valid characters | Used to allow calls to be [safely retried](api_principles#error_handling) in case of errors. |
 
 ## Brands
 For more information about brands, see [PoS Management](pos_management).
@@ -38,7 +37,7 @@ For more information about a PoS, see [PoS Management](pos_management).
 | `PosName` | String with at most 36 valid characters | Merchant defined PoS name.<br><br>The name is visible in the app, after the customer has checked in on the PoS. |
 | `CallbackAlias` | String with at most 36 valid characters | Only for clients that use the [notification service](notification_service) to detect MobilePay payments. The CallbackAlias is a key that identifies which notification endpoint to call for the given PoS. |
 | `BeaconId` | A GUID or 15 digits | ID of the Beacon.<br><br>In case of physical device such as the MobilePay WhiteBox or a terminal the `BeaconId` is a 15 digit string.<br><br>In case of no physical device (QR) the `BeaconId` is not provided during PoS creation. MobilePay will generate a string containing a random GUID as the `BeaconId`. |
-| `SupportedBeaconTypes` | QR / NFC / BluetoothOther / BluetoothMP1 / BluetoothMP2 / BluetoothMP3 / BluetoothMP4	| Beacon broadcast type.<br><br>Identifies an option for how a customer can check in on a PoS.<br><br>During the creation of a PoS, a list of Beacon Types has to be provided. |
+| `SupportedBeaconTypes` | `QR` / `NFC` / `BluetoothOther` / `BluetoothMP1` / `BluetoothMP2` / `BluetoothMP3` / `BluetoothMP4`	| Beacon broadcast type.<br><br>Identifies an option for how a customer can check in on a PoS.<br><br>During the creation of a PoS, a list of Beacon Types has to be provided. |
 | `CalibrationType` | Integer between 0 and 65535 | Calibration Type of a physical beacon.<br><br>This is used by the MobilePay app to know the distance between the mobile device and the phycical beacon before the customer checks in on the PoS.<br><br>This is only applicable if the PoS contains any of the bluetooth `BeaconTypes`. |
 
 ## Payments
@@ -49,8 +48,11 @@ For more information about payments, see [Payment Flows](payment_flows).
 | `PaymentId` | GUID | MobilePay defined Payment ID. |
 | `OrderId` | String with at most 36 valid characters | Merchant defined payment order ID.<br><br>There is no uniqueness requirement for the `OrderId`, but it is highly recommended to use unique order IDs. |
 | `Amount` | Valid positive amount | Total amount of the payment. |
-| `CurrencyCode` | DKK / EUR | Currency code for the currency of the payment. |
+| `CurrencyCode` | `DKK` / `EUR` | Currency code for the currency of the payment. |
 | `MerchantPaymentLabel` | String with at most 36 valid characters	| Label for the payment.<br><br>This is a way for the merchant to tag a payment with a label that will be visible in the transaction reporting section on the MobilePay Portal |
+| `PlannedCaptureDelay` | `None` / `LessThan24Hours` / `LessThan14Days`	| How long time the client expects to wait after receiving a reservation before capturing.<br><br>See [Specify planned capture delay](best_practices#specify-planned-capture-delay). |
+| `CustomerToken` | String with at most 40 valid characters	| An alphanumeric string, uniquely identifying the customer. |
+| `CustomerReceiptToken` | String with at most 32 valid characters	| An alphanumeric string used for Storebox. |
 
 ## Valid characters
 
