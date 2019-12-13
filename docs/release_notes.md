@@ -5,7 +5,13 @@ The Point of Sale API V10 will be in production **Q2 2020**. It will be released
 ## Changelog
 
 ### 2019-12-10
+
+- Added `BrandName` to the subpage **Input and Output Formats** in the Brand section
+
 ---
+
+### 2019-12-10
+
 - Renamed subpage **Input Formats** to **Input and Output Formats**.
 - Adjusted content of subpage **Input and Output Formats**
   - **HTTP Headers**
