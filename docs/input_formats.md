@@ -18,6 +18,7 @@ For more information about brands, see [PoS Management](pos_management).
 | Name | Format      | Description |
 |------|-------------|-------------|
 | `MerchantBrandId` | MPPOSXXXXX <br> POSDKXXXXX <br> POSFIXXXXX | Identifies a Brand in MobilePay. |
+| `BrandName` | String | The name of the brand. |
 
 ## Stores
 For more information about stores, see [PoS Management](pos_management).
