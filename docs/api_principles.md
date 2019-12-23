@@ -185,4 +185,4 @@ must be certified. MobilePay will provide an automatic certification process whe
 for most integrators to create a fully automated self-certification. The certification will be concluded 
 with an automated report on how the certification went.
 
-Further details on self certification will follow in December 2019.
+Further details on self certification will follow in January 2020.
