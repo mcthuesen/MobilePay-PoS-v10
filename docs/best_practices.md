@@ -37,3 +37,13 @@ For both of these endpoints, it is allowed to do polling at most once per second
 It is possible to restrict which card types can be used for a payment. This restriction is available in order to support that some countries have restrictions on which cards can be used for certain products.
 It is also possible to set a minimum age for the paying customer. As an example, this can be set on payments involving alcohol or gambling products.
 The recommendation is to only set restrictions on payments where it is required to do so by the law or in case there are some business related reasons for restricting the payment.
+
+### Card type restrictions
+When initiating or marking a payment as ready it is possible to restrict the payment to not accept credit card or not accept debit card or both. In case a user is trying to use a card type that is not allowed the app will show an error message and the user is allowed to choose a different card. From the client side nothing will happen in this case as the payment will simply stay in the state `IssuedToUser`.
+
+### User age restriction
+Similar to restrictions on card types it is possible to set a minimum age restriction on the initiate or ready call. There are three different scenarios when the user does not meet the age restriction:
+
+* **Checkin after initiate/ready**: When the user tries to check in the app will end the payment flow with a error message and the payment will transition to the state `CancelledByMobilPay`.
+* **Checkin before initiate**: When the client tries to initiate a payment the API returns an error message saying that the age restriction is violated by the checked in user and the app will end the payment flow.
+* **Checkin before ready**: When the client call the endpoint to mark a payment as ready the app will end the flow and the payment will transition to the state `CancelledByMobilPay`.
