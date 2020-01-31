@@ -194,7 +194,7 @@ In the first step the Integrator identifies himself in the tool. The following i
 * Version numbering - The three dimensional number that defines the version of the of the Client that needs to be certified. See Client Identification link
 * Access token - The token that grants access to the POS API. The token can be obtained through an HTTP endpoint.
 
-[![](assets/images/identificationstep.png)](assets/images/identificationstep.png)
+[![](assets/images/identificationstep.PNG)](assets/images/identificationstep.PNG)
 
 ### Selection Step
 In the second step the Integrator selects which major features to certify. There are 6 major features in MobilePay PoS:
@@ -205,12 +205,12 @@ In the second step the Integrator selects which major features to certify. There
 * Loyalty - Certification in sections of the API neccesary for handling Loyalty programmes.
 * Payment Restrictions - Certification in sections of the API neccesary for handling restrictions to payments.
 
-[![](assets/images/selectionstep.png)](assets/images/selectionstep.png)
+[![](assets/images/selectionstep.PNG)](assets/images/selectionstep.PNG)
 
 ### Certification Step
 In the third step the integrator goes through all the different certifiction cases neccesary using his client. In this step it might be neccesary to operate the client to go through the different steps of a certification case.
 
-[![](assets/images/certificationstep.png)](assets/images/certificationstep.png)
+[![](assets/images/certificationstep.PNG)](assets/images/certificationstep.PNG)
 
 ### Approval step
 In the Fourth and final step the Integrator gets a report informing her of the client performance. In the case the Certification is passed - it is now possible for the client to access production. In the case of a failure there will be information of which steps that failed.
