@@ -4,6 +4,12 @@ The Point of Sale API V10 will be in production **Q2 2020**. It will be released
 
 ## Changelog
 
+### 2020-01-31
+
+- Added a description of Self-Certification to the documention under [api_principles](api_principles)
+
+---
+
 ### 2019-12-23
 
 - Changed the month that news will come out regarding self-certification from December 2019 to January 2020
