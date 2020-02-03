@@ -28,6 +28,9 @@ payment_flows:
 input_formats_title: Input and Output Formats
 input_formats_url: "input_formats"
 
+self_certification_title: Self Certification
+self_certification_url: "self_certification"
+
 api_principles_title: API Principles
 api_principles_url: "api_principles"
 api_principles:
@@ -41,8 +44,6 @@ api_principles:
   url: "api_principles#error_handling"
 - title: Call Throttling
   url: "api_principles#call_throttling"
-- title: Self Certification
-  url: "api_principles#self_certification"  
 
 pos_management_title: PoS Management
 pos_management_url: "pos_management"
