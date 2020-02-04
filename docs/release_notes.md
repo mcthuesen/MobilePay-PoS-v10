@@ -4,6 +4,11 @@ The Point of Sale API V10 will be in production **Q2 2020**. It will be released
 
 ## Changelog
 
+### 2020-02-04
+
+- Specified expiration length of Refund reservations to 24 hours. [Refunds](payment_flows#refunds)
+
+---
 ### 2020-01-31
 
 - Added a description of Self-Certification to the documention under [Self Certification](self_certification)
