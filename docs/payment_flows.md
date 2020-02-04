@@ -68,7 +68,7 @@ used to query the status of the refund. A refund starts out in the *Initiated* s
 state when the refund has been reserved as shown in the state diagram below. Once a refund has been reserved, the client 
 can choose to capture the refund, transitioning the state to *Captured*. When a refund is captured, the refunded amount 
 is immediately transferred to the customer and the customer will be able to see the refund in the activity list.
-A refund reservation will expire after 2 minutes, at the moment.
+A refund reservation will expire after 24 hours.
 
 [![](assets/images/refund-flow.png)](assets/images/refund-flow.png)
 
