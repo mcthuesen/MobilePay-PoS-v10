@@ -54,6 +54,14 @@ For more information about payments, see [Payment Flows](payment_flows).
 | `PlannedCaptureDelay` | `None` / `LessThan24Hours` / `LessThan14Days`	| How long time the client expects to wait after receiving a reservation before capturing.<br><br>See [Specify planned capture delay](best_practices#specify-planned-capture-delay). |
 | `CustomerToken` | String with at most 40 valid characters	| An alphanumeric string, uniquely identifying the customer. |
 | `CustomerReceiptToken` | String with at most 32 valid characters	| An alphanumeric string used for Storebox. |
+| `Restrictions` | See [Payment Restrictions](input_formats#payment_restrictions) | A way to define restrictions on how a payment can be completed |
+
+### <a name="payment_restrictions"></a>Payment Restrictions
+| Name | Format      | Description |
+|------|-------------|-------------|
+| `DebitCardDisallowed` | Boolean | A way to restrict a payment to not accept debit cards |
+| `CreditCardDisallowed` | Boolean | A way to restrict a payment to not accept credit cards |
+| `UserMinimumAge` | Positive Integer | A way to restrict a payment to only be approved by a user above a certain age.
 
 ## Valid characters
 
