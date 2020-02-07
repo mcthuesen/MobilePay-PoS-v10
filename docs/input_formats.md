@@ -57,6 +57,7 @@ For more information about payments, see [Payment Flows](payment_flows).
 | <a name="restrictions"></a>`Restrictions` | Json object with one or more parameters | A way to define restrictions on how a payment can be completed. See [Payment Restrictions](input_formats#payment_restrictions) for possible restriction parameters |
 
 ### <a name="payment_restrictions"></a>Payment Restrictions
+
 | Name | Format      | Description |
 |------|-------------|-------------|
 | `DebitCardDisallowed` | Boolean | When DebitCardDisallowed is set to true, debit cards cannot be used for this payment |
