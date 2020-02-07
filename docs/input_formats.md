@@ -59,9 +59,9 @@ For more information about payments, see [Payment Flows](payment_flows).
 ### <a name="payment_restrictions"></a>Payment Restrictions
 | Name | Format      | Description |
 |------|-------------|-------------|
-| `DebitCardDisallowed` | Boolean | A way to restrict a payment to not accept debit cards |
-| `CreditCardDisallowed` | Boolean | A way to restrict a payment to not accept credit cards |
-| `UserMinimumAge` | Positive Integer | A way to restrict a payment to only be approved by a user above a certain age.
+| `DebitCardDisallowed` | Boolean | When DebitCardDisallowed is set to true, debit cards cannot be used for this payment |
+| `CreditCardDisallowed` | Boolean | When CreditCardDisallowed is set to true, credit cards cannot be used for this payment |
+| `UserMinimumAge` | Positive Integer | When UserMinimumAge is set, MobilePay will cancel the payment if attempted accepted by users younger than the UserMinimumAge |
 
 ## Valid characters
 
