@@ -112,7 +112,7 @@ description. The error response has the following structure:
 | 1101       | One or more BeaconTypes are not supported. |
 | 1102       | The ``amount`` needs to be a positive number |
 | 1103       | The ``amount`` cannot have more than two decimal places |
-| 1104       | CurrencyCode not supported. |
+| 1104       | ``CurrencyCode`` not supported. |
 | 1105       | The ``userMinimumAge`` needs to be a positive number |
 | 1109       | Payment filter not specific enough |
 | 1110       | Refund filter not specific enough |
@@ -131,8 +131,8 @@ description. The error response has the following structure:
 |------------|-------------|
 | 1200       | A point of sale with the given ``merchantPosId`` already exist |
 | 1201       | The checkin cannot be cancelled when there is an ongoing payment |
-| 1202       | The BeaconId is assigned to another point of sale |
-| 1203       | POS_FILTER_NOT_SPECIFIC_ENOUGH |
+| 1202       | The ``BeaconId`` is assigned to another point of sale |
+| 1203       | Point of sale filter not specific enough |
 
 #### Payment conflict error codes
 
