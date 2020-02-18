@@ -95,6 +95,8 @@ description. The error response has the following structure:
 
 ### <a name="error_codes"></a> Error codes
 
+#### Entity not found error codes
+
 | Error code | Description |
 |------------|-------------|
 | 1000       | The ``MerchantPosId`` did not correspond to a point of sale in our database |
@@ -102,7 +104,46 @@ description. The error response has the following structure:
 | 1002       | The ``StoreId`` did not correspond to a store in our database |
 | 1003       | The ``BrandId`` did not correspond to a brand in our database |
 
+#### Bad request error codes
 
+| Error code | Description |
+|------------|-------------|
+| 1100       | ``BeaconId`` must be a valid guid or a 15 digit string |
+| 1101       | One or more BeaconTypes are not supported. |
+| 1102       | The ``amount`` needs to be a positive number |
+| 1103       | The ``amount`` cannot have more than two decimal places |
+| 1104       | CurrencyCode not supported. |
+| 1105       | The ``userMinimumAge`` needs to be a positive number |
+| 1109       | Payment filter not specific enough |
+| 1110       | Refund filter not specific enough |
+| 1111       | Invalid ``PosId`` |
+| 1112       | Invalid ``PosName`` |
+| 1113       | Invalid ``PaymentOrderId`` |
+| 1114       | Invalid ``RefundOrderId`` |
+| 1117       | Invalid ``MerchantPaymentLabel`` |
+| 1118       | Invalid ``CalibrationType`` |
+| 1119       | Invalid ``MerchantBrandId`` |
+| 1120       | Invalid ``MerchantLocationId`` |
+
+#### Point of sale conflict error codes
+
+| Error code | Description |
+|------------|-------------|
+| 1200       | A point of sale with the given ``merchantPosId`` already exist |
+| 1201       | The checkin cannot be cancelled when there is an ongoing payment |
+| 1202       | The BeaconId is assigned to another point of sale |
+| 1203       | POS_FILTER_NOT_SPECIFIC_ENOUGH |
+
+#### Payment conflict error codes
+
+| Error code | Description |
+|------------|-------------|
+| 1300       | The payment cannot be cancelled in the current state |
+| 1301       | A payment is already active. Cancel it before starting a new one |
+| 1303       | Payment needs to be prepared before it can be marked as ready |
+| 1304       | Cannot capture payment when payment is not reserved |
+| 1305       | Capture amount cannot exceed the reserved amount |
+| 1306       | Idempotency Key has to be unique per request unless the request is a retry of a previous request |
 
 ## <a name="error_handling"></a> Error Handling
 
