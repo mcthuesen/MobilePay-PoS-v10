@@ -93,6 +93,17 @@ description. The error response has the following structure:
 }
 ```
 
+### <a name="error_codes"></a> Error codes
+
+| Error code | Description |
+|------------|-------------|
+| 1000       | The ``MerchantPosId`` did not correspond to a point of sale in our database |
+| 1001       | The ``PaymentId`` did not correspond to a payment in our database |
+| 1002       | The ``StoreId`` did not correspond to a store in our database |
+| 1003       | The ``BrandId`` did not correspond to a brand in our database |
+
+
+
 ## <a name="error_handling"></a> Error Handling
 
 Clients integrating against the MobilePay PoS V10 API should expect intermittent errors and **must** implement suitable
