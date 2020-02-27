@@ -2,7 +2,9 @@
 
 ## Errors that needs handling for all endpoints
 <details>
-  <summary>ALL Endpoints</summary>
+  <summary>
+    ALL Endpoints
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -14,8 +16,9 @@
 
 ## Payments
 <details>
-  <summary>GET /api/v10/payments/{paymentid} - Query a Payment</summary>
-  <br>
+  <summary>
+    GET /api/v10/payments/{paymentid} - Query a Payment
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -23,23 +26,23 @@
 | 403 | 1401 | Cannot query payments created by a different integrator |
 | 404 | - | Payment not found |
 
-  <br>
 </details>
 
 <details>
-  <summary>GET /api/v10/payments - Query Payments by a filter</summary> 
-  <br>
+  <summary>
+    GET /api/v10/payments - Query Payments by a filter
+  </summary> 
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
 | 400 | 1099 <br> 1109 | An input parameter has invalid syntax <br> Payment filter not specific enough |
 
-  <br> 
 </details>
 
 <details>
-  <summary>POST /api/v10/payments - Initiate a Payment</summary>
-    <br>
+  <summary>
+    POST /api/v10/payments - Initiate a Payment
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -47,12 +50,12 @@
 | 403 | 1400 | Cannot initiate payments on a point of sale created by a different integrator |
 | 409 | 1000 <br> 1301 <br> 1306 | Point of Sale not found <br> A payment is already active. Cancel it before starting a new one <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request <br>  |
 
-  <br> 
 </details>
 
 <details>
-  <summary>POST /api/v10/payments/prepare - Prepare a Payment</summary>
-    <br>
+  <summary>
+    POST /api/v10/payments/prepare - Prepare a Payment
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -60,12 +63,12 @@
 | 403 | 1400 | Cannot prepare payments on a point of sale created by a different integrator |
 | 409 | 1000 <br> 1301 <br> 1306 | Point of sale not found <br> A payment is already active. Cancel it before starting a new one <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request |
 
-  <br> 
 </details>
 
 <details>
-  <summary>POST /api/v10/payments/{paymentid}/ready - Ready a Payment</summary>  
-    <br>
+  <summary>
+    POST /api/v10/payments/{paymentid}/ready - Ready a Payment
+  </summary>  
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -74,12 +77,12 @@
 | 404 | - | Payment not found |
 | 409 | 1303 | Payment needs to be prepared before it can be marked as ready |
 
-  <br> 
 </details>
 
 <details>
-  <summary>POST /api/v10/payments/{paymentid}/capture - Capture a Payment</summary>
-    <br>
+  <summary>
+    POST /api/v10/payments/{paymentid}/capture - Capture a Payment
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -88,12 +91,12 @@
 | 404 | - | Payment not found |
 | 409 | 1304 <br> 1305 | Cannot capture payment when payment is not reserved <br> Capture ``Amount`` cannot exceed the reserved amount |
 
-  <br> 
 </details>
 
 <details>
-  <summary>POST /api/v10/payments/{paymentid}/cancel - Cancel a Payment</summary>
-    <br>
+  <summary>
+    POST /api/v10/payments/{paymentid}/cancel - Cancel a Payment
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -102,13 +105,13 @@
 | 404 | - | Payment not found |
 | 409 | 1300 | The payment cannot be cancelled in the current state |
 
-  <br> 
 </details>
 
 ## Point of Sales
 <details>
-  <summary>GET /api/v10/pointofsales/{posid} - Query a Point of Sale</summary>
-    <br>
+  <summary>
+    GET /api/v10/pointofsales/{posid} - Query a Point of Sale
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -116,23 +119,23 @@
 | 403 | 1400 | Cannot query point of sales created by a different integrator |
 | 404 | - | Point of sale not found |
 
-  <br> 
 </details>
 
 <details>
-  <summary>GET /api/v10/pointofsales - Query Point of Sales by a filter</summary>
-    <br>
+  <summary>
+    GET /api/v10/pointofsales - Query Point of Sales by a filter
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
 | 400 | 1099 <br> 1121 | An input parameter has invalid syntax <br> Point of sale filter not specific enough |
 
-  <br> 
 </details>
 
 <details>
-  <summary>GET /api/v10/pointofsales/{posid}/checkin - Query a checkin on a Point of Sale</summary>
-    <br>
+  <summary>
+    GET /api/v10/pointofsales/{posid}/checkin - Query a checkin on a Point of Sale
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -140,24 +143,24 @@
 | 403 | 1400 | Cannot query checkin on a point of sale created by a different integrator |
 | 404 | - | Point of sale not found |
 
-  <br> 
 </details>
 
 <details>
-  <summary>POST /api/v10/pointofsales - Create a Point of Sale</summary>
-    <br>
+  <summary>
+    POST /api/v10/pointofsales - Create a Point of Sale
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
 | 400 | 1099 <br> 1100 <br> 1111 <br> 1112 <br> 1116 <br> 1118 <br> 1162 <br> 1163 <br> 1164 | An input parameter has invalid syntax <br> Invalid ``BeaconId`` <br> Invalid ``MerchantPosId`` <br> Invalid ``PosName`` <br> Invalid ``CallbackAlias`` <br> Invalid ``CalibrationType`` <br> Invalid ``Idempotency-Key`` <br> Duplicated ``Idempotency-Key`` header <br> Missing ``Idempotency-Key`` header |
 | 409 | 1002 <br> 1200 <br> 1202 <br> 1306 | Store not found <br> A point of sale with that ``MerchantPosId`` already exist <br> A point of sale with that ``BeaconId`` already exist <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request |
 
-  <br> 
 </details>
 
 <details>
-  <summary>DELETE /api/v10/pointofsales/{posid} - Delete a Point of Sale</summary>
-    <br>
+  <summary>
+    DELETE /api/v10/pointofsales/{posid} - Delete a Point of Sale
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -165,13 +168,13 @@
 | 403 | 1400 | Cannot delete point of sales created by a different integrator |
 | 404 | - | Point of sale not found |
 
-  <br> 
 </details>
 
 ## Refunds
 <details>
-  <summary>GET /api/v10/refunds/{refundid} - Query a Refund</summary>
-    <br>
+  <summary>
+    GET /api/v10/refunds/{refundid} - Query a Refund
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -179,23 +182,23 @@
 | 403 | 1402 | Cannot query refunds created by a different integrator |
 | 404 | - | Refund not found |
 
-  <br> 
 </details>
 
 <details>
-  <summary>GET /api/v10/refunds - Query Refunds by a filter</summary>
-    <br>
+  <summary>
+    GET /api/v10/refunds - Query Refunds by a filter
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
 | 400 | 1099 <br> 1110 | An input parameter has invalid syntax <br> Refund filter not specific enough |
 
-  <br> 
 </details>
 
 <details>
-  <summary>POST /api/v10/refunds - Create a Refund</summary>
-    <br>
+  <summary>
+    POST /api/v10/refunds - Create a Refund
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -203,12 +206,12 @@
 | 403 | 1401 | Cannot refund payments created by a different integrator |
 | 409 | 1001 <br> 1306 <br> 1350 | Payment not found <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request <br> Refund ``amount`` cannot be higher than remaining amount on the payment to refund |
 
-  <br> 
 </details>
 
 <details>
-  <summary>POST /api/v10/refunds/{refundid}/capture - Capture a reserved Refund</summary>
-    <br>
+  <summary>
+    POST /api/v10/refunds/{refundid}/capture - Capture a reserved Refund
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -217,12 +220,12 @@
 | 404 | 1004 | Refund not found |
 | 409 | 1351 | Cannot capture refund when refund is not reserved |
 
-  <br>  
 </details>
 
 <details>
-  <summary>POST /api/v10/refunds/{refundid}/cancel - Cancel a reserved Refund</summary>
-    <br>
+  <summary>
+    POST /api/v10/refunds/{refundid}/cancel - Cancel a reserved Refund
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -231,29 +234,25 @@
 | 404 | - | Payment not found |
 | 409 | 1352 | The refund cannot be cancelled in the current state |
 
-  <br> 
 </details>
 
 ## Stores
 <details>
-  <summary>GET /api/v10/stores/{storeid} - Query a Store</summary>
-  <br>
+  <summary>
+    GET /api/v10/stores/{storeid} - Query a Store
+  </summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
 | 400 | 1099 | An input parameter has invalid syntax |
 | 404 | - | Store not found |
 
-  <br>
 </details>
 
-<details>
-  <summary>GET /api/v10/stores - Query a Store by MerchantBrandId and MerchantLocationId</summary>
-  <br>
+<details><summary>GET /api/v10/stores - Query a Store by MerchantBrandId and MerchantLocationId</summary>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
 | 400 | 1099 <br> 1122 <br> 1119 <br> 1120 | An input parameter has invalid syntax <br> Store filter not specific enough <br> Invalid ``MerchantBrandId`` <br> Invalid ``MerchantLocationId`` |
 
-  <br> 
 </details>
