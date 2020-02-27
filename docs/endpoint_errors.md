@@ -40,7 +40,7 @@ This page contains information regarding all the non-successful status-codes and
 |------------|-------------|-------------|
 | 400 | 1102`` `` <br> 1105`` `` <br> 1113`` `` <br> 1117`` `` <br> 1162`` `` <br> 1163`` `` <br> 1164`` `` | Invalid ``Amount`` <br> Invalid ``UserMinimumAge`` <br> Invalid ``OrderId`` <br> Invalid ``MerchantPaymentLabel`` <br> Invalid ``Idempotency-Key`` <br> Duplicated ``Idempotency-Key`` header <br> Missing ``Idempotency-Key`` header |
 | 403 | 1400 | Cannot initiate payments on a point of sale created by a different integrator |
-| 409 | 1000 <br> 1301 <br> 1306`` `` <br> " " | Point of Sale not found <br> A payment is already active. Cancel it before starting a new one <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request <br>  |
+| 409 | 1000 <br> 1301 <br> 1306`` `` <br> </p> | Point of Sale not found <br> A payment is already active. Cancel it before starting a new one <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request <br>  |
 
 </details><br>
 
@@ -51,7 +51,7 @@ This page contains information regarding all the non-successful status-codes and
 |------------|-------------|-------------|
 | 400 | 1113`` `` <br> 1162`` `` <br> 1163`` `` <br> 1164`` `` | Invalid ``OrderId`` <br> Invalid ``Idempotency-Key`` <br> Duplicated ``Idempotency-Key`` header <br> Missing ``Idempotency-Key`` header |
 | 403 | 1400 | Cannot prepare payments on a point of sale created by a different integrator |
-| 409 | 1000 <br> 1301 <br> 1306`` `` <br> " " | Point of sale not found <br> A payment is already active. Cancel it before starting a new one <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request |
+| 409 | 1000 <br> 1301 <br> 1306`` `` <br> </p> | Point of sale not found <br> A payment is already active. Cancel it before starting a new one <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request |
 
 </details><br>
 
@@ -126,7 +126,7 @@ This page contains information regarding all the non-successful status-codes and
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
 | 400 | 1100`` `` <br> 1111`` `` <br> 1112`` `` <br> 1116`` `` <br> 1118`` `` <br> 1162`` `` <br> 1163`` `` <br> 1164`` `` | Invalid ``BeaconId`` <br> Invalid ``MerchantPosId`` <br> Invalid ``PosName`` <br> Invalid ``CallbackAlias`` <br> Invalid ``CalibrationType`` <br> Invalid ``Idempotency-Key`` <br> Duplicated ``Idempotency-Key`` header <br> Missing ``Idempotency-Key`` header |
-| 409 | 1002 <br> 1200`` `` <br> 1202`` `` <br> 1306`` `` <br> " " | Store not found <br> A point of sale with that ``MerchantPosId`` already exist <br> A point of sale with that ``BeaconId`` already exist <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request |
+| 409 | 1002 <br> 1200`` `` <br> 1202`` `` <br> 1306`` `` <br> </p> | Store not found <br> A point of sale with that ``MerchantPosId`` already exist <br> A point of sale with that ``BeaconId`` already exist <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request |
 
 </details><br>
 
@@ -167,7 +167,7 @@ This page contains information regarding all the non-successful status-codes and
 |------------|-------------|-------------|
 | 400 | 1102`` `` <br> 1114`` `` <br> 1162`` `` <br> 1163`` `` <br> 1164`` `` | Invalid ``Amount`` <br> Invalid ``RefundOrderId`` <br> Invalid ``Idempotency-Key`` <br> Duplicated ``Idempotency-Key`` header <br> Missing ``Idempotency-Key`` header |
 | 403 | 1401 | Cannot refund payments created by a different integrator |
-| 409 | 1001 <br> 1306`` `` <br> 1350`` `` <br> " " | Payment not found <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request <br> Refund ``amount`` cannot be higher than remaining amount on the payment to refund |
+| 409 | 1001 <br> 1306`` `` <br> 1350`` `` <br> </p> | Payment not found <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request <br> Refund ``amount`` cannot be higher than remaining amount on the payment to refund |
 
 </details><br>
 
