@@ -5,3 +5,5 @@ show_downloads: false
 theme: jekyll-theme-minimal
 repository: MobilePayDev/MobilePay-PoS-Titanium
 markdown: CommonMarkGhPages
+commonmark:
+  extensions: ["table"]
