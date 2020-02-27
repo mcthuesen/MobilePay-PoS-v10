@@ -1,12 +1,13 @@
 # <a name="endpoint_errors"></a> API Status-Codes and Errors
+This page contains information regarding all the non-successful status-codes and different error-codes that can occur in the V10 API. The first section contains all combinations of StatusCodes and ErrorCodes that can occur in all endpoints, and then follows sections for the individual endpoints.
 
-## Errors that needs handling for all endpoints
+## Common for all endpoints
 <details>
   <summary>ALL Endpoints</summary><br>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1150 <br> 1151 <br> 1152 <br> 1153 <br> 1154 <br> 1155 <br> 1156 <br> 1157 <br> 1158 <br> 1159 <br> 1160 <br> 1161 | Missing ``IntegratorId`` header <br> Missing ``MerchantVatNumber`` header <br> Missing ``Client-System-Name`` header <br> Missing ``Client-System-Version`` header <br> Duplicated ``IntegratorId`` header <br> Duplicated ``MerchantVatNumber`` header <br> Duplicated ``Client-System-Name`` header <br> Duplicated ``Client-System-Version`` header <br> Invalid ``IntegratorId`` <br> Invalid ``MerchantVatNumber`` <br> Invalid ``Client-System-Name`` <br> Invalid ``Client-System-Version`` |
+| 400`` `` | 1150`` `` <br> 1151`` `` <br> 1152`` `` <br> 1153`` `` <br> 1154`` `` <br> 1155`` `` <br> 1156`` `` <br> 1157`` `` <br> 1158`` `` <br> 1159`` `` <br> 1160`` `` <br> 1161`` `` | Missing ``IntegratorId`` header <br> Missing ``MerchantVatNumber`` header <br> Missing ``Client-System-Name`` header <br> Missing ``Client-System-Version`` header <br> Duplicated ``IntegratorId`` header <br> Duplicated ``MerchantVatNumber`` header <br> Duplicated ``Client-System-Name`` header <br> Duplicated ``Client-System-Version`` header <br> Invalid ``IntegratorId`` <br> Invalid ``MerchantVatNumber`` <br> Invalid ``Client-System-Name`` <br> Invalid ``Client-System-Version`` |
 | 401 | - | Unauthorized |
 | 500 | 2000 - 2999 | Internal server error - Please attach error code when communicating with MobilePay for quicker support |
 
