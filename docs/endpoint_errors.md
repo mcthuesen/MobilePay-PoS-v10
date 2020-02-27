@@ -2,8 +2,9 @@
 
 ## Errors that needs handling for all endpoints
 <details>
-  <summary>ALL Endpoints</summary>
-  
+  <summary>
+    ALL Endpoints
+  </summary>
   <br>
 
 | StatusCode | ErrorCodes  | Description |
