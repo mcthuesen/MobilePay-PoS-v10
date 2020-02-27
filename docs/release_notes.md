@@ -8,7 +8,7 @@ The Point of Sale API V10 will be in production **Q2 2020**. It will be released
 
 - Added HTTP StatusCodes and ErrorCodes pr. endpoint in the API. Be aware that Refund endpoints are still a draft since the development has not been fully completed yet. Response codes have also slightly changed in the API on the basis of this documentation so be aware of minor changes to the API as well.
 
-- Added 2 headers to all endpoints in the API called X-MobilePay-MerchantVatNumber and X-MobilePay-IntegratorId. For more information see [Input Formats](input_formats#HTTP_Headers)
+- Added header to all endpoints in the API called X-MobilePay-MerchantVatNumber. For more information see [Input Formats](input_formats#HTTP_Headers)
 
 - Fixed wrong header name from X-IBM-ClientId to X-IBM-Client-Id. See [Input Formats](input_formats#HTTP_Headers)
 
