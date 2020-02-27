@@ -13,6 +13,7 @@
 
   <br>
 </details>
+<br>
 
 ## Payments
 <details>
@@ -27,7 +28,7 @@
 
   <br>
 </details>
-
+<br>
 <details>
   <summary>GET /api/v10/payments - Query Payments by a filter</summary> 
   <br>
@@ -38,7 +39,7 @@
 
   <br> 
 </details>
-
+<br>
 <details>
   <summary>POST /api/v10/payments - Initiate a Payment</summary>
     <br>
@@ -51,7 +52,7 @@
 
   <br> 
 </details>
-
+<br>
 <details>
   <summary>POST /api/v10/payments/prepare - Prepare a Payment</summary>
     <br>
