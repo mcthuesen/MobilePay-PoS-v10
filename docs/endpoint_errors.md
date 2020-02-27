@@ -5,7 +5,6 @@
   <summary>
     ALL Endpoints
   </summary>
-  <br>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -13,7 +12,6 @@
 | 401 | - | Unauthorized |
 | 500 | 2000 - 2999 | Internal server error - Please attach error code when communicating with MobilePay for quicker support |
 
-  <br>
 </details>
 
 ## Payments
