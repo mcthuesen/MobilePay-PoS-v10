@@ -7,3 +7,4 @@ repository: MobilePayDev/MobilePay-PoS-Titanium
 markdown: kramdown
 kramdown:
   parse_block_html: true
+  parse_span_html: true
