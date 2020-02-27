@@ -3,7 +3,7 @@
 ## Errors that needs handling for all endpoints
 <details>
   <summary>ALL Endpoints</summary>
-  <br><p>
+  <br>
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
@@ -11,9 +11,8 @@
 | 401 | - | Unauthorized |
 | 500 | 2000 - 2999 | Internal server error - Please attach error code when communicating with MobilePay for quicker support |
 
-  </p><br>
+  <br>
 </details>
-<br>
 
 ## Payments
 <details>
@@ -28,7 +27,7 @@
 
   <br>
 </details>
-<br>
+
 <details>
   <summary>GET /api/v10/payments - Query Payments by a filter</summary> 
   <br>
@@ -39,7 +38,7 @@
 
   <br> 
 </details>
-<br>
+
 <details>
   <summary>POST /api/v10/payments - Initiate a Payment</summary>
     <br>
@@ -52,7 +51,7 @@
 
   <br> 
 </details>
-<br>
+
 <details>
   <summary>POST /api/v10/payments/prepare - Prepare a Payment</summary>
     <br>
