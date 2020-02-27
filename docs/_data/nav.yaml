@@ -25,7 +25,7 @@ payment_flows:
 - title: Cancel Flows
   url: "payment_flows#cancel"
 
-endpoint_errors_title: V10 API HTTP StatusCodes and Errors
+endpoint_errors_title: API HTTP Status-Codes and Errors
 endpoint_errors_url: "endpoint_errors"
 
 input_formats_title: Input and Output Formats
