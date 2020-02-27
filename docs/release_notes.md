@@ -10,6 +10,7 @@ The Point of Sale API V10 will be in production **Q2 2020**. It will be released
 
 - Added 2 headers to all endpoints in the API called X-MobilePay-MerchantVatNumber and X-MobilePay-IntegratorId. For more information see [Input Formats](input_formats#HTTP_Headers)
 
+---
 ### 2020-02-07
 
 - Added documentation on payment restrictions under [Input Formats](input_formats#payment_restrictions) and expanded on best practices regarding payment restrictions [Best Practices](best_practices)
