@@ -7,7 +7,7 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400`` `` | 1150`` `` <br> 1151`` `` <br> 1152`` `` <br> 1153`` `` <br> 1154`` `` <br> 1155`` `` <br> 1156`` `` <br> 1157`` `` <br> 1158`` `` <br> 1159`` `` <br> 1160`` `` <br> 1161`` `` | Missing ``IntegratorId`` header <br> Missing ``MerchantVatNumber`` header <br> Missing ``Client-System-Name`` header <br> Missing ``Client-System-Version`` header <br> Duplicated ``IntegratorId`` header <br> Duplicated ``MerchantVatNumber`` header <br> Duplicated ``Client-System-Name`` header <br> Duplicated ``Client-System-Version`` header <br> Invalid ``IntegratorId`` <br> Invalid ``MerchantVatNumber`` <br> Invalid ``Client-System-Name`` <br> Invalid ``Client-System-Version`` |
+| 400 | 1099 <br> 1150`` `` <br> 1151`` `` <br> 1152`` `` <br> 1153`` `` <br> 1154`` `` <br> 1155`` `` <br> 1156`` `` <br> 1157`` `` <br> 1158`` `` <br> 1159`` `` <br> 1160`` `` <br> 1161`` `` | Unknown BadRequest error <br> Missing ``IntegratorId`` header <br> Missing ``MerchantVatNumber`` header <br> Missing ``Client-System-Name`` header <br> Missing ``Client-System-Version`` header <br> Duplicated ``IntegratorId`` header <br> Duplicated ``MerchantVatNumber`` header <br> Duplicated ``Client-System-Name`` header <br> Duplicated ``Client-System-Version`` header <br> Invalid ``IntegratorId`` <br> Invalid ``MerchantVatNumber`` <br> Invalid ``Client-System-Name`` <br> Invalid ``Client-System-Version`` |
 | 401 | - | Unauthorized |
 | 500 | 2000 - 2999 | Internal server error - Please attach error code when communicating with MobilePay for quicker support |
 
@@ -19,7 +19,6 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 | An input parameter has invalid syntax |
 | 403 | 1401 | Cannot query payments created by a different integrator |
 | 404 | - | Payment not found |
 
@@ -30,7 +29,7 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 <br> 1109 | An input parameter has invalid syntax <br> Payment filter not specific enough |
+| 400 | 1109 | Payment filter not specific enough |
 
 </details><br>
 
@@ -39,7 +38,7 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 <br> 1102`` `` <br> 1105`` `` <br> 1113`` `` <br> 1117`` `` <br> 1162`` `` <br> 1163`` `` <br> 1164`` `` | An input parameter has invalid syntax <br> Invalid ``Amount`` <br> Invalid ``UserMinimumAge`` <br> Invalid ``OrderId`` <br> Invalid ``MerchantPaymentLabel`` <br> Invalid ``Idempotency-Key`` <br> Duplicated ``Idempotency-Key`` header <br> Missing ``Idempotency-Key`` header |
+| 400 | 1102`` `` <br> 1105`` `` <br> 1113`` `` <br> 1117`` `` <br> 1162`` `` <br> 1163`` `` <br> 1164`` `` | Invalid ``Amount`` <br> Invalid ``UserMinimumAge`` <br> Invalid ``OrderId`` <br> Invalid ``MerchantPaymentLabel`` <br> Invalid ``Idempotency-Key`` <br> Duplicated ``Idempotency-Key`` header <br> Missing ``Idempotency-Key`` header |
 | 403 | 1400 | Cannot initiate payments on a point of sale created by a different integrator |
 | 409 | 1000 <br> 1301 <br> 1306`` `` <br> " " | Point of Sale not found <br> A payment is already active. Cancel it before starting a new one <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request <br>  |
 
@@ -50,7 +49,7 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 <br> 1113`` `` <br> 1162`` `` <br> 1163`` `` <br> 1164`` `` | An input parameter has invalid syntax <br> Invalid ``OrderId`` <br> Invalid ``Idempotency-Key`` <br> Duplicated ``Idempotency-Key`` header <br> Missing ``Idempotency-Key`` header |
+| 400 | 1113`` `` <br> 1162`` `` <br> 1163`` `` <br> 1164`` `` | Invalid ``OrderId`` <br> Invalid ``Idempotency-Key`` <br> Duplicated ``Idempotency-Key`` header <br> Missing ``Idempotency-Key`` header |
 | 403 | 1400 | Cannot prepare payments on a point of sale created by a different integrator |
 | 409 | 1000 <br> 1301 <br> 1306`` `` <br> " " | Point of sale not found <br> A payment is already active. Cancel it before starting a new one <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request |
 
@@ -61,7 +60,7 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 <br> 1102`` `` <br> 1105`` `` <br> 1117`` `` | An input parameter has invalid syntax <br> Invalid ``Amount`` <br> Invalid ``UserMinimumAge`` <br> Invalid ``MerchantPaymentLabel`` |
+| 400 | 1102`` `` <br> 1105`` `` <br> 1117`` `` | Invalid ``Amount`` <br> Invalid ``UserMinimumAge`` <br> Invalid ``MerchantPaymentLabel`` |
 | 403 | 1401 | Cannot ready payments prepared by a different integrator |
 | 404 | - | Payment not found |
 | 409 | 1303 | Payment needs to be prepared before it can be marked as ready |
@@ -73,7 +72,7 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 <br> 1102`` `` | An input parameter has invalid syntax <br> Invalid ``Amount`` |
+| 400 | 1102`` `` | Invalid ``Amount`` |
 | 403 | 1401 | Cannot capture payments created by a different integrator |
 | 404 | - | Payment not found |
 | 409 | 1304 <br> 1305`` `` | Cannot capture payment when payment is not reserved <br> Capture ``Amount`` cannot exceed the reserved amount |
@@ -85,7 +84,6 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 | An input parameter has invalid syntax |
 | 403 | 1401 | Cannot cancel payments created by a different integrator |
 | 404 | - | Payment not found |
 | 409 | 1300 | The payment cannot be cancelled in the current state |
@@ -98,7 +96,6 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 | An input parameter has invalid syntax |
 | 403 | 1400 | Cannot query point of sales created by a different integrator |
 | 404 | - | Point of sale not found |
 
@@ -109,7 +106,7 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 <br> 1121 | An input parameter has invalid syntax <br> Point of sale filter not specific enough |
+| 400 | 1121 | Point of sale filter not specific enough |
 
 </details><br>
 
@@ -118,7 +115,6 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 | An input parameter has invalid syntax |
 | 403 | 1400 | Cannot query checkin on a point of sale created by a different integrator |
 | 404 | - | Point of sale not found |
 
@@ -129,7 +125,7 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 <br> 1100`` `` <br> 1111`` `` <br> 1112`` `` <br> 1116`` `` <br> 1118`` `` <br> 1162`` `` <br> 1163`` `` <br> 1164`` `` | An input parameter has invalid syntax <br> Invalid ``BeaconId`` <br> Invalid ``MerchantPosId`` <br> Invalid ``PosName`` <br> Invalid ``CallbackAlias`` <br> Invalid ``CalibrationType`` <br> Invalid ``Idempotency-Key`` <br> Duplicated ``Idempotency-Key`` header <br> Missing ``Idempotency-Key`` header |
+| 400 | 1100`` `` <br> 1111`` `` <br> 1112`` `` <br> 1116`` `` <br> 1118`` `` <br> 1162`` `` <br> 1163`` `` <br> 1164`` `` | Invalid ``BeaconId`` <br> Invalid ``MerchantPosId`` <br> Invalid ``PosName`` <br> Invalid ``CallbackAlias`` <br> Invalid ``CalibrationType`` <br> Invalid ``Idempotency-Key`` <br> Duplicated ``Idempotency-Key`` header <br> Missing ``Idempotency-Key`` header |
 | 409 | 1002 <br> 1200`` `` <br> 1202`` `` <br> 1306`` `` <br> " " | Store not found <br> A point of sale with that ``MerchantPosId`` already exist <br> A point of sale with that ``BeaconId`` already exist <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request |
 
 </details><br>
@@ -139,7 +135,6 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 | An input parameter has invalid syntax |
 | 403 | 1400 | Cannot delete point of sales created by a different integrator |
 | 404 | - | Point of sale not found |
 
@@ -151,7 +146,6 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 | An input parameter has invalid syntax |
 | 403 | 1402 | Cannot query refunds created by a different integrator |
 | 404 | - | Refund not found |
 
@@ -162,7 +156,7 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 <br> 1110 | An input parameter has invalid syntax <br> Refund filter not specific enough |
+| 400 | 1110 | Refund filter not specific enough |
 
 </details><br>
 
@@ -171,7 +165,7 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 <br> 1102`` `` <br> 1114`` `` <br> 1162`` `` <br> 1163`` `` <br> 1164`` `` | An input parameter has invalid syntax <br> Invalid ``Amount`` <br> Invalid ``RefundOrderId`` <br> Invalid ``Idempotency-Key`` <br> Duplicated ``Idempotency-Key`` header <br> Missing ``Idempotency-Key`` header |
+| 400 | 1102`` `` <br> 1114`` `` <br> 1162`` `` <br> 1163`` `` <br> 1164`` `` | Invalid ``Amount`` <br> Invalid ``RefundOrderId`` <br> Invalid ``Idempotency-Key`` <br> Duplicated ``Idempotency-Key`` header <br> Missing ``Idempotency-Key`` header |
 | 403 | 1401 | Cannot refund payments created by a different integrator |
 | 409 | 1001 <br> 1306`` `` <br> 1350`` `` <br> " " | Payment not found <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request <br> Refund ``amount`` cannot be higher than remaining amount on the payment to refund |
 
@@ -182,7 +176,6 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 | An input parameter has invalid syntax |
 | 403 | 1402 | Cannot capture refunds created by a different integrator |
 | 404 | 1004 | Refund not found |
 | 409 | 1351 | Cannot capture refund when refund is not reserved |
@@ -194,7 +187,6 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 | An input parameter has invalid syntax |
 | 403 | 1402 | Cannot cancel refunds created by a different integrator |
 | 404 | - | Payment not found |
 | 409 | 1352 | The refund cannot be cancelled in the current state |
@@ -207,7 +199,6 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 | An input parameter has invalid syntax |
 | 404 | - | Store not found |
 
 </details><br>
@@ -217,6 +208,6 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 <br> 1122 <br> 1119`` `` <br> 1120`` `` | An input parameter has invalid syntax <br> Store filter not specific enough <br> Invalid ``MerchantBrandId`` <br> Invalid ``MerchantLocationId`` |
+| 400 | 1122 <br> 1119`` `` <br> 1120`` `` | Store filter not specific enough <br> Invalid ``MerchantBrandId`` <br> Invalid ``MerchantLocationId`` |
 
 </details>
