@@ -6,7 +6,7 @@ The Point of Sale API V10 will be in production **Q2 2020**. It will be released
 
 ### 2020-02-27
 
-- Added HTTP StatusCodes and ErrorCodes pr. endpoint in the API. Response codes have also slightly changed in the API on the basis of this documentation so be aware of minor changes to the API as well.
+- Added HTTP StatusCodes and ErrorCodes pr. endpoint in the API. Response codes have also slightly changed in the API on the basis of this documentation so be aware of minor changes to the API as well. See more at [API Errors](endpoint_errors).
 
 - Added header to all endpoints in the API called X-MobilePay-MerchantVatNumber. For more information see [Input Formats](input_formats#HTTP_Headers)
 
