@@ -53,8 +53,6 @@ For more information about payments, see [Payment Flows](payment_flows).
 | `currencyCode` | `DKK` / `EUR` | Currency code for the currency of the payment. |
 | `merchantPaymentLabel` | String with at most 36 valid characters	| Label for the payment.<br><br>This is a way for the merchant to tag a payment with a label that will be visible in the transaction reporting section on the MobilePay Portal |
 | `plannedCaptureDelay` | `None` / `LessThan24Hours` / `LessThan14Days`	| How long time the client expects to wait after receiving a reservation before capturing.<br><br>See [Specify planned capture delay](best_practices#specify-planned-capture-delay). |
-| `customerToken` | String with at most 40 valid characters	| An alphanumeric string, uniquely identifying the customer. |
-| `customerReceiptToken` | String with at most 32 valid characters	| An alphanumeric string used for Storebox. |
 | <a name="restrictions"></a>`restrictions` | Json object with one or more parameters | A way to define restrictions on how a payment can be completed. See [Payment Restrictions](input_formats#payment_restrictions) for possible restriction parameters |
 
 ### <a name="payment_restrictions"></a>Payment Restrictions
