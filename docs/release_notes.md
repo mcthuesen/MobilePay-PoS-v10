@@ -4,6 +4,11 @@ The Point of Sale API V10 will be in production **Q2 2020**. It will be released
 
 ## Changelog
 
+### 2020-03-03
+
+- Rewrote parameters to camelCase instead of PascalCase in the [Input Formats](input_formats) section to reflect the right casing in the API
+
+---
 ### 2020-02-27
 
 - Added HTTP StatusCodes and ErrorCodes pr. endpoint in the API. Response codes have also slightly changed in the API on the basis of this documentation so be aware of minor changes to the API as well. See more at [API Errors](endpoint_errors).
