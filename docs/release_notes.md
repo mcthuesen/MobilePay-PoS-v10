@@ -6,6 +6,8 @@ The Point of Sale API V10 will be in production **Q2 2020**. It will be released
 
 ### 2020-03-03
 
+- Renamed header from X-MobilePay-MerchantVatNumber to X-MobilePay-Merchant-VAT-Number in the [Input Formats](input_formats) section.
+
 - Rewrote parameters to camelCase instead of PascalCase in the [Input Formats](input_formats) section to reflect the right casing in the API
 
 ---
