@@ -27,7 +27,7 @@ For more information about stores, see [PoS Management](pos_management).
 | Name | Format      | Description |
 |------|-------------|-------------|
 | `storeId` | Guid | Identifies a Store in MobilePay. |
-| `merchantLocationId` | String with exactly 5 valid characters | MobilePay location ID.<br><br>Together with a MerchantBrandId, this identifies a Store in MobilePay. |
+| `merchantLocationId` | String with exactly 5 valid characters | MobilePay location ID.<br><br>Together with a `merchantBrandId`, this identifies a Store in MobilePay. |
 
 ## <a name="poses"></a> Point-of-Sales
 For more information about a PoS, see [PoS Management](pos_management).
