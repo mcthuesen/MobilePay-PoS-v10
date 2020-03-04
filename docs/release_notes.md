@@ -6,8 +6,10 @@ The Point of Sale API V10 will be in production **Q2 2020**. It will be released
 
 ### 2020-03-04
 
-- Added a section Handling timeouts in [API Principles](api_principles) section.
- 
+- Added section Handling Timeouts in [API Principles](api_principles) section.
+
+- Removed 409 errorcode from POST /api/v10/refunds regarding refund amount in the [API Errors](endpoint_errors) section.
+
 ---
 
 ### 2020-03-03
