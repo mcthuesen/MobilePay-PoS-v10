@@ -167,7 +167,7 @@ This page contains information regarding all the non-successful status-codes and
 |------------|-------------|-------------|
 | 400 | 1102`` `` <br> 1114`` `` <br> 1162`` `` <br> 1163`` `` <br> 1164`` `` | Invalid ``Amount`` <br> Invalid ``RefundOrderId`` <br> Invalid ``Idempotency-Key`` <br> Duplicated ``Idempotency-Key`` header <br> Missing ``Idempotency-Key`` header |
 | 403 | 1401 | Cannot refund payments created by a different integrator |
-| 409 | 1001 <br> 1306`` `` <br> <br> 1350`` `` <br> </p> | Payment not found <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request <br> Refund ``amount`` cannot be higher than remaining amount on the payment to refund |
+| 409 | 1001 <br> 1306`` `` <br> <br> 1350`` `` <br> 1353 <br> 1354 | Payment not found <br> ``Idempotency-Key`` has to be unique per request unless the request is a retry of a previous request <br> Refund ``amount`` cannot be higher than remaining amount on the payment to refund <br> Refund availability duration expired <br> Refund of payment not possible when payment is not captured |
 
 </details><br>
 
