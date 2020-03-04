@@ -143,7 +143,7 @@ The PoS V10 API stores idempotency keys for at least 24 hours. If a call is retr
 key more than 24 hours after the original call, then the PoS V10 API does not guarantee that it will be handled
 as a retried call. 
 
-### Retrying requests
+### <a name="retrying_requests"></a> Retrying requests
 We recommend retrying failed requests due to network and server errors using one of these strategies:
 * Retrying requests up to a fixed number of times with a constant delay between each call. 
 * Retrying requests until a proper response is received, using an exponential backoff with jitter strategy (i.e.
@@ -156,6 +156,13 @@ the request. HTTP 409 errors typically indicate that the client and the PoS back
 the state of a given resource (e.g. trying to capture a reservation that is not yet reserved or initiating
 a payment on a PoS that already has an active payment). If possible, the client should try to query the given
 resource to fix any inconsistencies between the client and the PoS backend.
+
+### Handling Timeouts
+
+For requests that are slow to produce responses, we recommend setting a timeout on the request using one of the following rules:
+* For the POST, DELETE, PUT requests set the timeout to 2 seconds using a suitable retry strategy from section [Retrying requests](retrying_requests). Remember to use the idempotency key for the POST requests that create a ressource.
+* For the non-polling GET requests set the timeout to 0.5 seconds using a suitable retry strategy from section [Retrying requests](retrying_requests)
+* For polling GET requests set the timeout to 0.5 seconds and continue polling using the polling delay from the last received response.
 
 ## <a name="call_throttling"></a> Call Throttling
 
