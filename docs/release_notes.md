@@ -4,6 +4,12 @@ The Point of Sale API V10 will be in production **Q2 2020**. It will be released
 
 ## Changelog
 
+### 2020-03-04
+
+- Added a section about Handling timeouts in [API Principles](api_principles) section.
+ 
+---
+
 ### 2020-03-03
 
 - Renamed header from X-MobilePay-MerchantVatNumber to X-MobilePay-Merchant-VAT-Number in the [Input Formats](input_formats) section.
