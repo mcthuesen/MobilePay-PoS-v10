@@ -7,7 +7,7 @@ This page contains information regarding all the non-successful status-codes and
 
 | StatusCode | ErrorCodes  | Description |
 |------------|-------------|-------------|
-| 400 | 1099 <br> 1151`` `` <br> 1152`` `` <br> 1153`` `` <br> 1155`` `` <br> 1156`` `` <br> 1157`` `` <br> 1159`` `` <br> 1160`` `` <br> 1161`` `` | Unknown BadRequest error <br> Missing ``MerchantVatNumber`` header <br> Missing ``Client-System-Name`` header <br> Missing ``Client-System-Version`` header <br> Duplicated ``MerchantVatNumber`` header <br> Duplicated ``Client-System-Name`` header <br> Duplicated ``Client-System-Version`` header <br> Invalid ``MerchantVatNumber`` <br> Invalid ``Client-System-Name`` <br> Invalid ``Client-System-Version`` |
+| 400 | 1099 <br> 1151`` `` <br> 1152`` `` <br> 1153`` `` <br> 1155`` `` <br> 1156`` `` <br> 1157`` `` <br> 1159`` `` <br> 1160`` `` <br> 1161`` `` | Unknown BadRequest error <br> Missing ``Merchant-VAT-Number`` header <br> Missing ``Client-System-Name`` header <br> Missing ``Client-System-Version`` header <br> Duplicated ``Merchant-VAT-Number`` header <br> Duplicated ``Client-System-Name`` header <br> Duplicated ``Client-System-Version`` header <br> Invalid ``Merchant-VAT-Number`` <br> Invalid ``Client-System-Name`` <br> Invalid ``Client-System-Version`` |
 | 401 | - | Unauthorized |
 | 500 | 2000 - 2999 | Internal server error - Please attach error code when communicating with MobilePay for quicker support |
 
