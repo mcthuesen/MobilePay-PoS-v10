@@ -14,7 +14,10 @@ The Integrator Authentication solution is based on the OpenID/OAuth 2.0 specific
 
 The OpenID Connect protocol is a simple identity layer on top of the OAuth 2.0 protocol.
 
-### **Endpoints:**
+## **Endpoint description:**
+
+When doing `POST`,  `Content-Type: application/json` HTTP header must be provided.
+
 
 #### HTTP GET: **`/integrator-authentication/.well-known/openid-configuration:`**
 
@@ -84,6 +87,76 @@ Example of response body from SandProd environment:
         "S256"
     ],
     "request_parameter_supported": true
+}
+ 
+```
+
+# <a name="statuscodes"></a>Expected status codes
+
+You might encounter the following status codes :
+
+1. `200 - OK`  
+>    
+    ```json
+    {
+        "error": "Unauthorized",
+        "error_description": {
+            "message": "xxxxxxxxxxxxxx",
+            "error_type": "ClientError",
+            "correlation_id": "f4b02597-32cc-420f-a468-942307e89a97"
+        }
+    }
+
+2. `401 - Unauthorized` , if the client is not authorized/authenticated through the API Gateway
+>    
+    ```json
+    {
+        "error": "Unauthorized",
+        "error_description": {
+            "message": "xxxxxxxxxxxxxx",
+            "error_type": "ClientError",
+            "correlation_id": "f4b02597-32cc-420f-a468-942307e89a97"
+        }
+    }
+    ```
+ 
+cURL example:
+
+```console 
+curl --location --request GET 'https://api.sandbox.mobilepay.dk/integrator-authentication/.well-known/openid-configuration' \
+--header 'X-IBM-Client-Id: {YOUR_CLIENT_ID}''
+```
+
+
+#### HTTP `GET`: _**`/integrator-authentication/.well-known/openid-configuration/jwks:`**_
+
+A JSON Web Key (JWK) is a standard method for representing a cryptographic key using JSON. The spec can be found [here](https://tools.ietf.org/html/rfc7517)
+
+The Integrator Authentication solutions signs all JWT access token with a private key. The public key can be obtained in the jwks endpoint to verify the authenticity of the access token.
+
+Headers:
+
+ - `X-Ibm-client-id` supplied upon certification.
+
+Example of response body from SandProd environment:
+
+
+```
+{
+    "keys": [
+        {
+            "kty": "RSA",
+            "use": "sig",
+            "kid": "A9A7ACCF1884D01D4AB0FFD1049124B74B1E8BAD",
+            "x5t": "qaeszxiE0B1KsP_RBJEkt0sei60",
+            "e": "AQAB",
+            "n": "peYBOoky5YBl2O_SUCLUlzoc2rzoDqlYS8Tha9rmV0SaTlpRm41LK5dAOTFZSoZqQVcUKoSpGtyg2Kpjr5DdMhN59XzAALjVETeEuLbUjthDkzQWXCck3WytzHxiKrwP59MFFosP75k2xh-05WYaSTlrATesNXblj33DG7okv9wCZqidQUBVHyn7vscOk_mTigZMrsTxpclr5fdrtGVa-tHg_97k7YOdsyurjLCzT7IjX4ekyuOJnzNwoEc5I2cSpNSu0tpTlI_6SaTr8Y9hJvM8REUvruh0vJUSyyo2OfFlGQ5TKsGaaNYzJNwycxh5UIwY5v4reWRDxG8TZ-yRxQ",
+            "x5c": [
+                "MIIFIDCCAwigAwIBAgIFAMaFE1EwDQYJKoZIhvcNAQELBQAwgZgxEDAOBgNVBAMTB0RCR1JPT1QxCzAJBgNVBAYTAkRLMRMwEQYDVQQHEwpDb3BlbmhhZ2VuMRAwDgYDVQQIEwdEZW5tYXJrMRowGAYDVQQKExFEYW5za2UgQmFuayBHcm91cDEaMBgGA1UECxMRRGFuc2tlIEJhbmsgR3JvdXAxGDAWBgNVBAUTDzYxMTI2MjI4MTExMDAwMzAeFw0yMDAyMjQwMDAwMDBaFw0yMjAyMjQwMDAwMDBaMIG1MSwwKgYDVQQDEyNNb2JpbGVQYXkgSW50ZWdyYXRvciBBdXRoZW50aWNhdGlvbjELMAkGA1UEBhMCREsxEzARBgNVBAcTCkNvcGVuaGFnZW4xEDAOBgNVBAgTB0Rlbm1hcmsxGjAYBgNVBAoTEURhbnNrZSBCYW5rIEdyb3VwMRowGAYDVQQLExFEYW5za2UgQmFuayBHcm91cDEZMBcGA1UEBRMQNjExMjYyMjgzMDYxMDAwMTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKXmATqJMuWAZdjv0lAi1Jc6HNq86A6pWEvE4Wva5ldEmk5aUZuNSyuXQDkxWUqGakFXFCqEqRrcoNiqY6+Q3TITefV8wAC41RE3hLi21I7YQ5M0FlwnJN1srcx8Yiq8D+fTBRaLD++ZNsYftOVmGkk5awE3rDV25Y99wxu6JL/cAmaonUFAVR8p+77HDpP5k4oGTK7E8aXJa+X3a7RlWvrR4P/e5O2DnbMrq4yws0+yI1+HpMrjiZ8zcKBHOSNnEqTUrtLaU5SP+kmk6/GPYSbzPERFL67odLyVEssqNjnxZRkOUyrBmmjWMyTcMnMYeVCMGOb+K3lkQ8RvE2fskcUCAwEAAaNSMFAwHwYDVR0jBBgwFoAU61V/xZhpcCaqEN34Mo9XCeNAPzowHQYDVR0OBBYEFIIFlKd9KiBOtaU4DdKrOWXIxYk3MA4GA1UdDwEB/wQEAwIGwDANBgkqhkiG9w0BAQsFAAOCAgEAdNd+N9b/He3X/vNCBv1gErfKGANCmWRWmDIJ8nxx/zOOEM6/699qdHobS0kq5I5N9LFalf2m+7HJml2x0K0zXtYQiyPIqXhNjmV+wA0xCJwoUZSg5zBcMTLPXGpA3tm6sit7VNIGUwaJO1AScfyXJnoFKARQjBAx4u/OCL6fiCY21UN/w6Kuw2MO7KX4ZaYSf4+zg84yWwtiw+PUvVr3Unh5AUtxABfs4IXa/kPwSY0B39BunhOl5vAUefPWFaF1xnhz/TMnlh8Eah2gGbI8Ylw5sf1S+zd2y7Td4xfldms74wP8zNv+2oUpqidqhs/vBBD9gz3wSp/AvDMqdd0LBK/U6cHFur0Jtpgd9wX8Git5VVTgMBi6oAbTNouqirxm28qteunaUZZmReToSV2HMD8LZO+V3UYstsGienLQVCpXz6cIOpM2mLAZrXfAgbo/GEbocp4M7qTHipcJkQLFNKEYAr1ijwVwi8jEgfTtWnus54dRImdzVo1YVX1oTNRmqlNGUOuZfZC0lckXJny4fcFookB+hUlk2HqPcZ00/ytVh1c4wfXdOdCokVlxW8GLzsB1iopV4B5a1tPs41ZpDTy936CmQa44Emd2Edclra8h0PwVaGI5p9WXxPyxdK0uk/xc+aSLQpvlJO8To9kUNpVH7uJMmbc3wWR2NE9Y9Ss="
+            ],
+            "alg": "RS256"
+        }
+    ]
 }
  
 ```
