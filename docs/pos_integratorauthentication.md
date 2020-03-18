@@ -210,7 +210,7 @@ Response Body
 
 ```
 {
-    curl --location --request POST 'https://api.sandbox.mobilepay.dk/integrator-authentication/connect/token' \
+curl --location --request POST 'https://api.sandbox.mobilepay.dk/integrator-authentication/connect/token' \
 --header 'X-IBM-Client-Id: {YOUR_CLIENT-ID}' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --header 'Authorization: Basic ({YOUR_CLIENT_ID}:{YOUR_CLIENT_SECRET}).toBase64EncodedString()' \
