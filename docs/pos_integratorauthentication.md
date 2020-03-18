@@ -7,19 +7,16 @@ In order for Integrators to be able to use MobilePay APIs, first they'll have to
  - SandBox: [https://api.sandbox.mobilepay.dk](https://api.sandbox.mobilepay.dk/)[/integrator-authentication](https://api.mobilepay.dk/integrator-authentication)
  - Production: [https://api.mobilepay.dk/integrator-authentication](https://api.mobilepay.dk/integrator-authentication)
 
-### **Client Credentials:**
+## **Client Credentials:**
 The Integrator Authentication solution is based on the OpenID/OAuth 2.0 specification. Currently, the only flow supported is the Client Credentials grant type:
 
 [https://tools.ietf.org/html/rfc6749#section-4.4](https://tools.ietf.org/html/rfc6749#section-4.4)
 
 The OpenID Connect protocol is a simple identity layer on top of the OAuth 2.0 protocol.
 
-## **Endpoint description:**
+# **Endpoint description:**
 
-When doing `POST`,  `Content-Type: application/json` HTTP header must be provided.
-
-
-#### HTTP GET: **`/integrator-authentication/.well-known/openid-configuration:`**
+## HTTP GET: **`/integrator-authentication/.well-known/openid-configuration:`**
 
 The discovery endpoint, also known as the "well-known endpoint" is a set of OpenID Connect properties, used by clients integrating against a OpenID authentication provider. The documents describes which claims, scopes, grant types and endpoints are to be used upon authentication.
 
@@ -109,7 +106,7 @@ curl --location --request GET 'https://api.sandbox.mobilepay.dk/integrator-authe
 ```
 
 
-#### HTTP `GET`: _**`/integrator-authentication/.well-known/openid-configuration/jwks:`**_
+## HTTP `GET`: _**`/integrator-authentication/.well-known/openid-configuration/jwks:`**_
 
 A JSON Web Key (JWK) is a standard method for representing a cryptographic key using JSON. The spec can be found [here](https://tools.ietf.org/html/rfc7517)
 
@@ -205,17 +202,22 @@ You might encounter the following status codes :
  
 
 2. `401 - Unauthorized` , if the client is not authorized/authenticated through the API Gateway
->    
-    ```json
-    {
-        "error": "Unauthorized",
-        "error_description": {
-            "message": "xxxxxxxxxxxxxx",
-            "error_type": "ClientError",
-            "correlation_id": "f4b02597-32cc-420f-a468-942307e89a97"
-        }
-    }
-    ```
+
+
+
+Response Body
+
+
+```
+{
+    curl --location --request POST 'https://api.sandbox.mobilepay.dk/integrator-authentication/connect/token' \
+--header 'X-IBM-Client-Id: {YOUR_CLIENT-ID}' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Authorization: Basic ({YOUR_CLIENT_ID}:{YOUR_CLIENT_SECRET}).toBase64EncodedString()' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'vat_number=DK123456'
+}
  
+```
  
     
