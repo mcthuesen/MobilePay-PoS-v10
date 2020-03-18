@@ -91,7 +91,7 @@ Example of response body from SandProd environment:
  
 ```
 
-# <a name="statuscodes"></a>Expected status codes
+### <a name="statuscodes"></a>Expected status codes
 
 You might encounter the following status codes :
 
@@ -99,17 +99,7 @@ You might encounter the following status codes :
  
 
 2. `401 - Unauthorized` , if the client is not authorized/authenticated through the API Gateway
->    
-    ```json
-    {
-        "error": "Unauthorized",
-        "error_description": {
-            "message": "xxxxxxxxxxxxxx",
-            "error_type": "ClientError",
-            "correlation_id": "f4b02597-32cc-420f-a468-942307e89a97"
-        }
-    }
-    ```
+ 
  
 cURL example:
 
@@ -152,3 +142,80 @@ Example of response body from SandProd environment:
  
 ```
 
+### Expected status codes
+
+You might encounter the following status codes :
+
+1. `200 - OK`  
+ 
+
+2. `401 - Unauthorized` , if the client is not authorized/authenticated through the API Gateway
+
+    
+
+cURL example:
+Response body
+
+```console 
+curl --location --request GET 'https://api.sandbox.mobilepay.dk/integrator-authentication/.well-known/openid-configuration/jwks' \
+--header 'X-IBM-Client-Id: {YOUR_CLIENT_ID}'
+```
+
+
+## `POST /connect/token`
+
+Used when requesting an access token for an onboarded integrator client.
+
+Headers:
+
+ - **Content-Type**: x-www-urlencoded
+ - **X-IBM-Client-Id**: Client_Id supplied upon certification.
+ - **Authorization**: Basic 
+ - **Client_Id**: 
+ - **Client_Secret** as a base64 encoded string.
+
+The Client_id and client_secret will be sent to the integrator in a closed zip file from developer@mobilepay.dk to integrators e-mail 
+
+Parameter description:
+|grant_type  | client_credentials |
+|--|--|
+| vat_number | VAT Number of the Merchant the integrator is integration on behalf. Will be applied to the JWT access token, if supplied. Can be left empty. (OPTIONAL). |
+
+
+Example of response body from SandProd environment:
+
+Response Body
+
+
+```
+{
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+    "expires_in": 3700,
+    "token_type": "Bearer",
+    "scope": "integrator_scope"
+}
+ 
+```
+
+### Expected status codes
+
+You might encounter the following status codes :
+
+1. `200 - OK`  
+ 
+
+2. `401 - Unauthorized` , if the client is not authorized/authenticated through the API Gateway
+>    
+    ```json
+    {
+        "error": "Unauthorized",
+        "error_description": {
+            "message": "xxxxxxxxxxxxxx",
+            "error_type": "ClientError",
+            "correlation_id": "f4b02597-32cc-420f-a468-942307e89a97"
+        }
+    }
+    ```
+ 
+ 
+    
