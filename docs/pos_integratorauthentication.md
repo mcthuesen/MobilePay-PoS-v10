@@ -10,6 +10,9 @@ In order for Integrators to be able to use MobilePay APIs, first they'll have to
 ### **Credentials Flow:**
 The Integrator Authentication solution is based on the OpenID/OAuth 2.0 specification. Currently, the only flow supported is the Client Credentials grant type. Credentials Flow (defined in OAuth 2.0 RFC 6749, section 4.4), in which Integrators pass along their Client ID and Client Secret to authenticate themselves and get a token.
 
+[![](assets/images/clientcredentials.png)](assets/images/clientcredentials.png)
+
+
 # **Endpoint description:**
 
 ## HTTP GET: **`/integrator-authentication/.well-known/openid-configuration:`**
