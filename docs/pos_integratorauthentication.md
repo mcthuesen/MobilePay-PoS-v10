@@ -23,7 +23,10 @@ The Integrator Authentication solution is based on the OpenID/OAuth 2.0 specific
 
 # **Endpoint description:**
 
-## HTTP GET: **`/integrator-authentication/.well-known/openid-configuration:`**
+This document does not include a compete specification of the endpoints, responses and response codes. This information can be found in the API section of the Developer Portal.
+
+
+##  `GET:/integrator-authentication/.well-known/openid-configuration:`
 
 The discovery endpoint, also known as the "well-known endpoint" is a set of OpenID Connect properties, used by clients integrating against a OpenID authentication provider. The documents describes which claims, scopes, grant types and endpoints are to be used upon authentication.
 
