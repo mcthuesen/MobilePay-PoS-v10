@@ -26,7 +26,7 @@ The Integrator Authentication solution is based on the OpenID/OAuth 2.0 specific
 This document does not include a compete specification of the endpoints, responses and response codes. This information can be found in the API section of the Developer Portal.
 
 
-##  `GET:/integrator-authentication/.well-known/openid-configuration:`
+##  `GET /integrator-authentication/.well-known/openid-configuration`
 
 The discovery endpoint, also known as the "well-known endpoint" is a set of OpenID Connect properties, used by clients integrating against a OpenID authentication provider. The documents describes which claims, scopes, grant types and endpoints are to be used upon authentication.
 
@@ -103,20 +103,18 @@ Example of response body from SandProd environment:
 You might encounter the following status codes :
 
 1. `200 - OK`  
- 
 
 2. `401 - Unauthorized` , if the client is not authorized/authenticated through the API Gateway
  
  
-cURL example:
+### cURL example:
 
 ```console 
 curl --location --request GET 'https://api.sandbox.mobilepay.dk/integrator-authentication/.well-known/openid-configuration' \
 --header 'X-IBM-Client-Id: {YOUR_CLIENT_ID}''
 ```
 
-
-## HTTP `GET`: _**`/integrator-authentication/.well-known/openid-configuration/jwks:`**_
+##  `GET /integrator-authentication/.well-known/openid-configuration/jwks:`
 
 A JSON Web Key (JWK) is a standard method for representing a cryptographic key using JSON. The spec can be found [here](https://tools.ietf.org/html/rfc7517)
 
