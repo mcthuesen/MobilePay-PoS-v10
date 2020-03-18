@@ -8,10 +8,18 @@ In order for Integrators to be able to use MobilePay APIs, first they'll have to
  - Production: [https://api.mobilepay.dk/integrator-authentication](https://api.mobilepay.dk/integrator-authentication)
 
 ### **Credentials Flow:**
-The Integrator Authentication solution is based on the OpenID/OAuth 2.0 specification. Currently, the only flow supported is the Client Credentials grant type. Credentials Flow (defined in OAuth 2.0 RFC 6749, section 4.4), in which Integrators pass along their Client ID and Client Secret to authenticate themselves and get a token.
 
 [![](assets/images/clientcredentials.png)](assets/images/clientcredentials.png)
 
+The Integrator Authentication solution is based on the OpenID/OAuth 2.0 specification. Currently, the only flow supported is the Client Credentials grant type. Credentials Flow (defined in OAuth 2.0 RFC 6749, section 4.4), in which Integrators pass along their Client ID and Client Secret to authenticate themselves and get a token.
+
+[![](assets/images/clientcredentialsdiagram.png)](assets/images/clientcredentialsdiagram.png)
+
+ 1. The client app authenticates with the Authorization Server using its Client ID and Client Secret /token endpoint
+ 2. The Authorization Server validates the Client ID and Client Secret.
+ 3. The Authorization Server responds with an Access Token.
+ 4. The Client application can use the Access Token to call the API
+ 5. The API responds with requested data.
 
 # **Endpoint description:**
 
