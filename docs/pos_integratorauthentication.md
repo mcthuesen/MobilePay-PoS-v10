@@ -96,16 +96,7 @@ Example of response body from SandProd environment:
 You might encounter the following status codes :
 
 1. `200 - OK`  
->    
-    ```json
-    {
-        "error": "Unauthorized",
-        "error_description": {
-            "message": "xxxxxxxxxxxxxx",
-            "error_type": "ClientError",
-            "correlation_id": "f4b02597-32cc-420f-a468-942307e89a97"
-        }
-    }
+ 
 
 2. `401 - Unauthorized` , if the client is not authorized/authenticated through the API Gateway
 >    
