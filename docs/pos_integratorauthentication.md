@@ -114,7 +114,7 @@ curl --location --request GET 'https://api.sandbox.mobilepay.dk/integrator-authe
 --header 'X-IBM-Client-Id: {YOUR_CLIENT_ID}''
 ```
 
-##  `GET /integrator-authentication/.well-known/openid-configuration/jwks:`
+##  `GET /integrator-authentication/.well-known/openid-configuration/jwks`
 
 A JSON Web Key (JWK) is a standard method for representing a cryptographic key using JSON. The spec can be found [here](https://tools.ietf.org/html/rfc7517)
 
@@ -158,13 +158,14 @@ You might encounter the following status codes :
 
     
 
-cURL example:
+### cURL example:
 Response body
 
 ```console 
 curl --location --request GET 'https://api.sandbox.mobilepay.dk/integrator-authentication/.well-known/openid-configuration/jwks' \
 --header 'X-IBM-Client-Id: {YOUR_CLIENT_ID}'
 ```
+
 
 
 ## `POST /connect/token`
@@ -213,7 +214,7 @@ You might encounter the following status codes :
 
 
 
-Response Body
+### Response Body
 
 
 ```
