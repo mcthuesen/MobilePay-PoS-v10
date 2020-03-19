@@ -11,11 +11,11 @@ In order for Integrators to be able to use MobilePay APIs, first they'll have to
 
 [![](assets/images/clientcredentials.png)](assets/images/clientcredentials.png)
 
-The Integrator Authentication solution is based on the OpenID/OAuth 2.0 specification. Currently, the only flow supported is the Client Credentials grant type. Credentials Flow (defined in OAuth 2.0 RFC 6749, section 4.4), in which Integrators pass along their Client ID and Client Secret to authenticate themselves and get a token.
+The Integrator Authentication solution is based on the OpenID Connect/OAuth 2.0 specification. Currently, the only flow supported is the Client Credentials grant type (defined in OAuth 2.0 RFC 6749, section 4.4), in which Integrators pass along their Client ID and Client Secret to authenticate themselves and get a token.
 
 [![](assets/images/clientcredentialsdiagram.png)](assets/images/clientcredentialsdiagram.png)
 
- 1. The client app authenticates with the Authorization Server using its Client ID and Client Secret /token endpoint
+ 1. The client app authenticates with the Authorization Server using its Client ID and Client Secret by calling the "connect/token" endpoint.
  2. The Authorization Server validates the Client ID and Client Secret.
  3. The Authorization Server responds with an Access Token.
  4. The Client application can use the Access Token to call the API
@@ -23,12 +23,12 @@ The Integrator Authentication solution is based on the OpenID/OAuth 2.0 specific
 
 # **Endpoint description:**
 
-This document does not include a compete specification of the endpoints, responses and response codes. This information can be found in the API section of the Developer Portal.
+This document does not include a complete specification of the endpoints, responses and response codes. This information can be found in the API section of the Developer Portal.
 
 
 ##  `GET /integrator-authentication/.well-known/openid-configuration`
 
-The discovery endpoint, also known as the "well-known endpoint" is a set of OpenID Connect properties, used by clients integrating against a OpenID authentication provider. The documents describes which claims, scopes, grant types and endpoints are to be used upon authentication.
+The discovery endpoint, also known as the "well-known endpoint" is a set of OpenID Connect properties, used by clients integrating against an OpenID Connect authentication provider. The endpoint returns the claims, scopes, grant types and endpoints that are to be used upon authentication.
 
 Headers:
 
